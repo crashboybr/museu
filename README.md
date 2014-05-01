@@ -1,4 +1,0 @@
-spa
-===
-
-spa da sombrancelha

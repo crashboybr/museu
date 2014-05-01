@@ -1,4 +1,5 @@
 security:
+<<<<<<< HEAD
     #encoders:
     #    Spa\BackendBundle\Entity\User:
     #        algorithm:        sha1
@@ -96,7 +97,7 @@ security:
     #        logout:
     #            path:   _demo_logout
     #            target: _demo
-            #anonymous: ~
+           #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
