@@ -1,0 +1,30 @@
+banner:
+    pattern:  /
+    defaults: { _controller: "MuseuBackendBundle:Banner:index" }
+
+banner_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Banner:show" }
+
+banner_new:
+    pattern:  /new
+    defaults: { _controller: "MuseuBackendBundle:Banner:new" }
+
+banner_create:
+    pattern:  /create
+    defaults: { _controller: "MuseuBackendBundle:Banner:create" }
+    requirements: { _method: post }
+
+banner_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Banner:edit" }
+
+banner_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Banner:update" }
+    requirements: { _method: post|put }
+
+banner_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Banner:delete" }
+    requirements: { _method: post|delete }

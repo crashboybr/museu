@@ -1,0 +1,7 @@
+parameters:
+#    museu_backend.example.class: Museu\BackendBundle\Example
+
+services:
+#    museu_backend.example:
+#        class: %museu_backend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

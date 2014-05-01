@@ -1,0 +1,168 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+   
+<div class="row-fluid">
+	<div class="span12">
+		<div>
+							<!-- BEGIN GENERAL PORTLET-->
+			<div class="portlet">
+				
+
+				<div class="portlet-body form">
+					
+					{{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
+
+    					<h3 class="form-section">Editar Exposição</h3>
+    					<div class="control-group {% if (form.title.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.title, 'Título', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								
+
+								{{ form_widget(form.title, { 'attr': { 'class': 'm-wrap large' }}) }}
+								{% if (form.title.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.title.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+											
+
+
+						<div class="control-group {% if (form.subtitle.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.subtitle, 'Sub-Título', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								
+								{{ form_widget(form.subtitle, { 'attr': { 'class': 'm-wrap large' }}) }}
+								
+								{% if (form.subtitle.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.subtitle.vars.errors[0].message }}</span>
+		                        {% endif %}
+
+								
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.description.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.description, 'Descrição', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.description, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.description.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.description.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.date.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.date, 'Data', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.date, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.date.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.date.vars.errors[0].message }}</span>
+		                        {% endif %}
+								
+							</div>
+						</div>
+
+
+					    <h3 class="form-section">Fotos</h3>
+					    <div id="pics" class="pics {% if (form.date.vars.errors|length > 0) %}error{% endif %}" data-prototype='
+					    <div class="control-group">
+					    	
+					        <div class="controls">
+					        	<hr class="m-wrap large">
+						        <span class="btn green fileinput-button">
+									<i class="icon-plus icon-white"></i>
+									<span>Escolha a imagem</span>
+									<input type="file" id="museu_backendbundle_exposition_exposition_images___name___pic" name="museu_backendbundle_exposition[exposition_images][__name__][pic]" required="required" />
+								</span>
+					    		
+					    	</div>
+					    </div>	
+
+					    <div class="control-group">
+					        
+					    	<label for="museu_backendbundle_exposition_exposition_images___name___author" class="control-label">Autor</label>
+					    	<div class="controls">
+					    		<input type="text" id="museu_backendbundle_exposition_exposition_images___name___author" name="museu_backendbundle_exposition[exposition_images][__name__][author]" required="required" class="m-wrap large" maxlength="255" />
+					    	</div>
+					    </div>
+
+					    <div class="control-group">
+					    	
+					    	<label for="museu_backendbundle_exposition_exposition_images___name___title" class="control-label">Título</label>
+					    	<div class="controls">
+					    		<input type="text" id="museu_backendbundle_exposition_exposition_images___name___title" name="museu_backendbundle_exposition[exposition_images][__name__][title]" required="required" class="m-wrap large" maxlength="255" />
+					    	</div>
+					    </div>'>
+					        {% for image in form.exposition_images %}
+					        	<div class="control-group {% if (form.exposition_images.vars.errors|length > 0) %}error{% endif %}">
+					        		<div class="controls">
+						        		<span class="btn green fileinput-button">
+											<i class="icon-plus icon-white"></i>
+											<span>Escolha a imagem</span>
+											{{ form_widget(image.pic, { 'attr': { 'class': 'm-wrap large' }}) }}
+											
+											
+										</span>
+					            		<img src="{{ asset(image.vars.value.pic) }}" style="width: 200px; " />
+					        		</div>
+					        	</div>
+						        <div class="control-group {% if (form.exposition_images.vars.errors|length > 0) %}error{% endif %}">
+						        	{{ form_label(image.title, 'Título', { 'label_attr': {'class': 'control-label'} }) }}
+						        	<div class="controls">
+						            	{{ form_widget(image.title, { 'attr': { 'class': 'm-wrap large' }}) }}
+						        	</div>
+						        </div>
+						        <div class="control-group {% if (form.exposition_images.vars.errors|length > 0) %}error{% endif %}">
+						        	{{ form_label(image.author, 'Autor', { 'label_attr': {'class': 'control-label'} }) }}
+						        	<div class="controls">
+						            	{{ form_widget(image.author, { 'attr': { 'class': 'm-wrap large' }}) }}
+						        	</div>
+					        	</div>
+					        {% endfor %}
+					        {% if (form.exposition_images.vars.errors|length > 0) %}
+		                        <span class="help-inline">{{ form.exposition_images.vars.errors[0].message }}</span>
+	                        {% endif %}
+					    </div>
+
+					    <h3 class="form-section">Autores</h3>
+					    <div class="authors" data-prototype='
+					    <div class="control-group">
+					    	<label for="museu_backendbundle_exposition_exposition_authors___name___name" class="control-label">Nome</label>
+					    	<div class="controls">
+					    		<hr class="m-wrap large">
+					    		<input type="text" id="museu_backendbundle_exposition_exposition_authors___name___name" name="museu_backendbundle_exposition[exposition_authors][__name__][name]" required="required" class="m-wrap large" maxlength="255" />
+					    	</div>
+					    </div>'>
+					 		
+					        {% for author in form.exposition_authors %}
+					            
+					            <div class="control-group {% if (form.date.vars.errors|length > 0) %}error{% endif %}">
+						        	{{ form_label(author.name, 'Nome', { 'label_attr': {'class': 'control-label'} }) }}
+						        	<div class="controls">
+						            	{{ form_widget(author.name, { 'attr': { 'class': 'm-wrap large' }}) }}
+						        	</div>
+					        	</div>
+					        {% endfor %}
+					    </div>
+
+						<div class="form-actions">
+							{{ form_widget(form.submit, { 'label': '<i class="icon-ok"></i> Salvar', 'attr': { 'class': 'btn blue' }}) }}
+							<button type="button" class="btn">Cancelar</button>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{{ form_end(form) }}
+{% endblock %}

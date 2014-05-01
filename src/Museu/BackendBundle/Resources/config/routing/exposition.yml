@@ -1,0 +1,30 @@
+exposicoes:
+    pattern:  /
+    defaults: { _controller: "MuseuBackendBundle:Exposition:index" }
+
+exposicoes_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Exposition:show" }
+
+exposicoes_new:
+    pattern:  /new
+    defaults: { _controller: "MuseuBackendBundle:Exposition:new" }
+
+exposicoes_create:
+    pattern:  /create
+    defaults: { _controller: "MuseuBackendBundle:Exposition:create" }
+    requirements: { _method: post }
+
+exposicoes_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Exposition:edit" }
+
+exposicoes_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Exposition:update" }
+    requirements: { _method: post|put }
+
+exposicoes_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Exposition:delete" }
+    requirements: { _method: post|delete }

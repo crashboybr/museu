@@ -1,0 +1,11 @@
+museu_backend_homepage:
+    pattern:  /
+    defaults: { _controller: MuseuBackendBundle:Default:index }
+
+MuseuBackendBundle_banner:
+        resource: "@MuseuBackendBundle/Resources/config/routing/banner.yml"
+        prefix:   /banner
+
+MuseuBackendBundle_exposicoes:
+        resource: "@MuseuBackendBundle/Resources/config/routing/exposition.yml"
+        prefix:   /exposicoes

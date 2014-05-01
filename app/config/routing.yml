@@ -1,0 +1,26 @@
+museu_backend:
+    resource: "@MuseuBackendBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+museu_frontend:
+    resource: "@MuseuFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+_imagine:
+    resource: .
+    type:     imagine
+
+
+
+login:
+    pattern:   /login
+    defaults:  { _controller: SpaBackendBundle:Default:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    path:   /logout
+
+slider:
+    path:   /slider
