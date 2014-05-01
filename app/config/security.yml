@@ -1,5 +1,4 @@
 security:
-<<<<<<< HEAD
     #encoders:
     #    Spa\BackendBundle\Entity\User:
     #        algorithm:        sha1
