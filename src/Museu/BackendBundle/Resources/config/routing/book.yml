@@ -1,0 +1,30 @@
+livros:
+    pattern:  /
+    defaults: { _controller: "MuseuBackendBundle:Book:index" }
+
+livros_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Book:show" }
+
+livros_new:
+    pattern:  /new
+    defaults: { _controller: "MuseuBackendBundle:Book:new" }
+
+livros_create:
+    pattern:  /create
+    defaults: { _controller: "MuseuBackendBundle:Book:create" }
+    requirements: { _method: post }
+
+livros_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Book:edit" }
+
+livros_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Book:update" }
+    requirements: { _method: post|put }
+
+livros_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Book:delete" }
+    requirements: { _method: post|delete }

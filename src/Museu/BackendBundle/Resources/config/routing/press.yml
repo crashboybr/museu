@@ -1,0 +1,30 @@
+imprensa:
+    pattern:  /
+    defaults: { _controller: "MuseuBackendBundle:Press:index" }
+
+imprensa_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Press:show" }
+
+imprensa_new:
+    pattern:  /new
+    defaults: { _controller: "MuseuBackendBundle:Press:new" }
+
+imprensa_create:
+    pattern:  /create
+    defaults: { _controller: "MuseuBackendBundle:Press:create" }
+    requirements: { _method: post }
+
+imprensa_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Press:edit" }
+
+imprensa_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Press:update" }
+    requirements: { _method: post|put }
+
+imprensa_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Press:delete" }
+    requirements: { _method: post|delete }

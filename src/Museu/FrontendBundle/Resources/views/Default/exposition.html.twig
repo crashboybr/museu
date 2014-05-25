@@ -1,0 +1,67 @@
+{% extends '::front.html.twig' %}
+
+{% block exposicoes_active%}active{% endblock %}
+
+{% block css %}
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+    <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+
+    <!-- BEGIN THEME STYLES --> 
+    <link href="/front/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/front/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/pages/portfolio.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+{% endblock %}
+{% block body -%}
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Exposições</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="">Pages</a></li>
+                        <li class="active">Portfolio 3 Column</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+                <!-- BEGIN CONTAINER -->   
+                <div class="container min-hight portfolio-page margin-bottom-40">
+                    <!-- BEGIN FILTER -->           
+                    <div class="filter-v1 margin-top-10">
+                        <div class="row mix-grid thumbnails">
+                            {% for exposition in expositions %}
+                                <div class="col-md-4 col-sm-6 mix category_1" style="display: block; opacity: 1;">
+                                    <div class="mix-inner">
+                                        <img class="img-responsive" src="{{ asset(exposition.expositionImages.first.pic) }}" alt="">
+                                        <div class="mix-details">
+                                            <h4>{{ exposition.title }}</h4>
+                                            <p>{{ exposition.subtitle }}</p>
+                                            <p>{{ exposition.date|date('d/m/Y') }}</p>
+                                            <a class="mix-preview fancybox-button" href="{{ path('museu_view_exposition', { 'id': exposition.id }) }}" title="Project Name" data-rel="fancybox-button"><i class="fa fa-search"></i> Visualizar Exposição</a>
+                                        </div>           
+                                    </div>                       
+                                </div>
+                          {% endfor %}
+
+                      </div>
+                   </div>
+                   <!-- END FILTER -->          
+                </div>
+                <!-- END CONTAINER -->
+          </div> 
+        </div>
+
+
+        <!-- END BREADCRUMBS -->
+{% endblock %}

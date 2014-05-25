@@ -199,7 +199,7 @@ class ExpositionController extends Controller
         $entity->setUpdatedAt(new \DateTime());
         if ($editForm->isValid()) {
             //var_dump($entity->getExpositionImages());exit;
-            echo "<pre>";
+            //echo "<pre>";
             //\Doctrine\Common\Util\Debug::dump($request);
             foreach ($entity->getExpositionImages() as $expositionImage)
             {

@@ -92,8 +92,9 @@ Portfolio
 }
 
 .mix-grid .mix a.mix-preview {
-	left: 50%;
+	left: 25%;
 	margin-left: 5px;
+	color: #fff;
 }
 
 .mix-grid .mix a.mix-link {

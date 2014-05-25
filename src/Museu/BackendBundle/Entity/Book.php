@@ -3,19 +3,20 @@
 namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * ExpositionImage
+ * Book
  *
- * @ORM\Table(name="exposition_image")
+ * @ORM\Table(name="book")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class ExpositionImage
+class Book
 {
     /**
      * @var integer
@@ -29,16 +30,16 @@ class ExpositionImage
     /**
      * @var string
      *
-     * @ORM\Column(name="pic", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255)
      */
-    private $pic;
+    private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255)
      */
-    private $title;
+    private $pic;
 
     /**
      * @var string
@@ -48,17 +49,11 @@ class ExpositionImage
     private $author;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="exposition_id", type="integer")
+     * @ORM\Column(name="description", type="text")
      */
-    private $expositionId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Exposition", inversedBy="exposition_images", cascade={"persist"})
-     * @ORM\JoinColumn(name="exposition_id", referencedColumnName="id")
-     */
-    protected $expositions;
+    private $description;
 
     /**
      * @var \DateTime
@@ -68,15 +63,18 @@ class ExpositionImage
     private $createdAt;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="publisher", type="string", length=255)
      */
-    private $updatedAt;
+    private $publisher;
 
     /* begin upload file */
     /**
-     * @Assert\File(maxSize="4000000")
+     * @Assert\File(
+     *      maxSize="4000000",
+     *      notFoundMessage = "Nao foi possivel achar o arquivo"
+     * )
      */
     private $file;
 
@@ -110,7 +108,7 @@ class ExpositionImage
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_" . uniqid();
+            $filename = "image_book_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -188,11 +186,10 @@ class ExpositionImage
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'upload/expositions';
+        return 'upload/books';
     } 
 
     /* end upload file */
-
 
 
     /**
@@ -206,79 +203,10 @@ class ExpositionImage
     }
 
     /**
-     * Set pic
-     *
-     * @param string $pic
-     * @return ExpositionImage
-     */
-    public function setPic($pic)
-    {
-        $this->pic = $pic;
-    
-        return $this;
-    }
-
-    /**
-     * Get pic
-     *
-     * @return string 
-     */
-    public function getPic()
-    {
-        return $this->pic;
-    }
-
-    /**
-     * Set expositionId
-     *
-     * @param integer $expositionId
-     * @return ExpositionImage
-     */
-    public function setExpositionId($expositionId)
-    {
-        $this->expositionId = $expositionId;
-    
-        return $this;
-    }
-
-    /**
-     * Get expositionId
-     *
-     * @return integer 
-     */
-    public function getExpositionId()
-    {
-        return $this->expositionId;
-    }
-
-    /**
-     * Set expositions
-     *
-     * @param \Museu\BackendBundle\Entity\Exposition $expositions
-     * @return ExpositionImage
-     */
-    public function setExpositions(\Museu\BackendBundle\Entity\Exposition $expositions = null)
-    {
-        $this->expositions = $expositions;
-    
-        return $this;
-    }
-
-    /**
-     * Get expositions
-     *
-     * @return \Museu\BackendBundle\Entity\Exposition 
-     */
-    public function getExpositions()
-    {
-        return $this->expositions;
-    }
-
-    /**
      * Set title
      *
      * @param string $title
-     * @return ExpositionImage
+     * @return Book
      */
     public function setTitle($title)
     {
@@ -298,10 +226,33 @@ class ExpositionImage
     }
 
     /**
+     * Set pic
+     *
+     * @param string $pic
+     * @return Book
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+    
+        return $this;
+    }
+
+    /**
+     * Get pic
+     *
+     * @return string 
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
+
+    /**
      * Set author
      *
      * @param string $author
-     * @return ExpositionImage
+     * @return Book
      */
     public function setAuthor($author)
     {
@@ -321,25 +272,33 @@ class ExpositionImage
     }
 
     /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * Set description
+     *
+     * @param string $description
+     * @return Book
      */
-    public function updatedTimestamps()
+    public function setDescription($description)
     {
-        $this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
-
-        if($this->getCreatedAt() == null)
-        {
-            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
-        }
+        $this->description = $description;
+    
+        return $this;
     }
 
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return ExpositionImage
+     * @return Book
      */
     public function setCreatedAt($createdAt)
     {
@@ -359,25 +318,39 @@ class ExpositionImage
     }
 
     /**
-     * Set updatedAt
+     * Set publisher
      *
-     * @param \DateTime $updatedAt
-     * @return ExpositionImage
+     * @param string $publisher
+     * @return Book
      */
-    public function setUpdatedAt($updatedAt)
+    public function setPublisher($publisher)
     {
-        $this->updatedAt = $updatedAt;
+        $this->publisher = $publisher;
     
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get publisher
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getUpdatedAt()
+    public function getPublisher()
     {
-        return $this->updatedAt;
+        return $this->publisher;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        //$this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
+
+        if($this->getCreatedAt() == null)
+        {
+            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
+        }
     }
 }

@@ -9,3 +9,11 @@ MuseuBackendBundle_banner:
 MuseuBackendBundle_exposicoes:
         resource: "@MuseuBackendBundle/Resources/config/routing/exposition.yml"
         prefix:   /exposicoes
+
+MuseuBackendBundle_imprensa:
+        resource: "@MuseuBackendBundle/Resources/config/routing/press.yml"
+        prefix:   /imprensa
+
+MuseuBackendBundle_livros:
+        resource: "@MuseuBackendBundle/Resources/config/routing/book.yml"
+        prefix:   /livros

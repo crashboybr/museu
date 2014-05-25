@@ -1,3 +1,32 @@
 museu_frontend_homepage:
     pattern:  /
     defaults: { _controller: MuseuFrontendBundle:Default:index }
+
+
+museu_oque:
+    pattern:   /o-que-e
+    defaults:  { _controller: MuseuFrontendBundle:Default:Oque }
+
+museu_equipe:
+    pattern:   /equipe
+    defaults:  { _controller: MuseuFrontendBundle:Default:equipe }
+
+museu_localizacao:
+    pattern:   /localizacao
+    defaults:  { _controller: MuseuFrontendBundle:Default:localizacao }
+
+museu_missao:
+    pattern:   /missao
+    defaults:  { _controller: MuseuFrontendBundle:Default:missao }
+
+museu_educacao:
+    pattern:   /educacao
+    defaults:  { _controller: MuseuFrontendBundle:Default:educacao }
+
+museu_imprensa:
+    pattern:   /sala-de-imprensa
+    defaults:  { _controller: MuseuFrontendBundle:Default:press }
+
+museu_livros:
+    pattern:   /publicacoes/livros
+    defaults:  { _controller: MuseuFrontendBundle:Default:books }

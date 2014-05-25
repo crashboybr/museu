@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-<script src="/assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="/back/assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 var $collectionHolder;
 
@@ -79,7 +79,8 @@ function addTagForm($collectionHolder, $newLinkLi) {
 				<div class="portlet-body form">
 					
 					{{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
-
+						{{ form_errors(form) }}
+						
     					<h3 class="form-section">Nova Exposição</h3>
     					<div class="control-group {% if (form.title.vars.errors|length > 0) %}error{% endif %}">
 							

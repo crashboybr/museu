@@ -10,11 +10,17 @@ _imagine:
     resource: .
     type:     imagine
 
+museu_exposition:
+    pattern:   /exposicoes
+    defaults:  { _controller: MuseuFrontendBundle:Default:exposition }
 
+museu_view_exposition:
+    pattern:   /exposicao/{id}
+    defaults:  { _controller: MuseuFrontendBundle:Default:viewExposition }
 
 login:
     pattern:   /login
-    defaults:  { _controller: SpaBackendBundle:Default:login }
+    defaults:  { _controller: MuseuBackendBundle:Default:login }
 
 login_check:
     pattern:   /login_check

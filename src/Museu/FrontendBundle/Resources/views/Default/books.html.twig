@@ -1,0 +1,94 @@
+{% extends '::front.html.twig' %}
+
+{% block exposicoes_active%}active{% endblock %}
+
+{% block css %}
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+    <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+
+    <!-- BEGIN THEME STYLES --> 
+    <link href="/front/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/front/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/pages/portfolio.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+{% endblock %}
+{% block body -%}
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Publicações</h1>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+                <!-- BEGIN CONTAINER -->   
+                <div class="container min-hight portfolio-page margin-bottom-40">
+                    <div class="blog-item-img">
+                        <!-- BEGIN CAROUSEL -->            
+                        <div class="front-carousel">
+                            <div id="myCarousel" class="carousel slide">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="active item">
+                                        <img src="/front/assets/img/posts/img1.jpg" alt="">
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <img src="/front/assets/img/posts/img3.jpg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Carousel nav -->
+                                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>                
+                        </div>
+                        <!-- END CAROUSEL -->             
+                    </div>
+                    <!-- BEGIN FILTER -->           
+                    <div class="filter-v1 margin-top-10">
+                        <h2>Livros</h2>
+                        <p>
+                            Veja aqui livros que foram publicados no Brasil sobre temas relacionados ao trabalhador do campo. <br />
+                            São livros que você pode encontrar e ler, gratuitamente, em bibliotecas 
+públicas, comunitárias e de escolas ou universidades. <br />
+                            E também pode adquirir nas livrarias e sebos, novos ou usados. 
+ 
+
+                        </p>
+                        <div class="row mix-grid thumbnails">
+                            {% for book in books %}
+                                <div class="col-md-2 col-sm-2 mix category_1" style="display: block; opacity: 1;">
+                                    <div class="mix-inner">
+                                        <img class="img-responsive" src="{{ asset(book.pic) }}" style="width: 100%">
+                                        <div class="mix-details">
+                                            <h4>{{ book.title }}</h4>
+                                            <p>{{ book.author }}</p>
+                                            <p>{{ book.publisher }}</p>
+                                        </div>           
+                                    </div>                       
+                                </div>
+                          {% endfor %}
+
+                      </div>
+                   </div>
+                   <!-- END FILTER -->          
+                </div>
+                <!-- END CONTAINER -->
+          </div> 
+        </div>
+
+
+        <!-- END BREADCRUMBS -->
+{% endblock %}

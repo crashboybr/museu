@@ -1,0 +1,53 @@
+{% extends '::front.html.twig' %}
+
+{% block educacao_active%}active{% endblock %}
+
+{% block body -%}
+    <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Sala de Imprensa</h1>
+                </div>
+            </div>
+        </div>
+        <!-- END BREADCRUMBS -->
+
+        <!-- BEGIN CONTAINER -->   
+        <div class="container min-hight">
+            <!-- ROW 1 -->
+            <div class="row margin-bottom-40">
+                <div class="col-md-12 col-sm-12">
+
+                    <h3>Notícias</h3>
+                    {% for noticia in noticias %}
+                    <p>
+                        <a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a><br />
+                        {{ noticia.midia }} - {{ noticia.date|date("d/m/Y") }}
+                     </p>
+                     {% endfor %}
+
+                     <h3>Releases</h3>
+                    {% for release in releases %}
+                    <p>
+                        <a href="{{ release.url }}" target="_blank">{{ release.title }}</a><br />
+                        {{ release.midia }} - {{ release.date|date("d/m/Y") }}
+                     </p>
+                     {% endfor %}
+
+                    <h3>Artigos</h3>
+                    {% for artigo in artigos %}
+                    <p>
+                        <a href="{{ artigo.url }}" target="_blank">{{ artigo.title }}</a><br />
+                        {{ artigo.midia }} - {{ artigo.date|date("d/m/Y") }} - {{ artigo.author }}
+                     </p>
+                     {% endfor %}
+
+
+                   
+                </div>  
+            </div>
+        </div>          
+    
+    
+{% endblock %}
