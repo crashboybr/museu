@@ -1,0 +1,91 @@
+{% extends '::front.html.twig' %}
+
+{% block exposicoes_active%}active{% endblock %}
+
+{% block css %}
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+    <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+
+    <!-- BEGIN THEME STYLES --> 
+    <link href="/front/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/front/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/pages/portfolio.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+{% endblock %}
+{% block body -%}
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Publicações - Livros</h1>
+                </div>
+                
+            </div>
+        </div>
+        <!-- END BREADCRUMBS -->
+
+        <!-- BEGIN CONTAINER -->   
+        <div class="container min-hight">
+            <div class="row">
+
+            <!-- BEGIN LEFT SIDEBAR -->            
+                <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
+                    {% for book in books %}
+                                
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <img src="{{ asset(book.pic) }}" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                <h2><a href="blog_item.html">{{ book.title }}</a></h2>
+                                <ul class="blog-info">
+                                    <li><i class="fa fa-book"></i> {{ book.publisher }}</li>
+                                    <li><i class="fa fa-pencil"></i> {{ book.author }}</li>
+                                </ul>
+                                <p>{{ book.description }}</p>
+                                <a class="more" href="blog_item.html">Ler mais<i class="icon-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <hr class="blog-post-sep">
+                    {% endfor %}
+                    
+                    
+                    <div class="text-center">
+                        <ul class="pagination pagination-centered">
+                            <li><a href="#">Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>                
+                </div>
+                <!-- END LEFT SIDEBAR -->
+
+                <!-- BEGIN RIGHT SIDEBAR -->            
+                <div class="col-md-3 col-sm-3 blog-sidebar">
+                    <!-- CATEGORIES START -->
+                    <h2>Categorias</h2>
+                    <ul class="nav sidebar-categories margin-bottom-40">
+                        <li><a href="{{ path('museu_livros') }}">Livros ({{ total_books }})</a></li>
+                        <li><a href="#">eBooks ({{ total_ebooks }})</a></li>
+                        <li class=""><a href="#">Teses ({{ total_teses }})</a></li>
+                        <li><a href="#">TCCs ({{ total_tccs }})</a></li>
+                        <li><a href="#">Artigos Acadêmicos ({{ total_artigos }})</a></li>
+                    </ul>
+                    <!-- CATEGORIES END -->
+
+                    
+                </div>
+                <!-- END RIGHT SIDEBAR -->   
+            </div>
+        </div>
+
+        
+{% endblock %}

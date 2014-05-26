@@ -1,0 +1,126 @@
+{% extends '::front.html.twig' %}
+
+{% block exposicoes_active%}active{% endblock %}
+
+{% block css %}
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+    <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+
+    <!-- BEGIN THEME STYLES --> 
+    <link href="/front/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/front/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/pages/portfolio.css" rel="stylesheet" type="text/css"/>
+    <link href="/front/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+{% endblock %}
+{% block body -%}
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Publicações</h1>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="container min-hight">
+            <!-- BEGIN BLOG -->
+            <div class="row">
+                <!-- BEGIN LEFT SIDEBAR -->            
+                <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h2><a href="{{ path('museu_livros') }}">Livros</a></h2>
+                            <p>
+                                Veja aqui livros que foram publicados no Brasil sobre temas relacionados ao trabalhador do campo. <br />
+                                São livros que você pode encontrar e ler, gratuitamente, em bibliotecas 
+                                públicas, comunitárias e de escolas ou universidades. <br />
+                                E também pode adquirir nas livrarias e sebos, novos ou usados. 
+                            </p>       
+                        </div>
+                        
+                    </div>
+                    <hr class="blog-post-sep">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h2>eBooks</h2>
+                            <p>
+                                Veja aqui os eBooks (livros digitais) que foram publicados no Brasil sobre temas relacionados ao trabalhador do campo. <br />
+                                Esses eBooks você pode ler, gratuitamente, aqui na Biblioteca Digital do MTC, o Museu do Trabalhador do Campo. 
+ 
+                            </p>       
+                        </div>
+                        
+                    </div>
+                    <hr class="blog-post-sep">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h2>Teses</h2>
+                            <p>
+                                Veja as teses publicadas no Brasil sobre temas relacionados ao trabalhador do campo.
+                                <br />
+                                Sempre que possível, caso elas não estejam disponíveis no nosso Acervo Digital, 
+                                daremos o link onde elas podem ser diretamente acessadas. 
+ 
+                            </p>       
+                        </div>
+                        
+                    </div>
+                    <hr class="blog-post-sep">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h2>TCCs</h2>
+                            <p>
+                                Veja os Trabalhos de Conclusão de Curso (TCCs) gerados sobre temas relacionados ao trabalhador do campo. 
+                                <br />
+                                Sempre que possível, caso elas não estejam disponíveis no nosso Acervo Digital, daremos o link onde elas podem ser diretamente acessadas. 
+                            </p>       
+                        </div>
+                        
+                    </div>
+                    <hr class="blog-post-sep">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h2>Artigos Acadêmicos</h2>
+                            <p>
+                                Veja os artigos acadêmicos publicados no Brasil sobre temas relacionados ao trabalhador do campo. 
+                                <br />
+                                Sempre que possível, caso eles não estejam disponíveis no nosso Acervo Digital, daremos o link onde eles podem ser diretamente acessados.
+
+                            </p>
+                            <a href="#">Ver</a>       
+                        </div>
+                        
+                    </div>
+                    <hr class="blog-post-sep">
+
+                </div>
+                <!-- END LEFT SIDEBAR -->
+
+                <!-- BEGIN RIGHT SIDEBAR -->            
+                <div class="col-md-3 col-sm-3 blog-sidebar">
+                    <!-- CATEGORIES START -->
+                    <h2>Categorias</h2>
+                    <ul class="nav sidebar-categories margin-bottom-40">
+                        <li><a href="{{ path('museu_livros') }}">Livros ({{ total_books }})</a></li>
+                        <li><a href="#">eBooks ({{ total_ebooks }})</a></li>
+                        <li class=""><a href="#">Teses ({{ total_teses }})</a></li>
+                        <li><a href="#">TCCs ({{ total_tccs }})</a></li>
+                        <li><a href="#">Artigos Acadêmicos ({{ total_artigos }})</a></li>
+                    </ul>
+                    <!-- CATEGORIES END -->
+
+                    
+                </div>
+                <!-- END RIGHT SIDEBAR -->            
+            </div>
+            <!-- END BEGIN BLOG -->
+        </div>
+        <!-- END CONTAINER -->
+
+        
+{% endblock %}

@@ -39,13 +39,50 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Default:imprensa.html.twig', array('noticias' => $noticias, 'releases' => $releases, 'artigos' => $artigos));
     }
 
+    public function publicationsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
+        $total_books = count($books);
+        $total_ebooks = 0;
+        $total_teses = 0;
+        $total_artigos = 0;
+        $total_tccs = 0;
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:publications.html.twig',
+         array(
+            'total_books' => $total_books,
+            'total_ebooks' => $total_ebooks,
+            'total_teses' => $total_teses,
+            'total_artigos' => $total_artigos,
+            'total_tccs' => $total_tccs,
+        ));
+    }
+
     public function booksAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
 
-        return $this->render('MuseuFrontendBundle:Default:books.html.twig', array('books' => $books));
+        $total_books = count($books);
+        $total_ebooks = 0;
+        $total_teses = 0;
+        $total_artigos = 0;
+        $total_tccs = 0;
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:books.html.twig',
+         array(
+            'books' => $books,
+            'total_books' => $total_books,
+            'total_ebooks' => $total_ebooks,
+            'total_teses' => $total_teses,
+            'total_artigos' => $total_artigos,
+            'total_tccs' => $total_tccs,
+        ));
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:books.html.twig', array('books' => $books));
     }
 
     public function viewExpositionAction(Exposition $exposition)

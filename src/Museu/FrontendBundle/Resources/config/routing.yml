@@ -27,6 +27,10 @@ museu_imprensa:
     pattern:   /sala-de-imprensa
     defaults:  { _controller: MuseuFrontendBundle:Default:press }
 
+museu_publicacoes:
+    pattern:   /publicacoes
+    defaults:  { _controller: MuseuFrontendBundle:Default:publications }
+
 museu_livros:
     pattern:   /publicacoes/livros
     defaults:  { _controller: MuseuFrontendBundle:Default:books }
