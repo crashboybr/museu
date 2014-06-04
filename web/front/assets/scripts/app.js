@@ -258,14 +258,18 @@ var App = function () {
                 slideMargin: 10,
                 moveSlides: 1,
                 responsive: true,
+                auto: true,
+                autoControls: true
             });
+
+            
 
             $('.bxslider1').show();            
             $('.bxslider1').bxSlider({
-                minSlides: 6,
-                maxSlides: 6,
+                minSlides: 5,
+                maxSlides: 5,
                 slideWidth: 360,
-                slideMargin: 2,
+                slideMargin: 10,
                 moveSlides: 1,
                 responsive: true,
             });            

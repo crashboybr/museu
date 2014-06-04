@@ -9,6 +9,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+      
     	$em = $this->getDoctrine()->getManager();
 
         $banners = $em->getRepository('MuseuBackendBundle:Banner')->findAll();
@@ -113,5 +114,10 @@ class DefaultController extends Controller
     public function educacaoAction()
     {    
         return $this->render('MuseuFrontendBundle:Default:educacao.html.twig');
+    }
+
+    public function contactAction()
+    {    
+        return $this->render('MuseuFrontendBundle:Default:contact.html.twig');
     }
 }

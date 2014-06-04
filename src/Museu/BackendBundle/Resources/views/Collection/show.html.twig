@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Collection</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Subtitle</th>
+                <td>{{ entity.subtitle }}</td>
+            </tr>
+            <tr>
+                <th>Collectiontypeid</th>
+                <td>{{ entity.collectionTypeId }}</td>
+            </tr>
+            <tr>
+                <th>Authorcollectionid</th>
+                <td>{{ entity.authorCollectionId }}</td>
+            </tr>
+            <tr>
+                <th>Photographer</th>
+                <td>{{ entity.photographer }}</td>
+            </tr>
+            <tr>
+                <th>Midia</th>
+                <td>{{ entity.midia }}</td>
+            </tr>
+            <tr>
+                <th>Publisher</th>
+                <td>{{ entity.publisher }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Keyword</th>
+                <td>{{ entity.keyword }}</td>
+            </tr>
+            <tr>
+                <th>Facsimile</th>
+                <td>{{ entity.facsimile }}</td>
+            </tr>
+            <tr>
+                <th>Foto</th>
+                <td>{{ entity.foto }}</td>
+            </tr>
+            <tr>
+                <th>Video</th>
+                <td>{{ entity.video }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('acervo') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('acervo_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

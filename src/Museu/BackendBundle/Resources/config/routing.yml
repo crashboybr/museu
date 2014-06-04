@@ -17,3 +17,7 @@ MuseuBackendBundle_imprensa:
 MuseuBackendBundle_livros:
         resource: "@MuseuBackendBundle/Resources/config/routing/book.yml"
         prefix:   /livros
+
+MuseuBackendBundle_acervo:
+        resource: "@MuseuBackendBundle/Resources/config/routing/collection.yml"
+        prefix:   /acervo

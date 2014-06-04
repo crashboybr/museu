@@ -34,3 +34,7 @@ museu_publicacoes:
 museu_livros:
     pattern:   /publicacoes/livros
     defaults:  { _controller: MuseuFrontendBundle:Default:books }
+
+museu_contato:
+    pattern:   /contato
+    defaults:  { _controller: MuseuFrontendBundle:Default:contact }

@@ -59,7 +59,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <ul class="list-unstyled inline">
                             
 
-                            <li class="dropdown">
+                           {# <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
                                     O Museu
                                     <i class="fa fa-angle-down"></i>
@@ -71,15 +71,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li><a href="{{ path('museu_localizacao') }}">Localização</a></li>
                                 </ul>
                             </li>   
-
+                            #}
                             <li><a href="{{ path('museu_imprensa') }}">Sala de Imprensa</a></li>
                             <li class="sep"><span>|</span></li>
-                            <li><a href="page_signup.html">Publicações</a></li>
+                            <li><a href="{{ path('museu_publicacoes') }}">Publicações</a></li>
                             <li class="sep"><span>|</span></li>
                             <li><a href="page_login.html">Acessibilidade</a></li>
                             <li class="sep"><span>|</span></li>
-                            <li><a href="page_login.html">Contato</a></li>
+                            <li><a href="{{ path('museu_contato') }}">Contato</a></li>
                             <li class="sep"><span>|</span></li>
+                            
                             <i class="fa fa-facebook-square"></i>
                             <i class="fa fa-twitter"></i>
                             <i class="fa fa-instagram"></i>
@@ -142,16 +143,12 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li><a href="feature_icons.html">Site</a></li>
                         </ul>
                     </li>    
-
-                    <li class="dropdown {% block exposicoes_active %}{% endblock %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
+  
+                    <li class="{% block exposicoes_active %}{% endblock %}">
+                            <a href="{{ path('museu_exposition') }}">
                             Exposições
-                            <i class="fa fa-angle-down"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('museu_exposition') }}">Listar</a></li>
-                        </ul>
-                    </li>   
+                    </li>
 
                     <li class="dropdown {% block educacao_active %}{% endblock %}">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">

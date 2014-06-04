@@ -1,0 +1,39 @@
+acervo:
+    pattern:  /
+    defaults: { _controller: "MuseuBackendBundle:Collection:index" }
+
+acervo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Collection:show" }
+
+acervo_new:
+    pattern:  /new
+    defaults: { _controller: "MuseuBackendBundle:Collection:new" }
+
+acervo_new_excel:
+    pattern:  /excel
+    defaults: { _controller: "MuseuBackendBundle:Collection:newExcel" }
+
+acervo_create_excel:
+    pattern:  /create_excel
+    defaults: { _controller: "MuseuBackendBundle:Collection:createExcel" }
+    requirements: { _method: post }
+
+acervo_create:
+    pattern:  /create
+    defaults: { _controller: "MuseuBackendBundle:Collection:create" }
+    requirements: { _method: post }
+
+acervo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Collection:edit" }
+
+acervo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Collection:update" }
+    requirements: { _method: post|put }
+
+acervo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Collection:delete" }
+    requirements: { _method: post|delete }
