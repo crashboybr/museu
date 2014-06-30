@@ -41,7 +41,7 @@
         <div class="row breadcrumbs margin-bottom-40">
             <div class="container">
                 <div class="col-md-4 col-sm-4">
-                    <h1>Guariba, ano 30</h1>
+                    <h1><a href="#">{{ exposition.title }} - {{ exposition.subtitle }}</a></h1>
                 </div>
                 
             </div>
@@ -54,7 +54,11 @@
             <div class="row">
                 <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 blog-item margin-bottom-40">
-                    <div class="blog-item-img">
+                    
+                        
+
+                        {#
+                        <div class="blog-item-img">
                         <!-- BEGIN CAROUSEL -->            
                         <div class="front-carousel">
                             <div id="myCarousel" class="carousel slide">
@@ -81,16 +85,12 @@
                                 </a>
                             </div>                
                         </div>
-                        <!-- END CAROUSEL -->             
+                        <!-- END CAROUSEL -->  
+                                   
                     </div>
-                    <h2><a href="#">Guariba, ano 30</a></h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                    <blockquote>
-                        <p>Pellentesque ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante Integer posuere erat a ante.</p>
-                        <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>                
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                    <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                    #}
+                    
+                    <p>{{ exposition.description|raw }}</p>
                 
                     
                 </div>
@@ -101,11 +101,9 @@
                     <!-- CATEGORIES START -->
                     <h2 class="no-top-space">Mais Exposições</h2>
                     <ul class="nav sidebar-categories margin-bottom-40">
-                        <li class="active"><a href="#">Guariba, ano 30</a></li>
-                        <li><a href="#">Guariba, ano 30</a></li>
-                        <li><a href="#">Guariba, ano 20</a></li>
-                        <li><a href="#">Guariba, ano 10</a></li>
-                        <li><a href="#">Guariba, ano 90</a></li>
+                        {% for expo in expositions %}
+                        <li class="{% if (expo.id == exposition.id) %}active{% endif %}"><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }} - {{ expo.subtitle }}</a></li>
+                        {% endfor %}
                     </ul>
                     <!-- CATEGORIES END -->
                     
@@ -121,85 +119,16 @@
         <!-- BEGIN CONTAINER -->   
         <div class="container min-hight gallery-page margin-bottom-40">
           <div class="row">
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img1.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img1.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img2.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img2.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img3.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img3.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img4.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img4.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img5.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img5.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img6.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img6.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img1.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img1.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img2.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img2.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img3.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img3.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img4.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img4.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img5.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img5.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img2.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img2.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-            <div class="col-md-3 col-sm-4 gallery-item">
-              <a data-rel="fancybox-button" title="Project Name" href="/front/assets/img/works/img6.jpg" class="fancybox-button">
-                <img alt="" src="/front/assets/img/works/img6.jpg" class="img-responsive">
-                <div class="zoomix"><i class="fa fa-search"></i></div>
-              </a> 
-            </div>
-           
+            {% for img in exposition.expositionImages %}
+
+                <div class="col-md-3 col-sm-4 gallery-item">
+                  <a data-rel="fancybox-button" title=">Título: {{ img.title }} <br />Autor: {{ img.author }}" href="{{ asset(img.pic) }}" class="fancybox-button">
+                    <img alt="" src="{{ asset(img.pic) }}" class="img-responsive">
+                    <div class="zoomix"><i class="fa fa-search"></i></div>
+                  </a> 
+                </div>
+            {% endfor %}
+            
           </div>
 
           

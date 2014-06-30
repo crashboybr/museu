@@ -21,7 +21,7 @@
         <div class="row breadcrumbs margin-bottom-40">
             <div class="container">
                 <div class="col-md-4 col-sm-4">
-                    <h1>Publicações - Livros</h1>
+                    <h1>Publicações - Teses</h1>
                 </div>
                 
             </div>
@@ -34,20 +34,15 @@
 
             <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
-                    {% for book in books %}
+                    {% for tese in teses %}
                                 
                         <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <img src="{{ asset(book.pic) }}" alt="" class="img-responsive">
-                            </div>
                             <div class="col-md-8 col-sm-8">
-                                <h2><a href="blog_item.html">{{ book.title }}</a></h2>
+                                <h2><a href="blog_item.html">{{ tese.title }}</a></h2>
                                 <ul class="blog-info">
-                                    <li><i class="fa fa-book"></i> {{ book.publisher }}</li>
-                                    <li><i class="fa fa-pencil"></i> {{ book.author }}</li>
+                                    <li><i class="fa fa-pencil"></i> {{ tese.author }}</li>
                                 </ul>
-                                <p>{{ book.description }}</p>
-                                <a class="more" href="blog_item.html">Ler mais<i class="icon-angle-right"></i></a>
+                                <a class="more" target="_blank" href="{{ asset(tese.pdf) }}">Ler <i class="icon-angle-right"></i></a>
                             </div>
                         </div>
                         <hr class="blog-post-sep">

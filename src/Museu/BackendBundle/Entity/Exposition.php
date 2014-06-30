@@ -54,6 +54,15 @@ class Exposition
     private $description;
 
     /**
+     * @var string
+     * @Assert\NotBlank(
+     *      message = "Escreva a Descrição simples"
+     *)
+     * @ORM\Column(name="short_description", type="text")
+     */
+    private $short_description;
+
+    /**
      * @var \DateTime
      * @Assert\NotBlank(
      *      message = "Escolha a Data"
@@ -322,5 +331,28 @@ class Exposition
     public function getExpositionAuthors()
     {
         return $this->exposition_authors;
+    }
+
+    /**
+     * Set short_description
+     *
+     * @param string $shortDescription
+     * @return Exposition
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->short_description = $shortDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get short_description
+     *
+     * @return string 
+     */
+    public function getShortDescription()
+    {
+        return $this->short_description;
     }
 }

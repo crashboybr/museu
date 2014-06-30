@@ -1,0 +1,30 @@
+tese:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:Tese:index" }
+
+tese_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Tese:show" }
+
+tese_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:Tese:new" }
+
+tese_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:Tese:create" }
+    requirements: { _method: post }
+
+tese_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Tese:edit" }
+
+tese_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Tese:update" }
+    requirements: { _method: post|put }
+
+tese_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Tese:delete" }
+    requirements: { _method: post|delete }

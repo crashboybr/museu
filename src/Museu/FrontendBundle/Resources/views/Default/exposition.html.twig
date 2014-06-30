@@ -33,175 +33,38 @@
 
             <!-- BEGIN RECENT WORKS -->
             <div class="row">
+
+                {% for expo in expositions %}
+                            
+                          
+
                 <div class="col-md-3">
-                    <h2><a href="{{ path('museu_view_exposition', { 'id': 6 }) }}">Guariba, ano 30</a></h2>
-                    <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
+                    <h2><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }} - {{ expo.subtitle }}</a></h2>
+                    <p>{{ expo.shortDescription }}</p>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
                         <ul class="bxslider1">
+                            {% for img in expo.expositionImages %}
                             <li>
                                 <em>
-                                    <img src="/front/assets/img/works/img1.jpg" alt="" />
+                                    <img src="{{ asset(img.pic) }}" alt="" />
                                 </em>
                                 
                             </li>
+                            {% endfor %}
                             
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img5.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img6.jpg" alt="" />
-                                </em>
-                               
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                    <a href="/front/assets/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"></a>
-                                </em>
-                                
-                            </li>
-                        </ul>        
-                    </div>
-                </div>
-                <br />&nbsp;
-                <hr class="blog-post-sep">
-                
-                <div class="col-md-3">
-                    <h2><a href="{{ path('museu_view_exposition', { 'id': 6 }) }}">Guariba, ano 30</a></h2>
-                    <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
-                </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        <ul class="bxslider1">
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img1.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img5.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img6.jpg" alt="" />
-                                </em>
-                               
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                    <a href="/front/assets/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"></a>
-                                </em>
-                                
-                            </li>
                         </ul>        
                     </div>
                 </div>
 
+
                 <br />&nbsp;
                 <hr class="blog-post-sep">
+
+                {% endfor %}
                 
-                <div class="col-md-3">
-                    <h2><a href="{{ path('museu_view_exposition', { 'id': 6 }) }}">Guariba, ano 30</a></h2>
-                    <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
-                </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        <ul class="bxslider1">
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img1.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img5.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img6.jpg" alt="" />
-                                </em>
-                               
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img3.jpg" alt="" />
-                                </em>
-                                
-                            </li>
-                            <li>
-                                <em>
-                                    <img src="/front/assets/img/works/img4.jpg" alt="" />
-                                    <a href="/front/assets/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"></a>
-                                </em>
-                                
-                            </li>
-                        </ul>        
-                    </div>
-                </div>
+               
 
             </div>
 

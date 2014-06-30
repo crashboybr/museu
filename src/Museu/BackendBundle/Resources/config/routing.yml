@@ -21,3 +21,11 @@ MuseuBackendBundle_livros:
 MuseuBackendBundle_acervo:
         resource: "@MuseuBackendBundle/Resources/config/routing/collection.yml"
         prefix:   /acervo
+
+museu_backend_upload:
+    pattern:  /upload
+    defaults: { _controller: MuseuBackendBundle:Default:index }
+
+MuseuBackendBundle_tese:
+        resource: "@MuseuBackendBundle/Resources/config/routing/tese.yml"
+        prefix:   /tese

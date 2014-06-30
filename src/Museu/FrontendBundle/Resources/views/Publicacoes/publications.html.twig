@@ -1,6 +1,6 @@
 {% extends '::front.html.twig' %}
 
-{% block exposicoes_active%}active{% endblock %}
+{% block exposicoes_active%}{% endblock %}
 
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
@@ -59,7 +59,7 @@
                     <hr class="blog-post-sep">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <h2>Teses</h2>
+                            <h2><a href="{{ path('museu_teses') }}">Teses</a></h2>
                             <p>
                                 Veja as teses publicadas no Brasil sobre temas relacionados ao trabalhador do campo.
                                 <br />

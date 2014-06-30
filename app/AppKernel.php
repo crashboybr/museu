@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new Museu\BackendBundle\MuseuBackendBundle(),
             new Museu\FrontendBundle\MuseuFrontendBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
-            new Liuggio\ExcelBundle\LiuggioExcelBundle()
+            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -124,6 +124,18 @@ function addTagForm($collectionHolder, $newLinkLi) {
 							</div>
 						</div>
 
+						<div class="control-group {% if (form.short_description.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.short_description, 'Descrição Simples', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.short_description, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.short_description.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.short_description.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
 						<div class="control-group {% if (form.date.vars.errors|length > 0) %}error{% endif %}">
 							
 							{{ form_label(form.date, 'Data', { 'label_attr': {'class': 'control-label'} }) }}

@@ -37,7 +37,7 @@
 
 	/*BEGIN NAVIGATION (WHILE RESIZING WINDOW)*/
 	.header a.logo-v1 img {
-		margin-top: 12px;
+		margin-top: -15px;
 	}
 	.header.scrolling-fixed a.logo-v1 img {
 		margin-top: 17px;

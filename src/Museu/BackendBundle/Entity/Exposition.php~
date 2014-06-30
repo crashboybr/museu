@@ -54,6 +54,15 @@ class Exposition
     private $description;
 
     /**
+     * @var string
+     * @Assert\NotBlank(
+     *      message = "Escreva a Descrição simples"
+     *)
+     * @ORM\Column(name="short_description", type="text")
+     */
+    private $short_description;
+
+    /**
      * @var \DateTime
      * @Assert\NotBlank(
      *      message = "Escolha a Data"

@@ -15,7 +15,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8" />
-    <title>Museu | Homepage</title>
+    <title>Museu MTC | Homepage</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -78,8 +78,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li class="sep"><span>|</span></li>
                             <li><a href="page_login.html">Acessibilidade</a></li>
                             <li class="sep"><span>|</span></li>
-                            <li><a href="{{ path('museu_contato') }}">Contato</a></li>
-                            <li class="sep"><span>|</span></li>
+                          
                             
                             <i class="fa fa-facebook-square"></i>
                             <i class="fa fa-twitter"></i>
@@ -101,7 +100,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN LOGO (you can use logo image instead of text)-->
                 <a class="navbar-brand logo-v1" href="index.html">
-                    <img src="/front/assets/img/logo_blue.png" id="logoimg" alt="">
+                    <img src="/images/logo1.png" id="logoimg" alt="" style="width:99px; margin-top:-44px;">
+                    <img src="/images/logo2.png" id="logoimg" alt="" style="width:99px; margin-top:-44px;">
+                    <!--<img src="/front/assets/img/logo_blue.png" id="logoimg" />-->
                 </a>
                 <!-- END LOGO -->
             </div>
@@ -150,17 +151,17 @@ License: You must have a valid license purchased only from themeforest(the above
                         </a>
                     </li>
 
-                    <li class="dropdown {% block educacao_active %}{% endblock %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
+                    <li class="{% block educacao_active %}{% endblock %}">
+                        <a href="{{ path('museu_educacao') }}">
                             Educação
-                            <i class="fa fa-angle-down"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('museu_educacao') }}">Professores</a></li>
-                            <li><a href="{{ path('museu_educacao') }}">Alunos</a></li>
-                            <li><a href="{{ path('museu_educacao') }}">Curso à Distância</a></li>
-                        </ul>
-                    </li>                   
+                    </li>
+
+                    <li class="{% block contato_active %}{% endblock %}">
+                        <a href="{{ path('museu_contato') }}">
+                            Contato
+                        </a>
+                    </li>                     
 
 
 
@@ -199,8 +200,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="row">
                 <div class="col-md-4 col-sm-4 space-mobile">
                     <!-- BEGIN ABOUT -->                    
-                    <h2>About</h2>
-                    <p class="margin-bottom-30">Vivamus imperdiet felis consectetur onec eget orci adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                    <h2>Sobre o Museu</h2>
+                    <p class="margin-bottom-30">O Museu MTC dedica-se a bla bla bla</p>
                     <div class="clearfix"></div>                    
                     <!-- END ABOUT -->          
 

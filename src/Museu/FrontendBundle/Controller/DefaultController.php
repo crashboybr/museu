@@ -45,9 +45,10 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
+        $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
         $total_books = count($books);
         $total_ebooks = 0;
-        $total_teses = 0;
+        $total_teses = count($teses);
         $total_artigos = 0;
         $total_tccs = 0;
 
@@ -66,10 +67,11 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
+        $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
 
         $total_books = count($books);
         $total_ebooks = 0;
-        $total_teses = 0;
+        $total_teses = count($teses);
         $total_artigos = 0;
         $total_tccs = 0;
 
@@ -86,9 +88,39 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Publicacoes:books.html.twig', array('books' => $books));
     }
 
+    public function tesesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
+        $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
+
+        $total_teses = count($teses);
+        $total_ebooks = 0;
+        $total_books = count($books);
+        $total_artigos = 0;
+        $total_tccs = 0;
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:teses.html.twig',
+         array(
+            'teses' => $teses,
+            'total_books' => $total_books,
+            'total_ebooks' => $total_ebooks,
+            'total_teses' => $total_teses,
+            'total_artigos' => $total_artigos,
+            'total_tccs' => $total_tccs,
+        ));
+
+        
+    }
+
     public function viewExpositionAction(Exposition $exposition)
     {    
-        return $this->render('MuseuFrontendBundle:Default:view_exposition.html.twig', array('exposition' => $exposition));
+        $em = $this->getDoctrine()->getManager();
+
+        $expositions = $em->getRepository('MuseuBackendBundle:Exposition')->findAll();
+   
+        return $this->render('MuseuFrontendBundle:Default:view_exposition.html.twig', array('exposition' => $exposition, 'expositions' => $expositions));
     }
 
     public function oqueAction()

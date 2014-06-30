@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ExpositionType extends AbstractType
+class TeseType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,12 +16,8 @@ class ExpositionType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('subtitle')
-            ->add('description', 'ckeditor', array('config_name' => 'my_config'))
-            ->add('short_description')
-            ->add('date')
-            ->add('exposition_images', 'collection', array('type' => new ExpositionImageType(), 'allow_add' => true))
-            ->add('exposition_authors', 'collection', array('type' => new ExpositionAuthorType(), 'allow_add' => true))
+            ->add('author')
+            ->add('file')
         ;
     }
     
@@ -31,7 +27,7 @@ class ExpositionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Museu\BackendBundle\Entity\Exposition'
+            'data_class' => 'Museu\BackendBundle\Entity\Tese'
         ));
     }
 
@@ -40,6 +36,6 @@ class ExpositionType extends AbstractType
      */
     public function getName()
     {
-        return 'museu_backendbundle_exposition';
+        return 'museu_backendbundle_tese';
     }
 }

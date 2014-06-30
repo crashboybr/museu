@@ -75,3 +75,11 @@ swiftmailer:
     host:       smtp.gmail.com
     username:   bernardoniteroi
     password:   Dyd6cOf2
+
+ivory_ck_editor:
+    configs:
+        my_config:
+            toolbar:                standard
+            uiColor:                "#000000"
+            filebrowserUploadRoute: museu_backend_upload
+            #extraPlugins:           "wordcount"

@@ -9,14 +9,15 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
+
 /**
- * Book
+ * Tese
  *
- * @ORM\Table(name="book")
+ * @ORM\Table(name="tese")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Book
+class Tese
 {
     /**
      * @var integer
@@ -37,13 +38,6 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="pic", type="string", length=255)
-     */
-    private $pic;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
@@ -51,23 +45,9 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="pdf", type="string", length=255)
      */
-    private $description;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="publisher", type="string", length=255)
-     */
-    private $publisher;
+    private $pdf;
 
     /* begin upload file */
     /**
@@ -90,12 +70,12 @@ class Book
         $this->file = $file;
 
         // check if we have an old image path
-        if (isset($this->pic)) {
+        if (isset($this->pdf)) {
             // store the old name to delete after the update
-            $this->temp = $this->pic;
-            $this->pic = null;
+            $this->temp = $this->pdf;
+            $this->pdf = null;
         } else {
-            $this->pic = 'initial';
+            $this->pdf = 'initial';
         }
     }
 
@@ -108,8 +88,8 @@ class Book
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_book_" . uniqid();
-            $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
+            $filename = "tese_" . uniqid();
+            $this->pdf = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
 
@@ -127,7 +107,7 @@ class Book
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getFile()->move($this->getUploadRootDir(), $this->pic);
+        $this->getFile()->move($this->getUploadRootDir(), $this->pdf);
      
         // check if we have an old image
         if (isset($this->temp)) {
@@ -145,7 +125,7 @@ class Book
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 
@@ -163,16 +143,16 @@ class Book
 
     public function getAbsolutePath()
     {
-        return null === $this->pic
+        return null === $this->pdf
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/';
     }
 
     public function getWebPath()
     {
-        return null === $this->pic
+        return null === $this->pdf
             ? null
-            : $this->getUploadDir().'/'.$this->pic;
+            : $this->getUploadDir().'/'.$this->pdf;
     }
 
     protected function getUploadRootDir()
@@ -186,7 +166,7 @@ class Book
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'upload/books';
+        return 'upload/teses';
     } 
 
     /* end upload file */
@@ -206,7 +186,7 @@ class Book
      * Set title
      *
      * @param string $title
-     * @return Book
+     * @return Tese
      */
     public function setTitle($title)
     {
@@ -226,33 +206,10 @@ class Book
     }
 
     /**
-     * Set pic
-     *
-     * @param string $pic
-     * @return Book
-     */
-    public function setPic($pic)
-    {
-        $this->pic = $pic;
-    
-        return $this;
-    }
-
-    /**
-     * Get pic
-     *
-     * @return string 
-     */
-    public function getPic()
-    {
-        return $this->pic;
-    }
-
-    /**
      * Set author
      *
      * @param string $author
-     * @return Book
+     * @return Tese
      */
     public function setAuthor($author)
     {
@@ -272,85 +229,25 @@ class Book
     }
 
     /**
-     * Set description
+     * Set pdf
      *
-     * @param string $description
-     * @return Book
+     * @param string $pdf
+     * @return Tese
      */
-    public function setDescription($description)
+    public function setPdf($pdf)
     {
-        $this->description = $description;
+        $this->pdf = $pdf;
     
         return $this;
     }
 
     /**
-     * Get description
+     * Get pdf
      *
      * @return string 
      */
-    public function getDescription()
+    public function getPdf()
     {
-        return $this->description;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Book
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set publisher
-     *
-     * @param string $publisher
-     * @return Book
-     */
-    public function setPublisher($publisher)
-    {
-        $this->publisher = $publisher;
-    
-        return $this;
-    }
-
-    /**
-     * Get publisher
-     *
-     * @return string 
-     */
-    public function getPublisher()
-    {
-        return $this->publisher;
-    }
-
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function updatedTimestamps()
-    {
-        //$this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
-
-        if($this->getCreatedAt() == null)
-        {
-            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
-        }
+        return $this->pdf;
     }
 }
