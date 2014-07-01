@@ -333,16 +333,16 @@ Blog Page
 Vertical inline menu
 ***/
 .ver-inline-menu {
-	border-left: solid 2px #0DA3E2;
+	border-left: solid 2px #d84a38;
 }
 .ver-inline-menu li:hover a{
-	background: #0DA3E2;
+	background: #d84a38;
 }
 .ver-inline-menu li.active a{
-  background: #0DA3E2;
+  background: #d84a38;
 }
 .ver-inline-menu li.active:after {
-  border-left: 6px solid #0DA3E2;
+  border-left: 6px solid #d84a38;
 }
 
 /* Blog Sidebar categories BEGIN */ 

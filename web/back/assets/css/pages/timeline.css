@@ -173,15 +173,15 @@ Timeline UI Base
 
 /* Red */
 .timeline li.timeline-red .timeline-body:after {
-	border-right-color: #e02222;
+	border-right-color: #d84a38;
 }
 
 .timeline li.timeline-red .timeline-body {
-	 background: #e02222;
+	 background: #d84a38;
 }
 
 .timeline li.timeline-red .timeline-time span.time {
-	 color: #e02222; 
+	 color: #d84a38; 
 }
 
 /* Yellow */

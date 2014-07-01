@@ -42,3 +42,11 @@ museu_teses:
 museu_contato:
     pattern:   /contato
     defaults:  { _controller: MuseuFrontendBundle:Default:contact }
+
+museu_acessibilidade:
+    pattern:   /acessibilidade
+    defaults:  { _controller: MuseuFrontendBundle:Default:acessibilidade }
+
+museu_guariba:
+    pattern:   /guariba
+    defaults:  { _controller: MuseuFrontendBundle:Default:guariba }

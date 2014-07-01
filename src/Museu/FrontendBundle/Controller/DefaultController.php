@@ -143,6 +143,11 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:OMuseu:localizacao.html.twig');
     }
 
+    public function acessibilidadeAction()
+    {    
+        return $this->render('MuseuFrontendBundle:Default:acessibilidade.html.twig');
+    }
+
     public function educacaoAction()
     {    
         return $this->render('MuseuFrontendBundle:Default:educacao.html.twig');
@@ -151,5 +156,10 @@ class DefaultController extends Controller
     public function contactAction()
     {    
         return $this->render('MuseuFrontendBundle:Default:contact.html.twig');
+    }
+
+    public function guaribaAction()
+    {    
+        return $this->render('MuseuFrontendBundle:Guariba:index.html.twig');
     }
 }
