@@ -1,7 +1,7 @@
 {% extends '::front.html.twig' %}
 
 
-
+{% block breadcrumb %}Publicações - Livros{% endblock %}
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
     <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
@@ -17,19 +17,7 @@
    <!-- END THEME STYLES -->
 {% endblock %}
 {% block body -%}
-        <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1>Publicações - Livros</h1>
-                </div>
-                
-            </div>
-        </div>
-        <!-- END BREADCRUMBS -->
 
-        <!-- BEGIN CONTAINER -->   
-        <div class="container min-hight">
             <div class="row">
 
             <!-- BEGIN LEFT SIDEBAR -->            
@@ -85,7 +73,7 @@
                 </div>
                 <!-- END RIGHT SIDEBAR -->   
             </div>
-        </div>
+
 
         
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends '::front.html.twig' %}
 
-
+{% block breadcrumb %}Publicações - Teses{% endblock %}
 
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
@@ -17,19 +17,7 @@
    <!-- END THEME STYLES -->
 {% endblock %}
 {% block body -%}
-        <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1>Publicações - Teses</h1>
-                </div>
-                
-            </div>
-        </div>
-        <!-- END BREADCRUMBS -->
 
-        <!-- BEGIN CONTAINER -->   
-        <div class="container min-hight">
             <div class="row">
 
             <!-- BEGIN LEFT SIDEBAR -->            
@@ -80,7 +68,7 @@
                 </div>
                 <!-- END RIGHT SIDEBAR -->   
             </div>
-        </div>
+
 
         
 {% endblock %}

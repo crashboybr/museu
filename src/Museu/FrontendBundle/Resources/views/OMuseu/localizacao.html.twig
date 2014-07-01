@@ -2,19 +2,10 @@
 
 {% block museu_active%}active{% endblock %}
 
-{% block body -%}
-    <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1>O Museu</h1>
-                </div>
-            </div>
-        </div>
-        <!-- END BREADCRUMBS -->
+{% block breadcrumb %}O Museu{% endblock %}
 
-        <!-- BEGIN CONTAINER -->   
-        <div class="container min-hight">
+{% block body -%}
+
             <!-- ROW 1 -->
             <div class="row margin-bottom-40">
                 <div class="col-md-12 col-sm-12">
@@ -39,7 +30,6 @@
                     <!-- END GOOGLE MAP -->
                 </div>  
             </div>
-        </div>          
         
         {% block javascript -%}
         <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->

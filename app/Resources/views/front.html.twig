@@ -189,11 +189,31 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN PAGE CONTAINER -->  
     <div class="page-container">
-        {% block body %} 
-        {% endblock %}
+        {% if block('breadcrumb') %}
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>{% block breadcrumb %}{% endblock %}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- END BREADCRUMBS -->
+        {% endif %}
+        <div class="container">
+            {% block body %} 
+            {% endblock %}
+
+            <div class="col-md-12 col-sm-12" style="margin-top:15px;">
+                <div class="well red" style="background-color: #d84a38; color: white;">
+                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba') }}">Hotsite Guariba, Ano 30</a></h1>
+                </div>
+            </div>
+
+        </div>
     </div>
     <!-- END PAGE CONTAINER -->
-
+    
     <!-- BEGIN FOOTER -->
     <div class="footer">
         <div class="container">

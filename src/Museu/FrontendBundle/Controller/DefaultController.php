@@ -162,4 +162,9 @@ class DefaultController extends Controller
     {    
         return $this->render('MuseuFrontendBundle:Guariba:index.html.twig');
     }
+
+    public function guaribaMapaAction()
+    {    
+        return $this->render('MuseuFrontendBundle:Guariba:mapa.html.twig');
+    }
 }

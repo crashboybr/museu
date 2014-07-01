@@ -1,6 +1,7 @@
 {% extends '::front.html.twig' %}
 
 {% block exposicoes_active%}{% endblock %}
+{% block breadcrumb %}Publicações{% endblock %}
 
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
@@ -17,17 +18,7 @@
    <!-- END THEME STYLES -->
 {% endblock %}
 {% block body -%}
-        <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1>Publicações</h1>
-                </div>
-                
-            </div>
-        </div>
 
-        <div class="container min-hight">
             <!-- BEGIN BLOG -->
             <div class="row">
                 <!-- BEGIN LEFT SIDEBAR -->            
@@ -119,8 +110,7 @@
                 <!-- END RIGHT SIDEBAR -->            
             </div>
             <!-- END BEGIN BLOG -->
-        </div>
-        <!-- END CONTAINER -->
+
 
         
 {% endblock %}

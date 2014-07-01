@@ -50,3 +50,7 @@ museu_acessibilidade:
 museu_guariba:
     pattern:   /guariba
     defaults:  { _controller: MuseuFrontendBundle:Default:guariba }
+
+museu_guariba_map:
+    pattern:   /guariba/mapa
+    defaults:  { _controller: MuseuFrontendBundle:Default:guaribaMapa }

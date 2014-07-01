@@ -2,6 +2,8 @@
 
 {% block exposicoes_active%}active{% endblock %}
 
+{% block breadcrumb %}{{ exposition.title }} - {{ exposition.subtitle }}{% endblock %}
+
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
     <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
@@ -37,21 +39,9 @@
 {% endblock %}
 {% block body -%}
         
-    <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1><a href="#">{{ exposition.title }} - {{ exposition.subtitle }}</a></h1>
-                </div>
-                
-            </div>
-        </div>
-        <!-- END BREADCRUMBS -->
-
-        <!-- BEGIN CONTAINER -->   
-        <div class="container min-hight">
+    
             <!-- BEGIN BLOG -->
-            <div class="row">
+            <div class="row" style="margin-top: 20px;">
                 <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 blog-item margin-bottom-40">
                     
@@ -130,10 +120,6 @@
             {% endfor %}
             
           </div>
-
-          
-        </div>
-        <!-- END CONTAINER -->
 
 
 
