@@ -158,13 +158,11 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Default:contact.html.twig');
     }
 
-    public function guaribaAction()
+    public function guaribaAction($option)
     {    
-        return $this->render('MuseuFrontendBundle:Guariba:index.html.twig');
+
+        return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig');
     }
 
-    public function guaribaMapaAction()
-    {    
-        return $this->render('MuseuFrontendBundle:Guariba:mapa.html.twig');
-    }
+
 }

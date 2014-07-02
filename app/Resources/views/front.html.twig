@@ -200,13 +200,15 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END BREADCRUMBS -->
         {% endif %}
+        {% block slider %} 
+        {% endblock %}
         <div class="container">
             {% block body %} 
             {% endblock %}
 
             <div class="col-md-12 col-sm-12" style="margin-top:15px;">
                 <div class="well red" style="background-color: #d84a38; color: white;">
-                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba') }}">Hotsite Guariba, Ano 30</a></h1>
+                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Hotsite Guariba, Ano 30</a></h1>
                 </div>
             </div>
 

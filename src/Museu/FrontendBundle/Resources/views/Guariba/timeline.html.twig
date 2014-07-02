@@ -1,0 +1,141 @@
+{% extends '::front.html.twig' %}
+
+{% block css %}
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+    {{ parent() }}
+    <link href="/back/assets/css/pages/timeline.css" rel="stylesheet" />
+    
+{% endblock %}
+
+{% block mapa %}active{% endblock %}
+{% block body -%}
+  
+            
+                {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
+                {% endembed %}
+
+                {% embed 'MuseuFrontendBundle:Guariba:menu.html.twig' %} 
+                    {% block timeline %}active{% endblock %} 
+                {% endembed %}
+
+                <div class="col-md-9">
+                    
+                    <div class="col-md-12" style="">
+
+                            <div class="col-md-12">
+                                <h2>Linha do Tempo</h2>
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="timeline">
+                                    <li class="timeline-red" style="">
+                                        <div class="timeline-time">
+                                            <span class="date">
+                                                 1985
+                                            </span>
+                                            <span class="time">
+                                                 Maio
+                                            </span>
+                                        </div>
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <h2 style="color: white">Início</h2>
+                                            <div class="timeline-content">
+                                                <img class="timeline-img pull-left" src="/back/assets/img/blog/2.jpg" alt="">
+                                                Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo.
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a href="#" class="nav-link pull-right">
+                                                     Leia mais <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-grey" style="">
+                                        <div class="timeline-time">
+                                            <span class="date">
+                                                 1985
+                                            </span>
+                                            <span class="time">
+                                                 Junho
+                                            </span>
+                                        </div>
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <h2 style="color: white">Revolta</h2>
+                                            <div class="timeline-content">
+                                                <img class="timeline-img pull-left" src="/back/assets/img/blog/2.jpg" alt="">
+                                                Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo.
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a href="#" class="nav-link pull-right">
+                                                     Leia mais <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-red" style="">
+                                        <div class="timeline-time">
+                                            <span class="date">
+                                                 1985
+                                            </span>
+                                            <span class="time">
+                                                 Julho
+                                            </span>
+                                        </div>
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <h2 style="color: white">Início</h2>
+                                            <div class="timeline-content">
+                                                <img class="timeline-img pull-left" src="/back/assets/img/blog/2.jpg" alt="">
+                                                Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo.
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a href="#" class="nav-link pull-right">
+                                                     Leia mais <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-grey" style="">
+                                        <div class="timeline-time">
+                                            <span class="date">
+                                                 1985
+                                            </span>
+                                            <span class="time">
+                                                 Agosto
+                                            </span>
+                                        </div>
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <h2 style="color: white">Revolta</h2>
+                                            <div class="timeline-content">
+                                                <img class="timeline-img pull-left" src="/back/assets/img/blog/2.jpg" alt="">
+                                                Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo.
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a href="#" class="nav-link pull-right">
+                                                     Leia mais <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                </div>            
+            
+
+
+
+{% endblock %}

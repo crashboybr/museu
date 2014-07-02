@@ -1,14 +1,14 @@
 <div class="col-md-3">
     <ul class="ver-inline-menu tabbable margin-bottom-10">
-      <li class="{% block sindicalistas %}{% endblock %}"><a data-toggle="tab" href="#tab_1">Sindicalistas</a></li>
-      <li class="{% block trabalhadores %}{% endblock %}"><a data-toggle="tab" href="#tab_2">Trabalhadores</a></li>
-      <li class="{% block apoiadores %}{% endblock %}"><a data-toggle="tab" href="#tab_3">Apoiadores</a></li>
-      <li class="{% block jornalistas %}{% endblock %}"><a data-toggle="tab" href="#tab_4">Jornalistas</a></li>
-      <li class="{% block patroes %}{% endblock %}"><a data-toggle="tab" href="#tab_5">Patrões</a></li>
-      <li class="{% block policiais %}{% endblock %}"><a data-toggle="tab" href="#tab_6">Policiais</a></li>
-      <li class="{% block imprensa %}{% endblock %}"><a data-toggle="tab" href="#tab_7">Imprensa</a></li>
-      <li class="{% block timeline %}{% endblock %}"><a data-toggle="tab" href="#tab_8">Linha do Tempo</a></li>
-      <li class="{% block mapa %}{% endblock %}"><a href="{{ path('museu_guariba_map') }}">Mapa das Greves</a></li>
-      <li class="{% block depoimento %}{% endblock %}"><a data-toggle="tab" href="#tab_10">Mande seu depoimento</a></li>
+      <li class="{% block sindicalistas %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Sindicalistas</a></li>
+      <li class="{% block trabalhadores %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'trabalhadores' }) }}">Trabalhadores</a></li>
+      <li class="{% block apoiadores %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'apoiadores' }) }}">Apoiadores</a></li>
+      <li class="{% block jornalistas %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'jornalistas' }) }}">Jornalistas</a></li>
+      <li class="{% block patroes %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'patroes' }) }}">Patrões</a></li>
+      <li class="{% block policiais %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'policiais' }) }}">Policiais</a></li>
+      <li class="{% block imprensa %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'imprensa' }) }}">Imprensa</a></li>
+      <li class="{% block timeline %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'timeline' }) }}">Linha do Tempo</a></li>
+      <li class="{% block mapa %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'mapa' }) }}">Mapa das Greves</a></li>
+      <li class="{% block depoimento %}{% endblock %}"><a href="{{ path('museu_guariba', { 'option': 'depoimento' }) }}">Mande seu depoimento</a></li>
     </ul>        
 </div>

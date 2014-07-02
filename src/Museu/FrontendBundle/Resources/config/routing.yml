@@ -48,9 +48,13 @@ museu_acessibilidade:
     defaults:  { _controller: MuseuFrontendBundle:Default:acessibilidade }
 
 museu_guariba:
-    pattern:   /guariba
+    pattern:   /guariba/{option}
     defaults:  { _controller: MuseuFrontendBundle:Default:guariba }
 
 museu_guariba_map:
     pattern:   /guariba/mapa
     defaults:  { _controller: MuseuFrontendBundle:Default:guaribaMapa }
+
+museu_guariba_timeline:
+    pattern:   /guariba/linha-do-tempo
+    defaults:  { _controller: MuseuFrontendBundle:Default:guaribaTimeline }

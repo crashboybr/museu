@@ -1,0 +1,108 @@
+{% extends '::front.html.twig' %}
+
+{% block body -%}
+  
+                {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
+                {% endembed %}
+
+
+                {% embed 'MuseuFrontendBundle:Guariba:menu.html.twig' %} 
+                    {% block patroes %}active{% endblock %} 
+                {% endembed %}
+
+                <div class="col-md-9">
+                    <!-- BEGIN TAB CONTENT -->
+                    <div class="tab-content">
+                      <!-- START TAB 1 -->
+                        <div id="tab_1" class="tab-pane active">
+                            <div class="col-md-3">
+                                <h2>Patrões</h2>
+                                <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
+                            </div>
+                            <div class="col-md-9">
+                                <ul class="bxslider">
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img1-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img1-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                    </li>
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img2-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img2-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                        
+                                    </li>
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img5-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img5-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                        
+                                    </li>
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img4-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img4-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                        
+                                    </li>
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img3-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img3-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                       
+                                    </li>
+                                    <li>
+                                        <em>
+                                            <img src="/front/assets/img/people/img2-large.jpg" alt="" />
+                                            <a href="/front/assets/img/people/img2-large.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                        
+                                    </li>
+                                    
+                                </ul>  
+                                    
+                            </div>
+
+                            <!-- TESTIMONIALS -->
+                            <div class="col-md-12 testimonials-v1" style="margin-top: 30px;">
+                                <div id="myCarousel" class="carousel slide">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item">
+                                            <span class="testimonials-slide">Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met consectetur adipisicing sit amet do eiusmod dolore.</span>
+                                            <div class="carousel-info">
+                                                <img class="pull-left" src="/front/assets/img/people/img1-small.jpg" alt="" />
+                                                <div class="pull-left">
+                                                    <span class="testimonials-name">Lina Mars</span>
+                                                    <span class="testimonials-post">Commercial Director</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END TESTIMONIALS -->  
+                            
+                        </div>
+                      <!-- END TAB 1 -->
+                      
+                  
+                      
+                    </div>
+                    <!-- END TAB CONTENT -->
+
+
+                  
+
+                </div>            
+            
+
+
+
+{% endblock %}
