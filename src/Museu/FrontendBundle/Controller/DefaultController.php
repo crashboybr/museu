@@ -164,5 +164,11 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig');
     }
 
+    public function acervoAction($option)
+    {    
+
+        return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('option' => ucfirst($option)));
+    }
+
 
 }

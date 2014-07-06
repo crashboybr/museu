@@ -47,6 +47,10 @@ museu_acessibilidade:
     pattern:   /acessibilidade
     defaults:  { _controller: MuseuFrontendBundle:Default:acessibilidade }
 
+museu_acervo:
+    pattern:   /acervo-digitais/{option}
+    defaults:  { _controller: MuseuFrontendBundle:Default:acervo }
+
 museu_guariba:
     pattern:   /guariba/{option}
     defaults:  { _controller: MuseuFrontendBundle:Default:guariba }
