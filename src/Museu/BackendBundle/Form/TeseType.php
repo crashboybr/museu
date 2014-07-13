@@ -17,7 +17,11 @@ class TeseType extends AbstractType
         $builder
             ->add('title')
             ->add('author')
+            ->add('created_at')
+            ->add('vehicle')
+            ->add('description')
             ->add('file')
+
         ;
     }
     

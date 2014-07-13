@@ -1,0 +1,95 @@
+{% extends '::front.html.twig' %}
+
+{% block body -%}
+  <script type="text/javascript">
+  function changeDepo(depo, pic, name, func) {
+    $("#depo").show();
+    $("#depoPic").attr('src', pic);
+    $("#depoText").text(depo);
+    $("#depoName").text(name);
+    $("#depoFunction").text(func); 
+  }
+
+  </script>
+
+                {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
+                {% endembed %}
+
+                <div class="col-md-3">
+                    <ul class="ver-inline-menu tabbable margin-bottom-10">
+                      <li class="{% if option == 'Sindicalistas' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Sindicalistas</a></li>
+                      <li class="{% if option == 'Trabalhadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'trabalhadores' }) }}">Trabalhadores</a></li>
+                      <li class="{% if option == 'Apoiadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'apoiadores' }) }}">Apoiadores</a></li>
+                      <li class="{% if option == 'Jornalistas' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'jornalistas' }) }}">Jornalistas</a></li>
+                      <li class="{% if option == 'Patrões' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'patroes' }) }}">Patrões</a></li>
+                      <li class="{% if option == 'Policiais' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'policiais' }) }}">Policiais</a></li>
+                      <li class="{% if option == 'Imprensa' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'imprensa' }) }}">Imprensa</a></li>
+                      <li class=""><a href="{{ path('museu_guariba', { 'option': 'timeline' }) }}">Linha do Tempo</a></li>
+                      <li class=""><a href="{{ path('museu_guariba', { 'option': 'mapa' }) }}">Mapa das Greves</a></li>
+                      <li class=""><a href="{{ path('museu_guariba', { 'option': 'depoimento' }) }}">Mande seu depoimento</a></li>
+                    </ul>        
+                </div>
+
+                <div class="col-md-9">
+                    <!-- BEGIN TAB CONTENT -->
+                    <div class="tab-content">
+                      <!-- START TAB 1 -->
+                        <div id="tab_1" class="tab-pane active">
+                            <div class="col-md-3">
+                                <h2>{{ option }}</h2>
+                            </div>
+                            <div class="col-md-9">
+                                <ul class="bxslider" id="guariba">
+                                    {% for depo in statements %}
+                                    <li>
+                                        <em>
+                                            <a href="javascript:void(0)" onclick='changeDepo("{{ depo.text }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'><img src="{{ asset(depo.pic) }}" style="width: 111px; height: 88px;"alt="" /></a>
+                                            <a href="{{ asset(depo.pic) }}" class="fancybox-button" title="{{ depo.name }} - {{ depo.function }}" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
+                                        </em>
+                                    </li>
+                                    {% endfor %}
+                                    
+                                    
+                                </ul>  
+                                    
+                            </div>
+
+                            <!-- TESTIMONIALS -->
+                            <div class="col-md-12 testimonials-v1" id="depo" style="margin-top: 30px; display:none;">
+                                <div id="myCarousel" class="carousel slide">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item">
+                                            <span class="testimonials-slide" id="depoText"></span>
+                                            <div class="carousel-info">
+                                                <img id="depoPic" class="pull-left" src="" alt="" />
+                                                <div class="pull-left">
+                                                    <span class="testimonials-name" id="depoName"></span>
+                                                    <span class="testimonials-post" id="depoFunction"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END TESTIMONIALS -->  
+                            
+                        </div>
+                      <!-- END TAB 1 -->
+                      
+                  
+                      
+                    </div>
+                    <!-- END TAB CONTENT -->
+
+
+                  
+
+                </div>            
+            
+
+
+
+{% endblock %}

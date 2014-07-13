@@ -303,3 +303,87 @@
     -moz-transition: all 0.6s ease;
     -webkit-transition: all 0.6s ease;	
 }
+
+
+
+
+/*Recent Works*/
+.recent-work ul.bxslider2 li b {
+	color: #656565;
+	font-size: 13px;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.recent-work ul.bxslider2 li em {
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
+.recent-work ul.bxslider2 li strong {
+	color: #000;
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.recent-work ul.bxslider2 li:hover b,
+.recent-work ul.bxslider2 li:hover strong {
+	color: #fff;
+}
+
+.recent-work ul.bxslider2 li a.bxslider2-block {
+	padding: 10px;
+	display: block;
+	background: #fcfcfc;
+}
+
+.recent-work ul.bxslider2 li:hover a.bxslider2-block {
+	background: #0da3e2;
+    transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -webkit-transition: all 0.9s ease;		
+}
+
+/*Hover Effects*/
+.recent-work ul.bxslider2 li i.icon-hover-1,
+.recent-work ul.bxslider2 li i.icon-hover-2 {
+	top: 50%;	
+	color: #fff;
+	padding: 16px 30px 16px 18px;
+	font-size: 16px;
+	position: absolute;
+	margin-top: -1.5em;
+	border-radius: 50%;
+	background: url(../../img/black-opacity.png) repeat !important;
+}
+
+.recent-work ul.bxslider2 li i.icon-hover-1:hover,
+.recent-work ul.bxslider2 li i.icon-hover-2:hover {
+	color: #0da3e2;
+}
+
+.recent-work ul.bxslider2 li i.icon-hover-1 {
+	left: -100px;
+}
+.recent-work ul.bxslider2 li i.icon-hover-2 {
+	right: -100px;
+}
+
+.recent-work ul.bxslider2 li:hover i.icon-hover-1 {
+	left: 30%;
+}
+
+.recent-work ul.bxslider2 li:hover i.icon-hover-2 {
+	right: 30%;
+}
+
+.recent-work ul.bxslider2 li:hover i.icon-hover-1,
+.recent-work ul.bxslider2 li:hover i.icon-hover-2 {
+    transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -webkit-transition: all 0.6s ease;	
+}

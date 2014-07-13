@@ -3,20 +3,19 @@
 namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Book
+ * Timeline
  *
- * @ORM\Table(name="book")
+ * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Book
+class Timeline
 {
     /**
      * @var integer
@@ -30,23 +29,23 @@ class Book
     /**
      * @var string
      *
+     * @ORM\Column(name="year", type="string", length=255)
+     */
+    private $year;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="month", type="string", length=255)
+     */
+    private $month;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pic", type="string", length=255)
-     */
-    private $pic;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
 
     /**
      * @var string
@@ -56,18 +55,11 @@ class Book
     private $description;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $createdAt;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="publisher", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255)
      */
-    private $publisher;
+    private $pic;
 
     /* begin upload file */
     /**
@@ -108,7 +100,7 @@ class Book
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_book_" . uniqid();
+            $filename = "tese_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -145,7 +137,7 @@ class Book
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 
@@ -165,7 +157,7 @@ class Book
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/';
     }
 
     public function getWebPath()
@@ -186,7 +178,7 @@ class Book
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'upload/books';
+        return 'upload/timeline';
     } 
 
     /* end upload file */
@@ -203,10 +195,56 @@ class Book
     }
 
     /**
+     * Set year
+     *
+     * @param string $year
+     * @return Timeline
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return string 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set month
+     *
+     * @param string $month
+     * @return Timeline
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+    
+        return $this;
+    }
+
+    /**
+     * Get month
+     *
+     * @return string 
+     */
+    public function getMonth()
+    {
+        return $this->month;
+    }
+
+    /**
      * Set title
      *
      * @param string $title
-     * @return Book
+     * @return Timeline
      */
     public function setTitle($title)
     {
@@ -226,56 +264,10 @@ class Book
     }
 
     /**
-     * Set pic
-     *
-     * @param string $pic
-     * @return Book
-     */
-    public function setPic($pic)
-    {
-        $this->pic = $pic;
-    
-        return $this;
-    }
-
-    /**
-     * Get pic
-     *
-     * @return string 
-     */
-    public function getPic()
-    {
-        return $this->pic;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     * @return Book
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-    
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
-     * @return Book
+     * @return Timeline
      */
     public function setDescription($description)
     {
@@ -295,62 +287,25 @@ class Book
     }
 
     /**
-     * Set createdAt
+     * Set pic
      *
-     * @param \DateTime $createdAt
-     * @return Book
+     * @param string $pic
+     * @return Timeline
      */
-    public function setCreatedAt($createdAt)
+    public function setPic($pic)
     {
-        $this->createdAt = $createdAt;
+        $this->pic = $pic;
     
         return $this;
     }
 
     /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set publisher
-     *
-     * @param string $publisher
-     * @return Book
-     */
-    public function setPublisher($publisher)
-    {
-        $this->publisher = $publisher;
-    
-        return $this;
-    }
-
-    /**
-     * Get publisher
+     * Get pic
      *
      * @return string 
      */
-    public function getPublisher()
+    public function getPic()
     {
-        return $this->publisher;
-    }
-
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function updatedTimestamps()
-    {
-        //$this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
-
-        if($this->getCreatedAt() == null)
-        {
-            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
-        }
+        return $this->pic;
     }
 }

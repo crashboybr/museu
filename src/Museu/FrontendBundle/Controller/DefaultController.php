@@ -161,13 +161,33 @@ class DefaultController extends Controller
     public function guaribaAction($option)
     {    
 
-        return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        if ($option != 'timeline' && $option != 'mapa' && $option != 'depoimento') 
+        {
+            $statements = $em->getRepository('MuseuBackendBundle:Statement')->findBy(array('type' => $option));
+
+            if ($option == 'patroes') $option = 'patrões';
+
+            return $this->render('MuseuFrontendBundle:Guariba:statements.html.twig', array('statements' => $statements, 'option' => ucfirst($option)));
+        }
+        else {
+            return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig');    
+        }
+
+        
     }
 
     public function acervoAction($option)
     {    
-
-        return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('option' => ucfirst($option)));
+        $em = $this->getDoctrine()->getManager();
+        if ($option == 'teses') 
+        {
+            $acervos = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
+        }
+        else {
+            $acervos = array();
+        }
+        return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('acervos' => $acervos, 'option' => ucfirst($option)));
     }
 
 

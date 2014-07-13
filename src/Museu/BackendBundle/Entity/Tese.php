@@ -38,6 +38,27 @@ class Tese
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vehicle", type="string", length=255)
+     */
+    private $vehicle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_at", type="date", length=255)
+     */
+    private $created_at;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
@@ -249,5 +270,97 @@ class Tese
     public function getPdf()
     {
         return $this->pdf;
+    }
+
+    /**
+     * Set desc
+     *
+     * @param string $desc
+     * @return Tese
+     */
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
+    
+        return $this;
+    }
+
+    /**
+     * Get desc
+     *
+     * @return string 
+     */
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    /**
+     * Set vehicle
+     *
+     * @param string $vehicle
+     * @return Tese
+     */
+    public function setVehicle($vehicle)
+    {
+        $this->vehicle = $vehicle;
+    
+        return $this;
+    }
+
+    /**
+     * Get vehicle
+     *
+     * @return string 
+     */
+    public function getVehicle()
+    {
+        return $this->vehicle;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Tese
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Tese
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

@@ -3,20 +3,19 @@
 namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Book
+ * Statement
  *
- * @ORM\Table(name="book")
+ * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Book
+class Statement
 {
     /**
      * @var integer
@@ -30,9 +29,30 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $title;
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="function", type="string", length=255)
+     */
+    private $function;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="text")
+     */
+    private $text;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
 
     /**
      * @var string
@@ -41,40 +61,9 @@ class Book
      */
     private $pic;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
-     */
-    private $description;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="publisher", type="string", length=255)
-     */
-    private $publisher;
-
     /* begin upload file */
     /**
-     * @Assert\File(
-     *      maxSize="4000000",
-     *      notFoundMessage = "Nao foi possivel achar o arquivo"
-     * )
+     * @Assert\File(maxSize="4000000")
      */
     private $file;
 
@@ -108,7 +97,7 @@ class Book
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_book_" . uniqid();
+            $filename = "image_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -186,11 +175,10 @@ class Book
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'upload/books';
+        return 'upload/depoimentos';
     } 
 
     /* end upload file */
-
 
     /**
      * Get id
@@ -203,33 +191,102 @@ class Book
     }
 
     /**
-     * Set title
+     * Set name
      *
-     * @param string $title
-     * @return Book
+     * @param string $name
+     * @return Statement
      */
-    public function setTitle($title)
+    public function setName($name)
     {
-        $this->title = $title;
+        $this->name = $name;
     
         return $this;
     }
 
     /**
-     * Get title
+     * Get name
      *
      * @return string 
      */
-    public function getTitle()
+    public function getName()
     {
-        return $this->title;
+        return $this->name;
+    }
+
+    /**
+     * Set function
+     *
+     * @param string $function
+     * @return Statement
+     */
+    public function setFunction($function)
+    {
+        $this->function = $function;
+    
+        return $this;
+    }
+
+    /**
+     * Get function
+     *
+     * @return string 
+     */
+    public function getFunction()
+    {
+        return $this->function;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Statement
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Statement
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
      * Set pic
      *
      * @param string $pic
-     * @return Book
+     * @return Statement
      */
     public function setPic($pic)
     {
@@ -246,111 +303,5 @@ class Book
     public function getPic()
     {
         return $this->pic;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     * @return Book
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-    
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Book
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Book
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set publisher
-     *
-     * @param string $publisher
-     * @return Book
-     */
-    public function setPublisher($publisher)
-    {
-        $this->publisher = $publisher;
-    
-        return $this;
-    }
-
-    /**
-     * Get publisher
-     *
-     * @return string 
-     */
-    public function getPublisher()
-    {
-        return $this->publisher;
-    }
-
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function updatedTimestamps()
-    {
-        //$this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
-
-        if($this->getCreatedAt() == null)
-        {
-            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
-        }
     }
 }

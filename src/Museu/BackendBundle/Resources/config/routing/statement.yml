@@ -1,0 +1,30 @@
+statement:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:Statement:index" }
+
+statement_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Statement:show" }
+
+statement_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:Statement:new" }
+
+statement_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:Statement:create" }
+    requirements: { _method: post }
+
+statement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Statement:edit" }
+
+statement_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Statement:update" }
+    requirements: { _method: post|put }
+
+statement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Statement:delete" }
+    requirements: { _method: post|delete }

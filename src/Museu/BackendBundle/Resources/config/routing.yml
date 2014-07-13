@@ -29,3 +29,11 @@ museu_backend_upload:
 MuseuBackendBundle_tese:
         resource: "@MuseuBackendBundle/Resources/config/routing/tese.yml"
         prefix:   /tese
+
+MuseuBackendBundle_statement:
+        resource: "@MuseuBackendBundle/Resources/config/routing/statement.yml"
+        prefix:   /depoimentos
+
+MuseuBackendBundle_timeline:
+        resource: "@MuseuBackendBundle/Resources/config/routing/timeline.yml"
+        prefix:   /linhadotempo

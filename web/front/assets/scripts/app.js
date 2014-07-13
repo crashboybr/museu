@@ -250,7 +250,7 @@ var App = function () {
         },
 
         initBxSlider: function () {
-            $('.bxslider').show();
+            /*$('.bxslider').show();
             $('.bxslider').bxSlider({
                 minSlides: 3,
                 maxSlides: 3,
@@ -261,8 +261,7 @@ var App = function () {
                 auto: true,
                 autoControls: true
             });
-
-            
+*/
 
             $('.bxslider1').show();            
             $('.bxslider1').bxSlider({
@@ -272,7 +271,18 @@ var App = function () {
                 slideMargin: 10,
                 moveSlides: 1,
                 responsive: true,
-            });            
+            });     
+
+             $('#guariba.bxslider').show();            
+            $('#guariba.bxslider').bxSlider({
+                minSlides: 5,
+                maxSlides: 5,
+                slideWidth: 360,
+                slideMargin: 10,
+                moveSlides: 1,
+                responsive: true,
+                auto: false,
+            });       
         },
 
         // wrapper function to scroll to an element

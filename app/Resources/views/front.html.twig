@@ -206,11 +206,14 @@ License: You must have a valid license purchased only from themeforest(the above
             {% block body %} 
             {% endblock %}
 
+            {% if get_action_name() != 'guariba' and get_action_name() != 'index' %}
             <div class="col-md-12 col-sm-12" style="margin-top:15px;">
                 <div class="well red" style="background-color: #d84a38; color: white;">
-                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Hotsite Guariba, Ano 30</a></h1>
+                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}"> Hotsite Guariba, Ano 30</a></h1>
                 </div>
             </div>
+            {% endif %}
+
 
         </div>
     </div>
@@ -358,13 +361,25 @@ License: You must have a valid license purchased only from themeforest(the above
     <script type="text/javascript" src="/front/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
     <script type="text/javascript" src="/front/assets/plugins/bxslider/jquery.bxslider.min.js"></script>
     <script src="/front/assets/scripts/app.js"></script>
-    <script src="/front/assets/scripts/index.js"></script>    
+    <script src="/front/assets/scripts/index.js"></script>  
+    <script src="/js/responsiveslides.min.js"></script>  
+    
     <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();    
             App.initBxSlider();
             Index.initRevolutionSlider();                    
+
+              $("#slider").responsiveSlides({
+                    auto: true,
+                    timeout: 10000,
+                    nav: true,
+                    speed: 500,
+                  });
+
         });
+
+
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
     {% endblock %}

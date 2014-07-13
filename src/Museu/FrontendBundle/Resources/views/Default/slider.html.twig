@@ -1,4 +1,4 @@
-<!-- BEGIN REVOLUTION SLIDER -->    
+{#<!-- BEGIN REVOLUTION SLIDER -->    
         <div class="fullwidthbanner-container slider-main">
             <div class="fullwidthabnner">
                 <ul id="revolutionul" style="display:none;"> 
@@ -45,7 +45,90 @@
             </div>
         </div>
         <!-- END REVOLUTION SLIDER -->
-{#
+
 {% for banner in banners %}
 	<img src="{{ asset(banner.pic) }}" style="width:200px; height: 300px;" /><br />
 {% endfor %}#}
+<style type="text/css">
+
+.sliderContainer {
+    position:relative;
+    width:100%;
+    display:block;
+}
+.sliderContainer .sliderSombra {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:10px;
+    z-index:10;
+    background:url(/bundles/spafrontend/images/home-slider-sombra.png) repeat-x;
+}
+.sliderContainer #slider {
+    position:relative;
+    width:100%;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.sliderContainer #slider li img {
+    width:100%;
+    padding: 35px; 
+}
+.sliderContainer a.rslides_nav {
+    position:absolute;
+    display:block;
+    top:50%;
+    margin-top:190px;
+    width:27px;
+    height:73px;
+    z-index:50;
+}
+.sliderContainer a.rslides_nav span {
+    display:none;
+}
+.sliderContainer a.rslides_nav.prev {
+    background:url(/bundles/spafrontend/images/home-slider-anterior.png) 5px 0 no-repeat;
+    left:7px;
+}
+.sliderContainer a.rslides_nav.prev:hover {
+    background-position:0 0;
+}
+.sliderContainer a.rslides_nav.next {
+    background:url(/bundles/spafrontend/images/home-slider-proximo.png) 5px 0 no-repeat;
+    right:7px;
+}
+.sliderContainer a.rslides_nav.next:hover {
+    background-position:10px 0;
+}
+
+
+
+
+</style>
+
+
+<div class="sliderContainer">
+        <ul class="rslides" id="slider">
+            {% for banner in banners %}
+                {% if loop.index is not divisibleby(2) %}
+                <li style="width: 100%;">
+
+                    <div style="width: 50%; float: left; min-height: 540px;">
+                            <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
+                            <h1 style="margin-top: -10px; text-align: center;">{{ banner.title }}</h1>
+                    </div>
+                {% else %}
+
+                    <div style="width: 50%; float: left; min-height: 540px;">
+                            <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
+                            <h1 style="margin-top: -10px; text-align: center;">{{ banner.title }}</h1>
+                    </div>
+                </li>
+                {% endif %}
+            {% endfor %}
+            
+        </ul>
+        <hr class="fim" />
+</div>

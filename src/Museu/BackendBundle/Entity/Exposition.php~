@@ -332,4 +332,27 @@ class Exposition
     {
         return $this->exposition_authors;
     }
+
+    /**
+     * Set short_description
+     *
+     * @param string $shortDescription
+     * @return Exposition
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->short_description = $shortDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get short_description
+     *
+     * @return string 
+     */
+    public function getShortDescription()
+    {
+        return $this->short_description;
+    }
 }

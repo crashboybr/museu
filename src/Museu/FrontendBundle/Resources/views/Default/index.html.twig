@@ -3,25 +3,64 @@
 {% block home_active %}active{% endblock %}
 {% block slider %}{% include 'MuseuFrontendBundle:Default:slider.html.twig' %}{% endblock %}
 {% block body -%}
+        
 
+
+        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
+                <div class="well red" style="background-color: #d84a38; color: white;">
+                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}"> Hotsite Guariba, Ano 30</a></h1>
+                </div>
+            </div>
+
+            
             <div class="clearfix"></div>
+            <!-- BEGIN SERVICE BLOCKS -->               
+                <div class="col-md-12">
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-desktop color-grey"></i></div>
+                            <h2>TV MTC</h2>
+                            <p></p>
+                        </div>
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-microphone color-grey"></i></div>
+                            <h2>Rádio MTC</h2>
+                            <p></p>
+                        </div>
 
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-film color-grey"></i></div>
+                            <h2>Cine MTC</h2>
+                            <p></p>
+                        </div>
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-globe color-grey"></i></div>
+                            <h2>Universidade Aberta do Campo</h2>
+                            <p></p>
+                        </div>
+
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-book color-grey"></i></div>
+                            <h2>Biblioteca MTC</h2>
+                            <p></p>
+                        </div>
+                        <div class="col-md-2 service-box-v1">
+                            <div><i class="fa fa-search color-grey"></i></div>
+                            <h2>Pesquisadores</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END SERVICE BLOCKS --> 
+            
+
+{#
             <!-- BEGIN RECENT WORKS -->
             <div class="row recent-work margin-bottom-40">
                 
                 <div class="col-md-12">
                     <ul class="bxslider">
-                        <li>
-                            <em>
-                                <img src="/upload/banners/image_53b064fc2e0b5.jpeg" alt="" />
-                                <a href="#"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/upload/banners/image_53b064fc2e0b5.jpeg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Hotsite Guariba, ano 30</strong>
-                                <b>Entre agora no hotsite</b>
-                            </a>
-                        </li>
+
                         
                         <li>
                             <em>
@@ -93,7 +132,7 @@
                 </div>
             </div>   
             <!-- END RECENT WORKS -->
-
+#}
             <div class="clearfix"></div>
 
 

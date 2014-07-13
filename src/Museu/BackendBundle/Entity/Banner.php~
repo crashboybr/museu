@@ -130,8 +130,9 @@ class Banner
      */
     public function removeUpload()
     {
+        //var_dump($this->getAbsolutePath());exit;
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 
@@ -151,7 +152,7 @@ class Banner
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/';
     }
 
     public function getWebPath()
