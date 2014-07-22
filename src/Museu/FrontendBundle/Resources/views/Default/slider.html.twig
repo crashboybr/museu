@@ -74,7 +74,7 @@
 }
 .sliderContainer #slider li img {
     width:100%;
-    padding: 35px; 
+    padding: 0px; 
 }
 .sliderContainer a.rslides_nav {
     position:absolute;
@@ -117,13 +117,13 @@
 
                     <div style="width: 50%; float: left; min-height: 540px;">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
-                            <h1 style="margin-top: -10px; text-align: center;">{{ banner.title }}</h1>
+                            <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
                     </div>
                 {% else %}
 
                     <div style="width: 50%; float: left; min-height: 540px;">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
-                            <h1 style="margin-top: -10px; text-align: center;">{{ banner.title }}</h1>
+                            <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
                     </div>
                 </li>
                 {% endif %}
