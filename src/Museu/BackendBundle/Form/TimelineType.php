@@ -22,18 +22,31 @@ class TimelineType extends AbstractType
         $choices['patroes'] = 'Jornalistas';
         $choices['policiais'] = 'Policiais';
         $choices['imprensa'] = 'Imprensa';
-        for ($m=1; $m<=12; $m++) {
-         $month = date('F', mktime(0,0,0,$m, 1, date('Y')));
-         $months[$m] = $month;
-         }
+        
+        for ($i = 1950; $i < date('Y'); $i++) {
+            $year[$i] = $i;
+        }
+
+        $month['1'] = 'Janeiro';
+        $month['2'] = 'Fevereiro';
+        $month['3'] = 'Março';
+        $month['4'] = 'Abril';
+        $month['5'] = 'Maio';
+        $month['6'] = 'Junho';
+        $month['7'] = 'Julho';
+        $month['8'] = 'Agosto';
+        $month['9'] = 'Setembro';
+        $month['10'] = 'Outubro';
+        $month['11'] = 'Novembro';
+        $month['12'] = 'Dezembro';
 
         $builder
              ->add('year', 'choice', array(
-                'choices' => range(Date('Y') - 50, date('Y')),
+                'choices' => $year,
                 'expanded' => false
             ))
             ->add('month', 'choice', array(
-                'choices' => $months,
+                'choices' => $month,
                 'expanded' => false
             ))
             ->add('title')

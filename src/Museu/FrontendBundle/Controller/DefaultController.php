@@ -171,6 +171,33 @@ class DefaultController extends Controller
             return $this->render('MuseuFrontendBundle:Guariba:statements.html.twig', array('statements' => $statements, 'option' => ucfirst($option)));
         }
         else {
+            if ($option == 'timeline') {
+
+                $timelines = $em->getRepository('MuseuBackendBundle:Timeline')->findBy(array(), array('year' => 'ASC', 'month' => 'ASC'));
+
+
+                
+                //echo "<pre>";
+                //\Doctrine\Common\Util\Debug::dump($timelines);exit;
+                foreach ($timelines as $tm) {
+                    
+                    $tms[$tm->getYear()][$tm->getMonth()][$tm->getId()]['desc'] = $tm->getDescription();
+                    $tms[$tm->getYear()][$tm->getMonth()][$tm->getId()]['title'] = $tm->getTitle();
+                    $tms[$tm->getYear()][$tm->getMonth()][$tm->getId()]['pic'] = $tm->getPic(); 
+                    
+                }
+                
+                //\Doctrine\Common\Util\Debug::dump($tms['1950']['1']);
+                //exit;
+
+                /*foreach ($tms as $year => $tm) {
+                    var_dump($tm, $year);
+                }
+                exit;
+                */
+                return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig', 
+                                    array('option' => $option, 'timelines' => $tms));
+            }
             return $this->render('MuseuFrontendBundle:Guariba:' . $option . '.html.twig');    
         }
 

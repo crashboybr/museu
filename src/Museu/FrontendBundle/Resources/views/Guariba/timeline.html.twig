@@ -4,6 +4,7 @@
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
     {{ parent() }}
     <link href="/back/assets/css/pages/timeline.css" rel="stylesheet" />
+    <link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
     
 {% endblock %}
 
@@ -25,6 +26,10 @@ list-style: none;
       margin: 0 0 16px 0;
     }
 
+    #linhaDoTempo li{
+        float: left;
+        padding: 0px 30px 0px 0px;
+    }
     /**** Isotope Filtering ****/
 
 .isotope-item {
@@ -115,268 +120,49 @@ width: 110px;
                     {% block timeline %}active{% endblock %} 
                 {% endembed %}
 
-          <div class="col-md-9">
-
-          <div class="col-md-12" style="">
-
-          <div class="col-md-12">
+  <div class="col-md-9">
+    <div class="col-md-12" style="">
+      <div class="col-md-12">
           <h2>Linha do Tempo</h2>
+      </div>
 
+        <div id="linhaDoTempo" style="height: 100%; width: 3000px;overflow: auto;
+            overflow-y: hidden;
+            margin: 0 auto;
+            white-space: nowrap">
+          {% for year,tms in timelines %}
+          <div style="float: left;">
+            <h3><strong>{{ year }}</strong></h3>
+            <ul>
+              {% for month,tm in tms %}
+              <li>
+                <h2 style="margin-top: 0px;">{{ month|month }}</h2>
+                <div class="gallery-item">
+                    {% for timeline in tm %}
+                      <div>
+                          <a data-rel="fancybox-button" title="{{ timeline.desc }}" href="{{ asset(timeline.pic) }}" class="fancybox-button">
+                          <img  style="width: 150px; height: 100px;" src="{{ asset(timeline.pic) }}" class="img-responsive">
+                          <div class="zoomix"><i class="fa fa-search"></i></div>
+                        </a> 
+                        
+                        <p style="text-align: center; margin-top: 10px;">{{ timeline.title }}</p>
+                        <hr />
+                      </div>
+                    {% endfor %}
+                </div>
+              </li>
+              {% endfor %}
+              
+            </ul>
           </div>
-          <div class="col-md-12">
-          <ul id="linhaDoTempo" style="position: relative; overflow: hidden; width: 14177px;" class="isotope">
+          {% endfor %}
 
+        
+      </div>
+    </div>
+  </div>
 
-
-          <li class="linhaAno 1910 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-          <h3>1910</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 115px;">
-
-
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8633/p02f168.jpg?sequence=3" data-title-id="title-8633" class="fancybox" rel="galeria-foto" data="8633">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8633/p02f168.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Jorge de Oliveira Jobim, pai de Tom</span></p>
-          </a>
-          <div id="title-8633" class="descFancybox"><b>1910</b> - Retrato de Jorge de Oliveira Jobim, pai de Antonio Carlos Jobim. <a href="http://www.jobim.org/jobim/handle/2010/8633" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1920 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(115px, 0px, 0px);">
-          <h3>1927</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 230px;">
-
-
-
-
-          <li class="element texto  isotope-item" rel="" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-          <p>Nasce na rua Conde de Bonfim, no bairro da Tijuca, Rio de Janeiro, no dia 25 de janeiro.</p>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 115px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8261/p01f001.jpg?sequence=3" data-title-id="title-8261" class="fancybox" rel="galeria-foto" data="8261">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8261/p01f001.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Casa onde nasceu Tom Jobim</span></p>
-          </a>
-          <div id="title-8261" class="descFancybox"><b>1927</b> - Casa onde nasceu Antonio Carlos Jobim, na rua Conde de Bonfim, 634, na Tijuca. <a href="http://www.jobim.org/jobim/handle/2010/8261" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 230px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8281/p01f015.jpg?sequence=3" data-title-id="title-8281" class="fancybox" rel="galeria-foto" data="8281">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8281/p01f015.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom com a mãe, aos três meses</span></p>
-          </a>
-          <div id="title-8281" class="descFancybox"><b>1927</b> - Antonio Carlos Jobim, aos Três meses, com a mãe Nilza Brasileiro de Almeida. <a href="http://www.jobim.org/jobim/handle/2010/8281" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1920 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(345px, 0px, 0px);">
-          <h3>1928</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 115px;">
-
-
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8318/p01f037.jpg?sequence=3" data-title-id="title-8318" class="fancybox" rel="galeria-foto" data="8318">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8318/p01f037.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom com um ano</span></p>
-          </a>
-          <div id="title-8318" class="descFancybox"><b>1928</b> - Antonio Carlos Jobim com um ano de idade. <a href="http://www.jobim.org/jobim/handle/2010/8318" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1920 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(460px, 0px, 0px);">
-          <h3>1929</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 115px;">
-
-
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8309/p02f060.jpg?sequence=3" data-title-id="title-8309" class="fancybox" rel="galeria-foto" data="8309">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8309/p02f060.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom com dois anos e nove meses</span></p>
-          </a>
-          <div id="title-8309" class="descFancybox"><b>1929</b> - Antonio Carlos Jobim em Copacabana, aos dois anos e nove meses. <a href="http://www.jobim.org/jobim/handle/2010/8309" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1930 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(575px, 0px, 0px);">
-          <h3>1930</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 115px;">
-
-
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8337/p02f079.jpg?sequence=3" data-title-id="title-8337" class="fancybox" rel="galeria-foto" data="8337">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8337/p02f079.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom com sua roupa predileta, aos três anos e sete meses</span></p>
-          </a>
-          <div id="title-8337" class="descFancybox"><b>1930</b> - Antonio Carlos Jobim com sua roupa predileta: a marinheirinha azul, aos três anos e sete meses de idade. <a href="http://www.jobim.org/jobim/handle/2010/8337" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 115px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8325/p02f069.jpg?sequence=3" data-title-id="title-8325" class="fancybox" rel="galeria-foto" data="8325">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8325/p02f069.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom abraçado a mãe</span></p>
-          </a>
-          <div id="title-8325" class="descFancybox"><b>1930</b> - Antonio Carlos Jobim abraçado à mãe Nilza Brasileiro de Almeida, provavelmente, aos três anos de idade. <a href="http://www.jobim.org/jobim/handle/2010/8325" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 230px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8339/p02f080.jpg?sequence=3" data-title-id="title-8339" class="fancybox" rel="galeria-foto" data="8339">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8339/p02f080.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom aos três anos</span></p>
-          </a>
-          <div id="title-8339" class="descFancybox"><b>1930</b> - Antonio Carlos Jobim aos três anos. <a href="http://www.jobim.org/jobim/handle/2010/8339" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1930 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(690px, 0px, 0px);">
-          <h3>1931</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 230px;">
-
-
-
-
-          <li class="element texto  isotope-item" rel="" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-          <p>A família se muda para Ipanema</p>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 115px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8345/p02f087.jpg?sequence=3" data-title-id="title-8345" class="fancybox" rel="galeria-foto" data="8345">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8345/p02f087.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom com a irmã Helena, aos quatro anos</span></p>
-          </a>
-          <div id="title-8345" class="descFancybox"><b>1931</b> - Antonio Carlos Jobim com a irmã Helena Isaura Jobim no colo, aos quatro anos de idade. <a href="http://www.jobim.org/jobim/handle/2010/8345" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 230px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8346/p02f088.jpg?sequence=3" data-title-id="title-8346" class="fancybox" rel="galeria-foto" data="8346">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8346/p02f088.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>p02f088</span></p>
-          </a>
-          <div id="title-8346" class="descFancybox"><b>1931</b> - ACJ, aos quatro anos de idade, no colo da mãe Nilza Brasileiro de Almeida. <a href="http://www.jobim.org/jobim/handle/2010/8346" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 345px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8348/p02f089.jpg?sequence=3" data-title-id="title-8348" class="fancybox" rel="galeria-foto" data="8348">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8348/p02f089.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>Tom passeando com o avô materno Azor</span></p>
-          </a>
-          <div id="title-8348" class="descFancybox"><b>1931</b> - Antonio Carlos Jobim passeando com o avô materno Azor Brasileiro de Almeida pelo centro da cidade, avenida Rio Branco, aos quatro anos de idade. <a href="http://www.jobim.org/jobim/handle/2010/8348" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-          <li class="linhaAno 1930 isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(920px, 0px, 0px);">
-          <h3>1932</h3>
-
-          <ul class="variable-sizes clearfix container2 isotope" style="position: relative; overflow: hidden; width: 115px;">
-
-
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8559/p02f092.jpg?sequence=3" data-title-id="title-8559" class="fancybox" rel="galeria-foto" data="8559">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8559/p02f092.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>p02f092</span></p>
-          </a>
-          <div id="title-8559" class="descFancybox"><b>1932</b> - ACJ, aos cinco anos de idade, acompanhado por familiares. <a href="http://www.jobim.org/jobim/handle/2010/8559" target="_blank">+info</a></div>
-          </li>   
-
-
-          <li class="element foto isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 115px, 0px);">
-
-          <a href="http://www.jobim.org/jobim/bitstream/handle/2010/8399/p02f074.jpg?sequence=3" data-title-id="title-8399" class="fancybox" rel="galeria-foto" data="8399">
-
-          <img src="http://www.jobim.org/jobim/bitstream/handle/2010/8399/p02f074.jpg.jpg?sequence=4" class="" style="opacity: 1; visibility: visible;">
-          <p class="descHover"><span>p02f074</span></p>
-          </a>
-          <div id="title-8399" class="descFancybox"><b>1932</b> - ACJ, aos cinco anos de idade, sentado num carrinho. <a href="http://www.jobim.org/jobim/handle/2010/8399" target="_blank">+info</a></div>
-          </li>   
-          </ul>
-
-          </li>
-
-
-
-
-
-
-
-
-
-          </ul>
-          </div>
-
-          </div>
-
-          </div>            
+       
             
 
 

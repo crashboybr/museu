@@ -12,3 +12,9 @@ services:
             - [setRequest, ["@?request="]]
         tags:
             - { name: twig.extension }
+
+
+    museu.twig.month_extension:
+        class: Museu\FrontendBundle\Twig\Extension\MonthExtension
+        tags:
+            - { name: twig.extension }
