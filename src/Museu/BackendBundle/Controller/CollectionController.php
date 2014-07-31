@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Museu\BackendBundle\Entity\Collection;
+use Museu\BackendBundle\Entity\Video;
 use Museu\BackendBundle\Form\CollectionType;
 use Museu\BackendBundle\Form\CollectionExcelType;
 
@@ -63,6 +64,47 @@ class CollectionController extends Controller
         $file = "upload/acervo/" . $filename;
         $objPHPExcel = \PHPExcel_IOFactory::load($file);
         define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
+        
+        $em = $this->getDoctrine()->getManager();
+        /*
+        foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
+                
+                
+                 echo 'Worksheet - ' , $worksheet->getTitle() , EOL;
+
+                 foreach ($worksheet->getRowIterator() as $row) {
+                     echo '    Row number - ' , $row->getRowIndex() , EOL;
+                     
+                         $cellIterator = $row->getCellIterator();
+                         $cellIterator->setIterateOnlyExistingCells(false); // Loop all cells, even if it is not set
+                         $i = 1;
+                         if ($row->getRowIndex() > 1) {
+                            //$collection = new Collection()
+                            $video = new Video();
+                             foreach ($cellIterator as $cell) {
+                                 if (!is_null($cell)) {
+                                    
+                                    if ($i == 2) $video->setChannel($cell->getCalculatedValue());
+                                    if ($i == 4) $video->setTitle($cell->getCalculatedValue());
+                                    if ($i == 5) $video->setUrl($cell->getCalculatedValue());
+                              
+                                     
+                                    
+                                 }
+
+                                 $i++;
+                             }
+                             
+                             $em->persist($video);
+                             $em->flush();
+                        }
+                    
+                 }
+             
+         }
+*/
+         /*
+
         foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
                 if ($worksheet->getTitle() == "Acervos") { 
                  echo 'Worksheet - ' , $worksheet->getTitle() , EOL;
@@ -86,7 +128,7 @@ class CollectionController extends Controller
                     
                  }
              }
-         }
+         }*/
         exit;
         return $this->render('MuseuBackendBundle:Collection:new.html.twig', array(
             'entity' => $entity,

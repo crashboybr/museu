@@ -62,3 +62,7 @@ museu_guariba_map:
 museu_guariba_timeline:
     pattern:   /guariba/linha-do-tempo
     defaults:  { _controller: MuseuFrontendBundle:Default:guaribaTimeline }
+
+museu_tvmtc:
+    pattern:   /tv-mtc
+    defaults:  { _controller: MuseuFrontendBundle:Default:tv }

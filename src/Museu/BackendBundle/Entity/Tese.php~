@@ -340,4 +340,27 @@ class Tese
     {
         return $this->created_at;
     }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Tese
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new Museu\FrontendBundle\MuseuFrontendBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle()
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -37,3 +37,7 @@ MuseuBackendBundle_statement:
 MuseuBackendBundle_timeline:
         resource: "@MuseuBackendBundle/Resources/config/routing/timeline.yml"
         prefix:   /linhadotempo
+
+MuseuBackendBundle_video:
+        resource: "@MuseuBackendBundle/Resources/config/routing/video.yml"
+        prefix:   /video

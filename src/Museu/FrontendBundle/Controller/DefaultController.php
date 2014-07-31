@@ -158,6 +158,51 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Default:contact.html.twig');
     }
 
+    public function tvAction()
+    {    
+        $em = $this->getDoctrine()->getManager();
+        //$videos = $em->getRepository('MuseuBackendBundle:Video')->findBy(array('active' => true));
+        $videos = $em->getRepository('MuseuBackendBundle:Video')->findAll();
+        /*
+        foreach ($videos as $id => $video) {
+
+            $token = substr($video->getUrl(),16,29);
+            //var_dump($token);
+            $headers = get_headers('http://gdata.youtube.com/feeds/api/videos/' . $token);
+            //$headers = file_get_contents("http://gdata.youtube.com/feeds/api/videos/sTN5QkFIBEA");
+            $video->setActive(true);
+            if (!strpos($headers[0], '200')) {
+                //echo "The YouTube video you entered does not exist";
+                //return false;
+                //unset($videos[$id]);
+                $video->setActive(false);
+
+            }
+            $em->persist($video);
+            $em->flush($video);
+
+            
+
+            //var_dump($headers);
+            //exit;
+            # code...
+        }*/
+        
+
+        $page_number = $this->get('request')->get('pagina') ? $this->get('request')->get('pagina') : 1; 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $videos,
+            $this->get('request')->query->get('page', $page_number)/*page number*/,
+            24
+        );
+
+        
+   
+        return $this->render('MuseuFrontendBundle:Default:tv.html.twig', array('videos' => $pagination));
+    
+    }
+
     public function guaribaAction($option)
     {    
 

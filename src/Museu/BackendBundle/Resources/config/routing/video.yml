@@ -1,0 +1,30 @@
+video:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:Video:index" }
+
+video_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Video:show" }
+
+video_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:Video:new" }
+
+video_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:Video:create" }
+    requirements: { _method: post }
+
+video_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Video:edit" }
+
+video_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Video:update" }
+    requirements: { _method: post|put }
+
+video_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Video:delete" }
+    requirements: { _method: post|delete }
