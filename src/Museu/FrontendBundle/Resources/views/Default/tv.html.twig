@@ -3,15 +3,15 @@
 
 
 {% block body -%}
-    <link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
-    <div class="col-md-12" style="">
-      <div class="col-md-12">
+<link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
+<div class="col-md-12" style="">
+      <div class="row margin-bottom-40">
           <h2>TV MTC</h2>
       </div>
     
     {% for video in videos %}
         
-        <div class="col-md-4 col-sm-4 gallery-item">
+        <div class="col-md-3 col-sm-4 gallery-item" style="height: 260px;">
             <a data-rel="fancybox-button" href="{{ video.url }}" class="fancybox-button" target="_blank">
 
             <img alt="" src="http://img.youtube.com/vi/{{ video.url|slice(16,29)|trim }}/0.jpg" class="img-responsive">
@@ -21,8 +21,6 @@
         </div>
     {% endfor %}
 
-
-    
 </div>
 
     {{ knp_pagination_render(videos) }}
