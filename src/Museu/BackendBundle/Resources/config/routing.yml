@@ -41,3 +41,7 @@ MuseuBackendBundle_timeline:
 MuseuBackendBundle_video:
         resource: "@MuseuBackendBundle/Resources/config/routing/video.yml"
         prefix:   /video
+
+MuseuBackendBundle_newsletter:
+        resource: "@MuseuBackendBundle/Resources/config/routing/newsletter.yml"
+        prefix:   /newsletter

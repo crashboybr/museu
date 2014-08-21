@@ -262,5 +262,9 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('acervos' => $acervos, 'option' => ucfirst($option)));
     }
 
+    public function newsletterAction(Request $request)
+    {
+        
+    }
 
 }
