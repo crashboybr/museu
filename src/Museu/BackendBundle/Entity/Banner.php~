@@ -34,6 +34,13 @@ class Banner
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255)
+     */
+    private $subtitle;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")

@@ -34,6 +34,13 @@ class Banner
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255)
+     */
+    private $subtitle;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -293,5 +300,28 @@ class Banner
         {
             $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
         }
+    }
+
+    /**
+     * Set subtitle
+     *
+     * @param string $subtitle
+     * @return Banner
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+    
+        return $this;
+    }
+
+    /**
+     * Get subtitle
+     *
+     * @return string 
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
     }
 }

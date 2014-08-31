@@ -78,6 +78,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li class="sep"><span>|</span></li>
                             <li><a href="{{ path('museu_acessibilidade') }}">Acessibilidade</a></li>
                             <li class="sep"><span>|</span></li>
+                            <li><a href="{{ path('museu_contato') }}">Contato</a></li>
+                            <li class="sep"><span>|</span></li>
                           
                             
                             <i class="fa fa-facebook-square"></i>
@@ -113,14 +115,14 @@ License: You must have a valid license purchased only from themeforest(the above
                 <ul class="nav navbar-nav">
                     <li class="{% block home_active %}{% endblock %}">
                             <a href="{{ path('museu_frontend_homepage') }}">
-                            Home
+                            Principal
                         </a>
                     </li>
                     
                 
                     <li class="dropdown {% block museu_active %}{% endblock %}">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
-                            O Museu
+                            Museu
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
@@ -133,7 +135,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                     <li class="dropdown {% block acervo_active %}{% endblock %}">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
-                            Acervo Digitais
+                            Acervos Digitais
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
@@ -141,7 +143,14 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li><a href="{{ path('museu_acervo', { 'option': 'revistas' }) }}">Revistas</a></li>
                             <li><a href="{{ path('museu_acervo', { 'option': 'tvs' }) }}">TVs</a></li>
                             <li><a href="{{ path('museu_acervo', { 'option': 'radios' }) }}">Rádios</a></li>
-                            <li><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Site</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'sites' }) }}">Sites</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'fotos' }) }}">Fotografias</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'ilustracoes' }) }}">Ilustrações</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'artigos' }) }}">Artigos Acadêmicos</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'teses' }) }}">Teses & TCCs</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes/Documentários</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros</a></li>
                         </ul>
                     </li>    
   
@@ -157,13 +166,6 @@ License: You must have a valid license purchased only from themeforest(the above
                         </a>
                     </li>
 
-                    <li class="{% block contato_active %}{% endblock %}">
-                        <a href="{{ path('museu_contato') }}">
-                            Contato
-                        </a>
-                    </li>                     
-
-
 
                     <li class="menu-search">
                         <span class="sep"></span>
@@ -172,9 +174,9 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="search-box">
                             <form action="#">
                                 <div class="input-group input-large">
-                                    <input class="form-control" type="text" placeholder="Search">
+                                    <input class="form-control" type="text" placeholder="Busca">
                                     <span class="input-group-btn">
-                                        <button type="submit" class="btn theme-btn">Go</button>
+                                        <button type="submit" class="btn theme-btn">Ir</button>
                                     </span>
                                 </div>
                             </form>
@@ -209,7 +211,8 @@ License: You must have a valid license purchased only from themeforest(the above
             {% if get_action_name() != 'guariba' and get_action_name() != 'index' %}
             <div class="col-md-12 col-sm-12" style="margin-top:15px;">
                 <div class="well red" style="background-color: #d84a38; color: white;">
-                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}"> Hotsite Guariba, Ano 30</a></h1>
+                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Especial Guariba, Ano 30.</a></h1>
+                    <h5 style="font-size: 15px; text-align:center;">Conheça as histórias e veja os depoimentos de quem esteve lá. E como as greves do campo a partir de 1984 repercutiram dentro e fora do Brasil.</h5>
                 </div>
             </div>
             {% endif %}
@@ -226,49 +229,53 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="col-md-4 col-sm-4 space-mobile">
                     <!-- BEGIN ABOUT -->                    
                     <h2>Sobre o Museu</h2>
-                    <p class="margin-bottom-30">O MTC, o Museu do Trabalhador do Campo, reúne em seu acervo um conjunto de textos e imagens que ilustram momentos marcantes que forjaram a história de muito trabalho e luta de homens e mulheres trabalhadores do campo no estado de São Paulo desde o século 20.
-                    <br /> 
-                    São fotografias, notícias, comentários e reportagens em jornais, revistas, sites, rádio e televisão com histórias de vida, o cotidiano em seus locais de trabalho na zona rural e sua vida nas comunidades em que vivem nas periferias das cidades. Suas formas de organização social, política e sindical e os movimentos dos bóias-frias paulistas que tiveram seu ponto alto na chamada de Revolta de Guariba, na década de 1980. </p>
+                    <p class="margin-bottom-30">O Museu do Trabalhador do Campo busca preservar e disseminar as histórias e as lutas dos trabalhadores do campo no Brasil.
+                    
                     <div class="clearfix"></div>                    
                     <!-- END ABOUT -->          
 
                     
-                    <!-- BEGIN BLOG PHOTOS STREAM
+                    <!-- BEGIN BLOG PHOTOS STREAM -->
                     <h2>Fotos</h2>
                     <div class="blog-photo-stream margin-bottom-30">
                         <ul class="list-unstyled">
-                            <li><a href="#"><img src="/front/assets/img/people/img5-small.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/works/img1.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/people/img4-large.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/works/img6.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/pics/img1-large.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/pics/img2-large.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/works/img3.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/people/img2-large.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/works/img2.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="/front/assets/img/works/img5.jpg" alt=""></a></li>
+                            <li><a href="/images/resmuseu/museu1.jpg"><img src="/images/resmuseu/museu1.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu2.jpg"><img src="/images/resmuseu/museu2.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu3.jpg"><img src="/images/resmuseu/museu3.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu4.jpg"><img src="/images/resmuseu/museu4.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu5.jpg"><img src="/images/resmuseu/museu5.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu6.jpg"><img src="/images/resmuseu/museu6.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu7.jpg"><img src="/images/resmuseu/museu7.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu8.jpg"><img src="/images/resmuseu/museu8.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu9.jpg"><img src="/images/resmuseu/museu9.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu10.jpg"><img src="/images/resmuseu/museu10.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu11.jpg"><img src="/images/resmuseu/museu11.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu12.jpg"><img src="/images/resmuseu/museu12.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu13.jpg"><img src="/images/resmuseu/museu13.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu14.jpg"><img src="/images/resmuseu/museu14.jpg" alt=""></a></li>
+                            <li><a href="images/resmuseu/museu15.jpg"><img src="/images/resmuseu/museu15.jpg" alt=""></a></li>
                         </ul>                    
-                    </div> -->
+                    </div>
                     <!-- END BLOG PHOTOS STREAM -->                              
                 </div>
                 <div class="col-md-4 col-sm-4 space-mobile">
                     <!-- BEGIN CONTACTS -->                                    
-                    <h2>Contato</h2>
+                    <h2>Fale com a gente</h2>
                     <address class="margin-bottom-40">
-                        Endereço: Avenida Gutember, 166, Vila Xavier <br />
-                        Araraquara / São Paulo<br />
-                        Telefones (16) 3322-4861 / 3322-9677 <br />
-                        CEP 14810-180 <br />
-                        E-mail: <a href-"mailto:feraesp@feraesp.org.br">feraesp@feraesp.org.br</a>                      
+                        Museu do Trabalhador do Campo<br />
+                        www.museudotrabalhadordocampo.org.br<br />
+                        E-mail: <a href="mailto:contato@museudotrabalhadordocampo.org.br">contato@museudotrabalhadordocampo.org.br</a><br />
+                        Skype: museudotrabalhadordocampo<br />
+                        Facebook: <a href="http://www.facebook.com/museudotrabalhadordocampo" target="_blank">facebook.com/museudotrabalhadordocampo</a><br />
                     </address>
                     <!-- END CONTACTS -->                                    
 
                     <!-- BEGIN SUBSCRIBE -->                                    
-                    <h2>Boletim MTC</h2>  
-                    <p>Se inscreva em nosso boletim MTC!</p>
+                    <h2>Receba informações</h2>  
+                    <p>Deixe seu e-mail para receber as novidades do Museu do Trabalhador do Campo.</p>
                     <form action="#" class="form-subscribe">
                         <div class="input-group input-large">
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name="email">
                             <span class="input-group-btn">
                                 <button class="btn theme-btn" type="button">INSCREVER</button>
                             </span>
@@ -280,36 +287,37 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="col-md-4 col-sm-4">
                     <!-- BEGIN TWITTER BLOCK -->                                                    
                     <h2>Últimos Tweets</h2>
+ 
                     <dl class="dl-horizontal f-twitter">
                         <dt><i class="fa fa-twitter"></i></dt>
                         <dd>
-                            <a href="#">@museumtc</a>
-                            Notícia na revista Veja
+                            <a href="#">@joaocatule</a>
+                            Agora sim o trabalhador do campo tem um lugar para guardar e espalhar sua história.<br />
                             <span>3 minutos atrás</span>
                         </dd>
                     </dl>   
                     <dl class="dl-horizontal f-twitter">
                         <dt><i class="fa fa-twitter"></i></dt>
                         <dd>
-                            <a href="#">@museumtc</a>
-                            Notícia na revista Veja
-                            <span>3 minutos atrás</span>
+                            <a href="#">@mariaaparecida</a>
+                            Este museu na internet vai me ajudar a preparar as aulas para meus alunos sobre sua história desconhecida.<br />
+                            <span>10 minutos atrás</span>
                         </dd>
                     </dl> 
                     <dl class="dl-horizontal f-twitter">
                         <dt><i class="fa fa-twitter"></i></dt>
                         <dd>
-                            <a href="#">@museumtc</a>
-                            Notícia na revista Veja
-                            <span>3 minutos atrás</span>
+                            <a href="#">@joselio</a>
+                            Um espaço na internet para a gente aprender e ensinar ao mesmo tempo. Boa!<br />
+                            <span>23 minutos atrás</span>
                         </dd>
                     </dl> 
                     <dl class="dl-horizontal f-twitter">
                         <dt><i class="fa fa-twitter"></i></dt>
                         <dd>
-                            <a href="#">@museumtc</a>
-                            Notícia na revista Veja
-                            <span>3 minutos atrás</span>
+                            <a href="#">@anisio</a>
+                            Fiquei com vontade de gravar e mandar minha história também. Como faço???<br />
+                            <span>40 minutos atrás</span>
                         </dd>
                     </dl>                  
                                         
@@ -326,7 +334,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="row">
                 <div class="col-md-8 col-sm-8">
                     <p>
-                        <span class="margin-right-10">{{ "now"|date("Y") }} © MTC - Todos direitos reservados - Desenvolvido por Bernardo Alves</span>
+                        <span class="margin-right-10">{{ "now"|date("Y") }} © MTC - Desenvolvido pelo Instituto Ideall</span>
                     </p>
                 </div>
                 <div class="col-md-4 col-sm-4">

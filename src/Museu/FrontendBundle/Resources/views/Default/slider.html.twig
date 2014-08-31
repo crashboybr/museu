@@ -1,54 +1,3 @@
-{#<!-- BEGIN REVOLUTION SLIDER -->    
-        <div class="fullwidthbanner-container slider-main">
-            <div class="fullwidthabnner">
-                <ul id="revolutionul" style="display:none;"> 
-                        {% for banner in banners %}
-                            
-                                 
-                        <!-- THE FIRST SLIDE -->
-                        <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="/front/assets/img/sliders/revolution/thumbs/thumb2.jpg">
-                            <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                            <img src="/front/assets/img/sliders/revolution/bg4.jpg" alt="">
-                            
-                            <div class="caption lft slide_title slide_item_left"
-                                 data-x="0"
-                                 data-y="105"
-                                 data-speed="400"
-                                 data-start="1500"
-                                 data-easing="easeOutExpo">
-                                 Museu MTC 
-                            </div>
-                            
-                            <div class="caption lft slide_desc slide_item_left"
-                                 data-x="5"
-                                 data-y="180"
-                                 data-speed="400"
-                                 data-start="2500"
-                                 data-easing="easeOutExpo">
-                                 {{ banner.title }}
-                            </div>
-                                                 
-                            <div class="caption lfb"
-                                 data-x="640" 
-                                 data-y="55" 
-                                 data-speed="700" 
-                                 data-start="1000" 
-                                 data-easing="easeOutExpo"  >
-                                 <img src="{{ asset(banner.pic) }}" alt="Image 1">
-                            </div>
-                        </li>
-                        {% endfor %}
-
-                        
-                </ul>
-                <div class="tp-bannertimer tp-bottom"></div>
-            </div>
-        </div>
-        <!-- END REVOLUTION SLIDER -->
-
-{% for banner in banners %}
-	<img src="{{ asset(banner.pic) }}" style="width:200px; height: 300px;" /><br />
-{% endfor %}#}
 <style type="text/css">
 
 .sliderContainer {
@@ -75,30 +24,32 @@
 }
 .sliderContainer #slider li img {
     width:100%;
-    padding: 4px; 
+    padding: 1px; 
 }
 .sliderContainer a.rslides_nav {
     position:absolute;
     display:block;
     top:50%;
     margin-top:190px;
-    width:27px;
-    height:73px;
+    width:105px;
+    height:123px;
     z-index:50;
 }
 .sliderContainer a.rslides_nav span {
     display:none;
 }
 .sliderContainer a.rslides_nav.prev {
-    background:url(/bundles/spafrontend/images/home-slider-anterior.png) 5px 0 no-repeat;
+    background:url(/images/prev-button.png) 5px 1px no-repeat;
     left:7px;
+    background-size: 90px;
 }
 .sliderContainer a.rslides_nav.prev:hover {
     background-position:0 0;
 }
 .sliderContainer a.rslides_nav.next {
-    background:url(/bundles/spafrontend/images/home-slider-proximo.png) 5px 0 no-repeat;
+    background:url(/images/next-button.png) 5px 1px no-repeat;
     right:7px;
+    background-size: 90px;
 }
 .sliderContainer a.rslides_nav.next:hover {
     background-position:10px 0;
@@ -119,15 +70,29 @@
                     <div style="width: 50%; float: left; min-height: 540px;">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
                             <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
+                            <h4 style="margin-top: 10px; text-align: center;">{{ banner.subtitle }}</h4>
                     </div>
                 {% else %}
 
                     <div style="width: 50%; float: left; min-height: 540px;">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
                             <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
+                            <h4 style="margin-top: 10px; text-align: center;">{{ banner.subtitle }}</h4>
                     </div>
                 </li>
                 {% endif %}
+
+                {% if loop.index is not divisibleby(2) and loop.last %}
+                
+
+                    <div style="width: 50%; float: left; min-height: 540px;">
+                            <img src="{{ asset(banners.0.pic) }}" style="width: 640px; height: 460px;">
+                            <h1 style="margin-top: 10px; text-align: center;">{{ banners.0.title }}</h1>
+                            <h4 style="margin-top: 10px; text-align: center;">{{ banners.0.subtitle }}</h4>
+                    </div>
+                    </li>
+                {% endif %}
+
             {% endfor %}
             
         </ul>

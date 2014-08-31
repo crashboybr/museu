@@ -128,4 +128,27 @@ class Video
     {
         return $this->channel;
     }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Video
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
 }
