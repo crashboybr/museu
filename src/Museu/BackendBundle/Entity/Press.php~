@@ -3,12 +3,17 @@
 namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Press
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Press
 {
@@ -38,6 +43,13 @@ class Press
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="midia", type="string", length=255)
      */
     private $midia;
@@ -62,6 +74,137 @@ class Press
      * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pdf", type="string", length=255, nullable=true)
+     */
+    private $pdf;
+
+    /* begin upload file */
+    /**
+     * @Assert\File(
+     *      maxSize="4000000",
+     *      notFoundMessage = "Nao foi possivel achar o arquivo"
+     * )
+     */
+    private $file;
+
+    private $temp;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+
+        // check if we have an old image path
+        if (isset($this->pdf)) {
+            // store the old name to delete after the update
+            $this->temp = $this->pdf;
+            $this->pdf = null;
+        } else {
+            $this->pdf = 'initial';
+        }
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        //var_dump($this->getFile());exit;
+        if (null !== $this->getFile()) {
+            // do whatever you want to generate a unique name
+            $filename = "image_" . uniqid();
+            $this->pdf = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        //var_dump($this->getFile());exit;
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getFile()->move($this->getUploadRootDir(), $this->pdf);
+     
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+        $this->file = null;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        //var_dump($this->getAbsolutePath());exit;
+        if ($file = $this->getAbsolutePath()) {
+            //unlink($file);
+        }
+    }
+
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+
+    public function getAbsolutePath()
+    {
+        return null === $this->pdf
+            ? null
+            : $this->getUploadRootDir().'/';
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->pdf
+            ? null
+            : $this->getUploadDir().'/'.$this->pdf;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesnt screw up
+        // when displaying uploaded doc/image in the view.
+        return 'upload/press';
+    } 
+
+    /* end upload file */
 
 
     /**
@@ -210,5 +353,51 @@ class Press
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Press
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set pic
+     *
+     * @param string $pic
+     * @return Press
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+    
+        return $this;
+    }
+
+    /**
+     * Get pic
+     *
+     * @return string 
+     */
+    public function getPic()
+    {
+        return $this->pic;
     }
 }

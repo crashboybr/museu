@@ -15,18 +15,20 @@ class PressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url')
+            ->add('url', 'text', array('required' => false))
             ->add('title')
+            ->add('description')
             ->add('midia')
             ->add('date', 'date', array(
     'widget' => 'single_text',
     // this is actually the default format for single_text
-    'format' => 'yyyy-MM-dd'))
+    'format' => 'yyyy-MM-dd', 'required' => false))
             ->add('type', 'choice', array(
                 'choices' => array('release' => 'Release', 'noticia' => 'Notícia', 'artigo' => 'Artigos'),
                 'label' => 'Tipo'
             ))
             ->add('author')
+            ->add('file', 'file', array('required' => false))
         ;
     }
     

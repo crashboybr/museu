@@ -18,13 +18,13 @@
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 {% endblock %}
 {% block contato_active%}active{% endblock %}
-{% block breadcrumb %}Contato{% endblock %}
+{% block breadcrumb %}Fale com a Gente{% endblock %}
 {% block body -%}
 
             <div class="row">
                 <div class="col-md-9 col-sm-9">
                     <h2>Envie seu email</h2>
-                    <p>Preencha os campos abaixo para deixar sua mensagem para nós.</p>
+                    <p>Preencha os campos abaixo e envie sua mensagem.</p>
                     <div class="space20"></div>
                     <!-- BEGIN FORM-->
                     <form action="#" class="horizontal-form margin-bottom-40" role="form">
@@ -53,34 +53,25 @@
 
                 <div class="col-md-3 col-sm-3">
                     <h2>Nosso endereço</h2>
+                    
+                    <strong>Museu do Trabalhador do Campo</strong>
+
                     <address>
-                        <strong>Loop, Inc.</strong><br>
-                        795 Park Ave, Suite 120<br>
-                        San Francisco, CA 94107<br>
-                        <abbr title="Phone">P:</abbr> (234) 145-1810
-                    </address>
-                    <address>
+                        www.museudotrabalhadordocampo.org.br<br />
                         <strong>Email</strong><br>
-                        <a href="mailto:#">info@email.com</a><br>
-                        <a href="mailto:#">support@example.com</a>
+                        <a href="mailto:contato@museudotrabalhadordocampo.org.br">contato@museudotrabalhadordocampo.org.br</a><br>
                     </address>
                     <ul class="social-icons margin-bottom-10">
-                        <li><a href="#" data-original-title="facebook" class="facebook"></a></li>
-                        <li><a href="#" data-original-title="github" class="github"></a></li>
-                        <li><a href="#" data-original-title="Goole Plus" class="googleplus"></a></li>
-                        <li><a href="#" data-original-title="linkedin" class="linkedin"></a></li>
-                        <li><a href="#" data-original-title="rss" class="rss"></a></li>
+                        <li><a href="http://www.facebook.com/museudotrabalhadordocampo" target="_blank" data-original-title="facebook" class="facebook"></a></li>
+                        <li><a href="skype:museudotrabalhadordocampo?call" data-original-title="skype" class="skype"></a>
+                        <li><a href="http://www.youtube.com/museudotrabalhadordocampo" target="_blank" data-original-title="youtube" class="youtube"></a></li>
                     </ul>
 
                     <div class="clearfix margin-bottom-30"></div>
 
-                    <h2>About Us</h2>
-                    <p>Sediam nonummy nibh euismod tation ullamcorper suscipit</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-check"></i> Officia deserunt molliti</li>
-                        <li><i class="fa fa-check"></i> Consectetur adipiscing </li>
-                        <li><i class="fa fa-check"></i> Deserunt fpicia</li>
-                    </ul>                                
+                    <h2>Sobre Nós</h2>
+                    <p><a href="{{ path('museu_oque') }}">Sobre o MTC</a></p>
+                                                   
                 </div>            
             </div>
 

@@ -266,5 +266,12 @@ class DefaultController extends Controller
     {
         
     }
+    public function newsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $noticias = $em->getRepository('MuseuBackendBundle:Press')->findBy(array('type' => 'noticia'));
+       
+        return $this->render('MuseuFrontendBundle:Default:news.html.twig', array('noticias' => $noticias));
+    }
 }
