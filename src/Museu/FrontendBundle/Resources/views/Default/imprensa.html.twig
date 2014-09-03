@@ -11,10 +11,10 @@
                     <h3>Notícias</h3>
                     {% for noticia in noticias %}
                     <p>
-                        <a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a><br />
-                        {{ noticia.midia }} - {{ noticia.date|date("d/m/Y") }}<br />
+                        <a href="{{ noticia.url }}" target="_blank" style="font-size:16px;">{{ noticia.title }}</a><br />
+                        <span style="font-style: italic;">{{ noticia.midia }} - {{ noticia.date|date("d/m/Y") }}</span><br />
                         {{ noticia.description }} <br />
-                        <a href="{{ noticia.url }}" target="_blank">Continuar lendo</a>
+                        <a href="{{ noticia.url }}" target="_blank">Leia mais</a>
                      </p>
                      
                      {% endfor %}

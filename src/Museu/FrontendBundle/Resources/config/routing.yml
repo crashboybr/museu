@@ -35,6 +35,18 @@ museu_livros:
     pattern:   /publicacoes/livros
     defaults:  { _controller: MuseuFrontendBundle:Default:books }
 
+museu_ebooks:
+    pattern:   /publicacoes/ebooks
+    defaults:  { _controller: MuseuFrontendBundle:Default:ebooks }
+
+museu_videos:
+    pattern:   /publicacoes/videos
+    defaults:  { _controller: MuseuFrontendBundle:Default:videosAcervo }
+
+museu_music:
+    pattern:   /publicacoes/musicas
+    defaults:  { _controller: MuseuFrontendBundle:Default:music }
+
 museu_newsletter:
     pattern:   /newsletter
     defaults:  { _controller: MuseuFrontendBundle:Default:newsletter }

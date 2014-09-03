@@ -1,7 +1,7 @@
 {% extends '::front.html.twig' %}
 
-{% block breadcrumb %}Publicações - Teses{% endblock %}
 
+{% block breadcrumb %}Publicações - Livros{% endblock %}
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
     <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
@@ -22,15 +22,20 @@
 
             <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
-                    {% for tese in teses %}
+                    {% for book in ebooks %}
                                 
-                        <div class="row" style="margin-top: 20px;">
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-4 col-sm-4">
+                                <img src="{{ asset(book.pic) }}" alt="" style="width: 180px;" class="img-responsive">
+                            </div>
                             <div class="col-md-8 col-sm-8">
-                                <h2><a href="blog_item.html">{{ tese.title }}</a></h2>
+                                <h2>{{ book.title }}</h2>
                                 <ul class="blog-info">
-                                    <li><i class="fa fa-pencil"></i> {{ tese.author }}</li>
+                                    {% if book.publisher %}<li><i class="fa fa-book"></i> {{ book.publisher }}</li>{% endif %}
+                                    <li><i class="fa fa-pencil"></i> {{ book.author }}</li>
                                 </ul>
-                                <a class="more" target="_blank" href="{{ asset(tese.pdf) }}">Ler <i class="icon-angle-right"></i></a>
+                                <p>{{ book.description }}</p>
+                                {% if book.url %}<a class="more" target="_blank" href="{{ book.url }}">Ler mais<i class="icon-angle-right"></i></a>{% endif %}
                             </div>
                         </div>
                         <hr class="blog-post-sep">
@@ -47,7 +52,9 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">Next</a></li>
                         </ul>
-                    </div>                
+                    </div>     
+
+                    {{ render(controller('MuseuFrontendBundle:Default:news')) }}           
                 </div>
                 <!-- END LEFT SIDEBAR -->
 

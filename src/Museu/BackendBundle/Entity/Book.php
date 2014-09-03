@@ -30,28 +30,28 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pic", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255, nullable=true)
      */
     private $pic;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -65,9 +65,16 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="publisher", type="string", length=255)
+     * @ORM\Column(name="publisher", type="string", length=255, nullable=true)
      */
     private $publisher;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
 
     /* begin upload file */
     /**
@@ -145,7 +152,7 @@ class Book
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 
@@ -165,7 +172,7 @@ class Book
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/';
     }
 
     public function getWebPath()
@@ -352,5 +359,28 @@ class Book
         {
             $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
         }
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Book
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

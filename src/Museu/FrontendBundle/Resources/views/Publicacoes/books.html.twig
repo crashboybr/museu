@@ -24,18 +24,18 @@
                 <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
                     {% for book in books %}
                                 
-                        <div class="row">
+                        <div class="row" style="margin-top: 10px;">
                             <div class="col-md-4 col-sm-4">
-                                <img src="{{ asset(book.pic) }}" alt="" class="img-responsive">
+                                <img src="{{ asset(book.pic) }}" alt="" style="width: 180px;" class="img-responsive">
                             </div>
                             <div class="col-md-8 col-sm-8">
-                                <h2><a href="blog_item.html">{{ book.title }}</a></h2>
+                                <h2>{{ book.title }}</h2>
                                 <ul class="blog-info">
-                                    <li><i class="fa fa-book"></i> {{ book.publisher }}</li>
+                                    {% if book.publisher %}<li><i class="fa fa-book"></i> {{ book.publisher }}</li>{% endif %}
                                     <li><i class="fa fa-pencil"></i> {{ book.author }}</li>
                                 </ul>
                                 <p>{{ book.description }}</p>
-                                <a class="more" href="blog_item.html">Ler mais<i class="icon-angle-right"></i></a>
+                                {% if book.url %}<a class="more" target="_blank" href="{{ book.url }}">Ler mais<i class="icon-angle-right"></i></a>{% endif %}
                             </div>
                         </div>
                         <hr class="blog-post-sep">
@@ -52,25 +52,14 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">Next</a></li>
                         </ul>
-                    </div>                
+                    </div>     
+
+                    {{ render(controller('MuseuFrontendBundle:Default:news')) }}           
                 </div>
                 <!-- END LEFT SIDEBAR -->
 
                 <!-- BEGIN RIGHT SIDEBAR -->            
-                <div class="col-md-3 col-sm-3 blog-sidebar">
-                    <!-- CATEGORIES START -->
-                    <h2>Categorias</h2>
-                    <ul class="nav sidebar-categories margin-bottom-40">
-                        <li><a href="{{ path('museu_livros') }}">Livros ({{ total_books }})</a></li>
-                        <li><a href="#">eBooks ({{ total_ebooks }})</a></li>
-                        <li class=""><a href="#">Teses ({{ total_teses }})</a></li>
-                        <li><a href="#">TCCs ({{ total_tccs }})</a></li>
-                        <li><a href="#">Artigos Acadêmicos ({{ total_artigos }})</a></li>
-                    </ul>
-                    <!-- CATEGORIES END -->
-
-                    
-                </div>
+                {% include 'MuseuFrontendBundle:Publicacoes:categories.html.twig' %}
                 <!-- END RIGHT SIDEBAR -->   
             </div>
 

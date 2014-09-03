@@ -29,42 +29,42 @@ class Press
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="midia", type="string", length=255)
+     * @ORM\Column(name="midia", type="string", length=255, nullable=true)
      */
     private $midia;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
@@ -122,7 +122,7 @@ class Press
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_" . uniqid();
+            $filename = "pdf_" . uniqid();
             $this->pdf = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -379,25 +379,25 @@ class Press
     }
 
     /**
-     * Set pic
+     * Set pdf
      *
-     * @param string $pic
+     * @param string $pdf
      * @return Press
      */
-    public function setPic($pic)
+    public function setPdf($pdf)
     {
-        $this->pic = $pic;
+        $this->pdf = $pdf;
     
         return $this;
     }
 
     /**
-     * Get pic
+     * Get pdf
      *
      * @return string 
      */
-    public function getPic()
+    public function getPdf()
     {
-        return $this->pic;
+        return $this->pdf;
     }
 }

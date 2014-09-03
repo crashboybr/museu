@@ -1,7 +1,7 @@
 {% extends '::front.html.twig' %}
 
-{% block breadcrumb %}Publicações - Teses{% endblock %}
 
+{% block breadcrumb %}Publicações - Vídeos{% endblock %}
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
     <link href="/front/assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />               
@@ -22,15 +22,19 @@
 
             <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
-                    {% for tese in teses %}
+                    {% for video in videos %}
                                 
-                        <div class="row" style="margin-top: 20px;">
-                            <div class="col-md-8 col-sm-8">
-                                <h2><a href="blog_item.html">{{ tese.title }}</a></h2>
-                                <ul class="blog-info">
-                                    <li><i class="fa fa-pencil"></i> {{ tese.author }}</li>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12 col-sm-8">
+                                <h2>{{ video.title }}</h2>
+                                <ul class="">
+                                    {% if video.director %}<li>Diretor: {{ video.director }}</li>{% endif %}
+                                    {% if video.composer %}<li>Compositor: {{ video.composer }}</li>{% endif %}
+                                    {% if video.interpret %}<li>Intérprete: {{ video.interpret }}</li>{% endif %}
+                                    {% if video.producer %}<li>Produção: {{ video.producer }}</li>{% endif %}
+                                    
                                 </ul>
-                                <a class="more" target="_blank" href="{{ asset(tese.pdf) }}">Ler <i class="icon-angle-right"></i></a>
+                                {% if video.url %}<a class="more" target="_blank" href="{{ video.url }}">Assista agora<i class="icon-angle-right"></i></a>{% endif %}
                             </div>
                         </div>
                         <hr class="blog-post-sep">
@@ -47,12 +51,14 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">Next</a></li>
                         </ul>
-                    </div>                
+                    </div>     
+
+                    {{ render(controller('MuseuFrontendBundle:Default:news')) }}           
                 </div>
                 <!-- END LEFT SIDEBAR -->
 
                 <!-- BEGIN RIGHT SIDEBAR -->            
-                {% include 'MuseuFrontendBundle:Publicacoes:categories.html.twig' %}
+               {% include 'MuseuFrontendBundle:Publicacoes:categories.html.twig' %}
                 <!-- END RIGHT SIDEBAR -->   
             </div>
 

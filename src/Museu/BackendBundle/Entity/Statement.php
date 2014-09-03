@@ -36,14 +36,14 @@ class Statement
     /**
      * @var string
      *
-     * @ORM\Column(name="function", type="string", length=255)
+     * @ORM\Column(name="function", type="string", length=255, nullable=true)
      */
     private $function;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $text;
 
@@ -53,6 +53,13 @@ class Statement
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
 
     /**
      * @var string
@@ -134,7 +141,7 @@ class Statement
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 
@@ -154,7 +161,7 @@ class Statement
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/';
     }
 
     public function getWebPath()
@@ -303,5 +310,28 @@ class Statement
     public function getPic()
     {
         return $this->pic;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Statement
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

@@ -18,9 +18,21 @@ MuseuBackendBundle_livros:
         resource: "@MuseuBackendBundle/Resources/config/routing/book.yml"
         prefix:   /livros
 
+MuseuBackendBundle_ebooks:
+        resource: "@MuseuBackendBundle/Resources/config/routing/ebook.yml"
+        prefix:   /ebooks
+
 MuseuBackendBundle_acervo:
         resource: "@MuseuBackendBundle/Resources/config/routing/collection.yml"
         prefix:   /acervo
+
+MuseuBackendBundle_music:
+        resource: "@MuseuBackendBundle/Resources/config/routing/music.yml"
+        prefix:   /music
+
+MuseuBackendBundle_videoacervo:
+        resource: "@MuseuBackendBundle/Resources/config/routing/videoacervo.yml"
+        prefix:   /videoacervo
 
 museu_backend_upload:
     pattern:  /upload

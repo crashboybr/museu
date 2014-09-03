@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BookType extends AbstractType
+class eBookType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -30,7 +30,7 @@ class BookType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Museu\BackendBundle\Entity\Book'
+            'data_class' => 'Museu\BackendBundle\Entity\eBook'
         ));
     }
 
@@ -39,6 +39,6 @@ class BookType extends AbstractType
      */
     public function getName()
     {
-        return 'museu_backendbundle_book';
+        return 'museu_backendbundle_eBook';
     }
 }

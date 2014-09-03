@@ -5,7 +5,7 @@
   function changeDepo(depo, pic, name, func) {
     $("#depo").show();
     $("#depoPic").attr('src', pic);
-    $("#depoText").text(depo);
+    $("#depoText").html('<div style="text-align:center;"><iframe width="660" height="415" src="' + depo +'" frameborder="0" allowfullscreen></iframe></div>');
     $("#depoName").text(name);
     $("#depoFunction").text(func); 
   }
@@ -43,7 +43,7 @@
                                     {% for depo in statements %}
                                     <li>
                                         <em>
-                                            <a href="javascript:void(0)" onclick='changeDepo("{{ depo.text }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'><img src="{{ asset(depo.pic) }}" style="width: 111px; height: 88px;"alt="" /></a>
+                                            <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'><img src="{{ asset(depo.pic) }}" style="width: 111px; height: 88px;"alt="" /></a>
                                             <a href="{{ asset(depo.pic) }}" class="fancybox-button" title="{{ depo.name }} - {{ depo.function }}" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
                                         </em>
                                     </li>
@@ -60,7 +60,10 @@
                                     <!-- Carousel items -->
                                     <div class="carousel-inner">
                                         <div class="active item">
-                                            <span class="testimonials-slide" id="depoText"></span>
+                                            <span class="testimonials-slide" id="depoText">
+                                              
+
+                                            </span>
                                             <div class="carousel-info">
                                                 <img id="depoPic" class="pull-left" src="" alt="" />
                                                 <div class="pull-left">

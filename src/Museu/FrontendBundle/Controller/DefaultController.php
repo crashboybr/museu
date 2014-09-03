@@ -40,75 +40,142 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Default:imprensa.html.twig', array('noticias' => $noticias, 'releases' => $releases, 'artigos' => $artigos));
     }
 
-    public function publicationsAction()
-    {
+
+    public function retrievePublishInfo() {
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
         $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
+        $ebooks = $em->getRepository('MuseuBackendBundle:eBook')->findAll();
+        $videos = $em->getRepository('MuseuBackendBundle:VideoAcervo')->findAll();
+        $musics = $em->getRepository('MuseuBackendBundle:Music')->findAll();
+
         $total_books = count($books);
-        $total_ebooks = 0;
+        $total_ebooks = count($ebooks);
         $total_teses = count($teses);
+        $total_videos = count($videos);
         $total_artigos = 0;
         $total_tccs = 0;
 
+        $data['books'] = $books;
+        $data['teses'] = $teses;
+        $data['ebooks'] = $ebooks;
+        $data['videos'] = $videos;
+        $data['musics'] = $musics;
+        $data['total_books'] = count($books);
+        $data['total_teses'] = count($teses);
+        $data['total_ebooks'] = count($ebooks);
+        $data['total_musics'] = count($musics);
+        $data['total_videos'] = count($videos);
+        $data['total_artigos'] = 0;
+        $data['total_tccs'] = 0;
+
+        return $data;
+    
+    }
+
+    public function publicationsAction()
+    {
+        $data = $this->retrievePublishInfo();
+
         return $this->render('MuseuFrontendBundle:Publicacoes:publications.html.twig',
          array(
-            'total_books' => $total_books,
-            'total_ebooks' => $total_ebooks,
-            'total_teses' => $total_teses,
-            'total_artigos' => $total_artigos,
-            'total_tccs' => $total_tccs,
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
         ));
     }
 
     public function booksAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
-        $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
-
-        $total_books = count($books);
-        $total_ebooks = 0;
-        $total_teses = count($teses);
-        $total_artigos = 0;
-        $total_tccs = 0;
+        $data = $this->retrievePublishInfo();
 
         return $this->render('MuseuFrontendBundle:Publicacoes:books.html.twig',
          array(
-            'books' => $books,
-            'total_books' => $total_books,
-            'total_ebooks' => $total_ebooks,
-            'total_teses' => $total_teses,
-            'total_artigos' => $total_artigos,
-            'total_tccs' => $total_tccs,
+            'books' => $data['books'],
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
+        ));
+    }
+
+    public function ebooksAction()
+    {
+        $data = $this->retrievePublishInfo();
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:ebooks.html.twig',
+         array(
+            'ebooks' => $data['ebooks'],
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
         ));
 
-        return $this->render('MuseuFrontendBundle:Publicacoes:books.html.twig', array('books' => $books));
     }
+
+    public function videosAcervoAction()
+    {
+        $data = $this->retrievePublishInfo();
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:videos.html.twig',
+         array(
+            'videos' => $data['videos'],
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
+        ));
+
+    }
+
+    public function musicAction()
+    {
+        $data = $this->retrievePublishInfo();
+
+        return $this->render('MuseuFrontendBundle:Publicacoes:music.html.twig',
+         array(
+            'musics' => $data['musics'],
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
+        ));
+
+    }
+
 
     public function tesesAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $teses = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
-        $books = $em->getRepository('MuseuBackendBundle:Book')->findAll();
-
-        $total_teses = count($teses);
-        $total_ebooks = 0;
-        $total_books = count($books);
-        $total_artigos = 0;
-        $total_tccs = 0;
+        $data = $this->retrievePublishInfo();
 
         return $this->render('MuseuFrontendBundle:Publicacoes:teses.html.twig',
          array(
-            'teses' => $teses,
-            'total_books' => $total_books,
-            'total_ebooks' => $total_ebooks,
-            'total_teses' => $total_teses,
-            'total_artigos' => $total_artigos,
-            'total_tccs' => $total_tccs,
+            'teses' => $data['teses'],
+            'total_books' => $data['total_books'],
+            'total_ebooks' => $data['total_ebooks'],
+            'total_teses' => $data['total_teses'],
+            'total_artigos' => $data['total_artigos'],
+            'total_tccs' => $data['total_tccs'],
+            'total_videos' => $data['total_videos'],
+            'total_musics' => $data['total_musics'],
         ));
 
         

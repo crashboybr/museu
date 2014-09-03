@@ -10,13 +10,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Book
+ * eBook
  *
- * @ORM\Table(name="book")
+ * @ORM\Table(name="ebook")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Book
+class eBook
 {
     /**
      * @var integer
@@ -30,28 +30,28 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pic", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255, nullable=true)
      */
     private $pic;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -65,14 +65,14 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="publisher", type="string", length=255)
+     * @ORM\Column(name="publisher", type="string", length=255, nullable=true)
      */
     private $publisher;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
@@ -115,7 +115,7 @@ class Book
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = "image_book_" . uniqid();
+            $filename = "image_eBook_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -193,7 +193,7 @@ class Book
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'upload/books';
+        return 'upload/ebooks';
     } 
 
     /* end upload file */
@@ -213,7 +213,7 @@ class Book
      * Set title
      *
      * @param string $title
-     * @return Book
+     * @return eBook
      */
     public function setTitle($title)
     {
@@ -236,7 +236,7 @@ class Book
      * Set pic
      *
      * @param string $pic
-     * @return Book
+     * @return eBook
      */
     public function setPic($pic)
     {
@@ -259,7 +259,7 @@ class Book
      * Set author
      *
      * @param string $author
-     * @return Book
+     * @return eBook
      */
     public function setAuthor($author)
     {
@@ -282,7 +282,7 @@ class Book
      * Set description
      *
      * @param string $description
-     * @return Book
+     * @return eBook
      */
     public function setDescription($description)
     {
@@ -305,7 +305,7 @@ class Book
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Book
+     * @return ƒ
      */
     public function setCreatedAt($createdAt)
     {
@@ -328,7 +328,7 @@ class Book
      * Set publisher
      *
      * @param string $publisher
-     * @return Book
+     * @return eBook
      */
     public function setPublisher($publisher)
     {
@@ -359,5 +359,28 @@ class Book
         {
             $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
         }
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return eBook
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

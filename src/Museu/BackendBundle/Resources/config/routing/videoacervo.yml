@@ -1,0 +1,30 @@
+videoacervo:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:index" }
+
+videoacervo_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:show" }
+
+videoacervo_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:new" }
+
+videoacervo_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:create" }
+    requirements: { _method: post }
+
+videoacervo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:edit" }
+
+videoacervo_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:update" }
+    requirements: { _method: post|put }
+
+videoacervo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:VideoAcervo:delete" }
+    requirements: { _method: post|delete }

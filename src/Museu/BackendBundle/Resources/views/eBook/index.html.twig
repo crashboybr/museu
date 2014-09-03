@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>eBooks</h1>
+
+
+    <table class="table table-striped table-bordered table-advance table-hover">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Capa</th>
+                <th>Autor</th>
+                <th>Descrição</th>
+                <th>Editora</th>
+                <th style="width:200px;">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+            <tr>
+                <td>{{ entity.title }}</td>
+                <td class="hidden-xs"><img src="{{ asset(entity.pic) }}" style="width: 150px;" /></td>
+                <td style="">{{ entity.author }}</td>
+                <td style="width: 300px;">{{ entity.description }}</td>
+                <td style="">{{ entity.publisher }}</td>
+                
+          
+                <td>
+                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('livros_show', { 'id': entity.id }) }}">
+                         Ver
+                    </a>
+                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('livros_edit', { 'id': entity.id }) }}">
+                         Editar
+                    </a>
+                    <form style="float: left;" name="form" method="post" action="{{ path('livros_delete', { 'id': entity.id }) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" id="form_submit" name="form[submit]" class="btn default btn-xs green-stripe">Deletar</button>
+                    </form>
+                
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>    
+    </table>
+
+    <a href="{{ path('livros_new') }}">
+        <button type="button" class="btn btn-default">Criar Nova</button>
+    </a>
+
+    {% endblock %}
