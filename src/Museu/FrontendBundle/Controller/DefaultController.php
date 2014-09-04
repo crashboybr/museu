@@ -319,13 +319,13 @@ class DefaultController extends Controller
     public function acervoAction($option)
     {    
         $em = $this->getDoctrine()->getManager();
-        if ($option == 'teses') 
-        {
-            $acervos = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
+        switch ($option) {
+            case 'videos':
+                $acervos = $em->getRepository('MuseuBackendBundle:Video')->findAll();
+            default:
+                $acervos = $em->getRepository('MuseuBackendBundle:Tese')->findAll();
         }
-        else {
-            $acervos = array();
-        }
+        
         return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('acervos' => $acervos, 'option' => ucfirst($option)));
     }
 
