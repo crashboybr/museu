@@ -14,8 +14,16 @@ class AcervoController extends Controller
         $em = $this->getDoctrine()->getManager();
         if ($option == 'videos') $repo = 'VideoAcervo';
         elseif ($option == 'musicas') $repo = 'Music';
+        else $repo = 'Collection';
 
-        $acervos = $em->getRepository("MuseuBackendBundle:{$repo}")->findAll();
+        if ($repo == 'Collection') {
+            if ($option == 'jornais') $category = 'jornal';
+            elseif ($option == 'revistas') $category = 'jornal';
+            $acervos = $em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => $option));
+        } else {
+            $acervos = $em->getRepository("MuseuBackendBundle:{$repo}")->findAll();    
+        }
+        
 
         $page_number = $this->get('request')->get('pagina') ? $this->get('request')->get('pagina') : 1; 
         $paginator  = $this->get('knp_paginator');

@@ -13,7 +13,11 @@
     </div>            
 
     <div class="col-md-9">
+    {% if option == 'musica' or option == 'videos' %}
         {% include 'MuseuFrontendBundle:Acervo:' ~ option ~ '.html.twig' %}
+    {% else %}
+        {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
+    {% endif %}
 
         {{ knp_pagination_render(acervos) }}
 

@@ -5,12 +5,12 @@ namespace Museu\BackendBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Music
+ * VideoAcervo
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Music
+class VideoAcervo
 {
     /**
      * @var integer
@@ -31,6 +31,13 @@ class Music
     /**
      * @var string
      *
+     * @ORM\Column(name="director", type="string", length=255, nullable=true)
+     */
+    private $director;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="composer", type="string", length=255, nullable=true)
      */
     private $composer;
@@ -41,6 +48,13 @@ class Music
      * @ORM\Column(name="interpret", type="string", length=255, nullable=true)
      */
     private $interpret;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="producer", type="string", length=255, nullable=true)
+     */
+    private $producer;
 
     /**
      * @var string
@@ -64,7 +78,7 @@ class Music
      * Set title
      *
      * @param string $title
-     * @return Music
+     * @return VideoAcervo
      */
     public function setTitle($title)
     {
@@ -84,10 +98,33 @@ class Music
     }
 
     /**
+     * Set director
+     *
+     * @param string $director
+     * @return VideoAcervo
+     */
+    public function setDirector($director)
+    {
+        $this->director = $director;
+    
+        return $this;
+    }
+
+    /**
+     * Get director
+     *
+     * @return string 
+     */
+    public function getDirector()
+    {
+        return $this->director;
+    }
+
+    /**
      * Set composer
      *
      * @param string $composer
-     * @return Music
+     * @return VideoAcervo
      */
     public function setComposer($composer)
     {
@@ -110,7 +147,7 @@ class Music
      * Set interpret
      *
      * @param string $interpret
-     * @return Music
+     * @return VideoAcervo
      */
     public function setInterpret($interpret)
     {
@@ -130,10 +167,33 @@ class Music
     }
 
     /**
+     * Set producer
+     *
+     * @param string $producer
+     * @return VideoAcervo
+     */
+    public function setProducer($producer)
+    {
+        $this->producer = $producer;
+    
+        return $this;
+    }
+
+    /**
+     * Get producer
+     *
+     * @return string 
+     */
+    public function getProducer()
+    {
+        return $this->producer;
+    }
+
+    /**
      * Set url
      *
      * @param string $url
-     * @return Music
+     * @return VideoAcervo
      */
     public function setUrl($url)
     {

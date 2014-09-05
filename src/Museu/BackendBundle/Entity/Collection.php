@@ -3,12 +3,17 @@
 namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Collection
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Collection
 {
@@ -24,100 +29,108 @@ class Collection
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="subtitle", type="string", length=255)
+     * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
      */
     private $subtitle;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="collection_type_id", type="integer")
+     * @ORM\Column(name="category", type="string", length=255, nullable=true)
      */
-    private $collectionTypeId;
+    private $category;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="author_collection_id", type="integer")
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
-    private $authorCollectionId;
+    private $author;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vehicle", type="string", length=255, nullable=true)
+     */
+    private $vehicle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="photographer", type="string", length=255)
+     * @ORM\Column(name="program", type="string", length=255, nullable=true)
      */
-    private $photographer;
+    private $program;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="midia", type="string", length=255)
+     * @ORM\Column(name="filename", type="string", length=255, nullable=true)
      */
-    private $midia;
+    private $filename;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="publisher", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
-    private $publisher;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
+    private $url;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="keyword", type="string", length=255)
+     * @ORM\Column(name="acervo_date", type="date", nullable=true)
+     */
+    private $acervo_date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="keyword", type="text", nullable=true)
      */
     private $keyword;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="facsimile", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255, nullable=true)
      */
-    private $facsimile;
+    private $pic;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="foto", type="string", length=255)
+     * @ORM\Column(name="support_pic", type="string", length=255, nullable=true)
      */
-    private $foto;
+    private $support_pic;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=255)
+     * @ORM\Column(name="support_pic_author", type="string", length=255, nullable=true)
      */
-    private $video;
+    private $support_pic_author;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
+
 
 
     /**
@@ -177,141 +190,164 @@ class Collection
     }
 
     /**
-     * Set collectionTypeId
+     * Set category
      *
-     * @param integer $collectionTypeId
+     * @param string $category
      * @return Collection
      */
-    public function setCollectionTypeId($collectionTypeId)
+    public function setCategory($category)
     {
-        $this->collectionTypeId = $collectionTypeId;
+        $this->category = $category;
     
         return $this;
     }
 
     /**
-     * Get collectionTypeId
-     *
-     * @return integer 
-     */
-    public function getCollectionTypeId()
-    {
-        return $this->collectionTypeId;
-    }
-
-    /**
-     * Set authorCollectionId
-     *
-     * @param integer $authorCollectionId
-     * @return Collection
-     */
-    public function setAuthorCollectionId($authorCollectionId)
-    {
-        $this->authorCollectionId = $authorCollectionId;
-    
-        return $this;
-    }
-
-    /**
-     * Get authorCollectionId
-     *
-     * @return integer 
-     */
-    public function getAuthorCollectionId()
-    {
-        return $this->authorCollectionId;
-    }
-
-    /**
-     * Set photographer
-     *
-     * @param string $photographer
-     * @return Collection
-     */
-    public function setPhotographer($photographer)
-    {
-        $this->photographer = $photographer;
-    
-        return $this;
-    }
-
-    /**
-     * Get photographer
+     * Get category
      *
      * @return string 
      */
-    public function getPhotographer()
+    public function getCategory()
     {
-        return $this->photographer;
+        return $this->category;
     }
 
     /**
-     * Set midia
+     * Set author
      *
-     * @param string $midia
+     * @param string $author
      * @return Collection
      */
-    public function setMidia($midia)
+    public function setAuthor($author)
     {
-        $this->midia = $midia;
+        $this->author = $author;
     
         return $this;
     }
 
     /**
-     * Get midia
+     * Get author
      *
      * @return string 
      */
-    public function getMidia()
+    public function getAuthor()
     {
-        return $this->midia;
+        return $this->author;
     }
 
     /**
-     * Set publisher
+     * Set vehicle
      *
-     * @param string $publisher
+     * @param string $vehicle
      * @return Collection
      */
-    public function setPublisher($publisher)
+    public function setVehicle($vehicle)
     {
-        $this->publisher = $publisher;
+        $this->vehicle = $vehicle;
     
         return $this;
     }
 
     /**
-     * Get publisher
+     * Get vehicle
      *
      * @return string 
      */
-    public function getPublisher()
+    public function getVehicle()
     {
-        return $this->publisher;
+        return $this->vehicle;
     }
 
     /**
-     * Set date
+     * Set program
      *
-     * @param \DateTime $date
+     * @param string $program
      * @return Collection
      */
-    public function setDate($date)
+    public function setProgram($program)
     {
-        $this->date = $date;
+        $this->program = $program;
     
         return $this;
     }
 
     /**
-     * Get date
+     * Get program
+     *
+     * @return string 
+     */
+    public function getProgram()
+    {
+        return $this->program;
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     * @return Collection
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+    
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string 
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Collection
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set acervo_date
+     *
+     * @param \DateTime $acervoDate
+     * @return Collection
+     */
+    public function setAcervoDate($acervoDate)
+    {
+        $this->acervo_date = $acervoDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get acervo_date
      *
      * @return \DateTime 
      */
-    public function getDate()
+    public function getAcervoDate()
     {
-        return $this->date;
+        return $this->acervo_date;
     }
 
     /**
@@ -338,72 +374,72 @@ class Collection
     }
 
     /**
-     * Set facsimile
+     * Set pic
      *
-     * @param string $facsimile
+     * @param string $pic
      * @return Collection
      */
-    public function setFacsimile($facsimile)
+    public function setPic($pic)
     {
-        $this->facsimile = $facsimile;
+        $this->pic = $pic;
     
         return $this;
     }
 
     /**
-     * Get facsimile
+     * Get pic
      *
      * @return string 
      */
-    public function getFacsimile()
+    public function getPic()
     {
-        return $this->facsimile;
+        return $this->pic;
     }
 
     /**
-     * Set foto
+     * Set support_pic
      *
-     * @param string $foto
+     * @param string $supportPic
      * @return Collection
      */
-    public function setFoto($foto)
+    public function setSupportPic($supportPic)
     {
-        $this->foto = $foto;
+        $this->support_pic = $supportPic;
     
         return $this;
     }
 
     /**
-     * Get foto
+     * Get support_pic
      *
      * @return string 
      */
-    public function getFoto()
+    public function getSupportPic()
     {
-        return $this->foto;
+        return $this->support_pic;
     }
 
     /**
-     * Set video
+     * Set support_pic_author
      *
-     * @param string $video
+     * @param string $supportPicAuthor
      * @return Collection
      */
-    public function setVideo($video)
+    public function setSupportPicAuthor($supportPicAuthor)
     {
-        $this->video = $video;
+        $this->support_pic_author = $supportPicAuthor;
     
         return $this;
     }
 
     /**
-     * Get video
+     * Get support_pic_author
      *
      * @return string 
      */
-    public function getVideo()
+    public function getSupportPicAuthor()
     {
-        return $this->video;
+        return $this->support_pic_author;
     }
 
     /**
@@ -451,4 +487,21 @@ class Collection
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Now we tell doctrine that before we persist or update we call the updatedTimestamps() function.
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
+
+        if($this->getCreatedAt() == null)
+        {
+            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
+        }
+    }
+
 }

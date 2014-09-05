@@ -1,0 +1,1 @@
+load data local infile 'acervo.csv' into table Collection fields terminated by ',' enclosed by '"' lines terminated by '\n' (id, title, subtitle, category, author, vehicle, program, filename, url,acervo_date,keyword,pic,support_pic, support_pic_author)
