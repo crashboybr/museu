@@ -9,11 +9,11 @@
     {% endembed %}
 
     <div class="col-md-9" style="margin-top: 90px;">
-        <h2>{{ option|capitalize }}</h2>
+        <h2>{% if option == 'musicas' %} Músicas {% elseif option == 'videos' %} Vídeos {% else %} {{ option|capitalize }} {% endif %}</h2>
     </div>            
 
     <div class="col-md-9">
-    {% if option == 'musica' or option == 'videos' %}
+    {% if option == 'musicas' or option == 'videos' %}
         {% include 'MuseuFrontendBundle:Acervo:' ~ option ~ '.html.twig' %}
     {% else %}
         {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
