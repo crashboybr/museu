@@ -12,7 +12,7 @@
     <tbody>
         {% for acervo in acervos %}
         <tr>
-            <td>{{ acervo.title }}a</td>
+            <td><a href="{{ path('museu_view_acervo', { 'id': acervo.id }) }}">{{ acervo.title }}</a></td>
             <td>{{ acervo.subtitle }}</td>
             <td>{{ acervo.vehicle }}</td>
             <td>{{ acervo.program }}</td>

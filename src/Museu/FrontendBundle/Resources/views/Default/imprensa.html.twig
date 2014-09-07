@@ -22,7 +22,7 @@
                      <h3>Releases</h3>
                     {% for release in releases %}
                     <p>
-                        <a href="{{ asset(release.pdf) }}" target="_blank">{{ release.title }}</a><br />
+                        <a href="{{ asset(release.pdf) }}" target="_blank" style="font-size:16px;">{{ release.title }}</a><br />
                         {{ release.description }} <br />
                         <a href="{{ asset(release.pdf) }}" target="_blank">Leia mais</a>
                      </p>
@@ -32,8 +32,8 @@
                     <h3>Artigos</h3>
                     {% for artigo in artigos %}
                     <p>
-                        <a href="{{ asset(artigo.pdf) }}" target="_blank">{{ artigo.title }}</a><br />
-                        {{ artigo.date|date("d/m/Y") }} - {{ artigo.author }}<br />
+                        <a href="{{ asset(artigo.pdf) }}" target="_blank" style="font-size:16px;">{{ artigo.title }}</a><br />
+                        <span style="font-style: italic;">{{ artigo.date|date("d/m/Y") }} - {{ artigo.author }}</span><br />
                         {{ artigo.description }} <br />
                         <a href="{{ asset(artigo.pdf) }}" target="_blank">Leia mais</a>
                      </p>

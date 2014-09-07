@@ -63,7 +63,7 @@ width: 190px;
     {% for expo in expositions %}
     <div class="tipos-projetos">
     <div class="container_expo">
-        <h2>{{ expo.title }}</h2>
+        <h2><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }}</a></h2>
         <p>{{ expo.subtitle }}</p>
 
     </div>  

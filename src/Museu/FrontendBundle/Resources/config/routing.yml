@@ -67,6 +67,10 @@ museu_acervo:
     pattern:   /acervo-digitais/{option}
     defaults:  { _controller: MuseuFrontendBundle:Acervo:index }
 
+museu_view_acervo:
+    pattern:   /acervo-digitais/ver/{id}
+    defaults:  { _controller: MuseuFrontendBundle:Acervo:view }
+
 #museu_acervo:
 #    pattern:   /acervo-digitais/videos
 #    defaults:  { _controller: MuseuFrontendBundle:Acervo:videos }
