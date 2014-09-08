@@ -211,4 +211,9 @@ class VideoAcervo
     {
         return $this->url;
     }
+
+    public function getClassName()
+     {
+        return "Vídeo";
+     }
 }

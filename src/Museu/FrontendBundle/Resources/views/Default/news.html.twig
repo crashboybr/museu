@@ -1,8 +1,8 @@
 
-        <h2>Notícias</h2>
+        <h3>Notícias</h3>
         {% for noticia in noticias %}
         <p>
-            <a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a><br />
-            {{ noticia.midia }} - {{ noticia.date|date("d/m/Y") }}<br />
+            <a href="{{ noticia.url }}" target="_blank" style="font-size:16px;">{{ noticia.title }}</a><br />
+            <span style="font-style: italic;">{{ noticia.midia }} - {{ noticia.date|date("d/m/Y") }}</span><br />
          </p>
          {% endfor %}

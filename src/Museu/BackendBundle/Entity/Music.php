@@ -151,4 +151,9 @@ class Music
     {
         return $this->url;
     }
+
+    public function getClassName()
+    {
+        return "Música";
+    }
 }

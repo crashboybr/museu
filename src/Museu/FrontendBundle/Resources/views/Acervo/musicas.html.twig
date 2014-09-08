@@ -4,6 +4,7 @@
             <th>Título</th>
             <th>Compositor</th>
             <th>Intérprete</th>
+            <th>Categoria</th>
             <th>Link</th>
         </tr>
     </thead>
@@ -13,6 +14,7 @@
             <td>{{ acervo.title }}</td>
             <td>{{ acervo.composer }}</td>
             <td>{{ acervo.interpret }}</td>
+            <td>{{ acervo.getClassName }}</td>
             <td>{% if acervo.url %}<a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i></a>{% endif %}</td>
         </tr>
         {% endfor %}

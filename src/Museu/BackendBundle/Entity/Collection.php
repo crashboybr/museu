@@ -118,6 +118,13 @@ class Collection
     private $support_pic_author;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="total_visit", type="integer", nullable=true)
+     */
+    private $total_visit;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -504,4 +511,27 @@ class Collection
         }
     }
 
+
+    /**
+     * Set total_visit
+     *
+     * @param integer $totalVisit
+     * @return Collection
+     */
+    public function setTotalVisit($totalVisit)
+    {
+        $this->total_visit = $totalVisit;
+    
+        return $this;
+    }
+
+    /**
+     * Get total_visit
+     *
+     * @return integer 
+     */
+    public function getTotalVisit()
+    {
+        return $this->total_visit;
+    }
 }

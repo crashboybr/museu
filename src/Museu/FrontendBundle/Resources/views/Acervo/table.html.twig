@@ -2,18 +2,18 @@
     <thead>
         <tr>
             <th style="width: 300px;">Título</th>
-            <th>Subtítulo</th>
-            <th>Veículo / Instituição</th>
+            <th style="width: 200px;">Autor</th>
+            <th style="width: 200px;">Veículo / Instituição</th>
             <th>Editoria / Programa</th>
             <th>Data</th>
-            <th>Link</th>
+            <th>Ver</th>
         </tr>
     </thead>
     <tbody>
         {% for acervo in acervos %}
         <tr>
             <td><a href="{{ path('museu_view_acervo', { 'id': acervo.id }) }}">{{ acervo.title }}</a></td>
-            <td>{{ acervo.subtitle }}</td>
+            <td>{{ acervo.author }}</td>
             <td>{{ acervo.vehicle }}</td>
             <td>{{ acervo.program }}</td>
             <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>

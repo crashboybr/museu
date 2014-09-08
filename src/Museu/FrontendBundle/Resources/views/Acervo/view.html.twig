@@ -1,7 +1,7 @@
 
 {% extends '::front.html.twig' %}
 
-{% block breadcrumb %}Acervo Digitais{% endblock %}
+{% block breadcrumb %}Acervos Digitais{% endblock %}
 
 {% block css %}
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -51,12 +51,10 @@
                             <th style="width: 150px;">Título</th>
                             <td>{{ acervo.title }}</td>
                         </tr>
-                        {% if acervo.subtitle %}
                         <tr>
                             <th style="width: 150px;">Título</th>
                             <td>{{ acervo.subtitle }}</td>
                         </tr>
-                        {% endif %}
                         <tr>
                             <th>Categoria</th>
                             <td>{{ acervo.category|capitalize }}</td>
@@ -101,7 +99,7 @@
 
                        {% if acervo.filename %}
                         <tr>
-                            <th>PDF</th>
+                            <th>Ver</th>
                             <td><a href="{{ acervo.filename }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
                         </tr>
                         {% endif %}

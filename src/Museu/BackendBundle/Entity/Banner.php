@@ -27,6 +27,13 @@ class Banner
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="exposition_id", type="integer")
+     */
+    private $exposition_id;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -323,5 +330,28 @@ class Banner
     public function getSubtitle()
     {
         return $this->subtitle;
+    }
+
+    /**
+     * Set exposition_id
+     *
+     * @param integer $expositionId
+     * @return Banner
+     */
+    public function setExpositionId($expositionId)
+    {
+        $this->exposition_id = $expositionId;
+    
+        return $this;
+    }
+
+    /**
+     * Get exposition_id
+     *
+     * @return integer 
+     */
+    public function getExpositionId()
+    {
+        return $this->exposition_id;
     }
 }

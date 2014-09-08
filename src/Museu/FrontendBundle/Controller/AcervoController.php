@@ -13,29 +13,128 @@ class AcervoController extends Controller
     public function indexAction($option)
     {    
         $em = $this->getDoctrine()->getManager();
-        if ($option == 'videos') $repo = 'VideoAcervo';
-        elseif ($option == 'musicas') $repo = 'Music';
-        else $repo = 'Collection';
 
-        if ($repo == 'Collection') {
-            if ($option == 'jornais') $category = 'jornal';
-            elseif ($option == 'revistas') $category = 'jornal';
-            $acervos = $em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => $option));
+        if ($option != 'musicas-videos') {
+            $order = null;
+            
+
+
+            $qb = $em->createQueryBuilder();
+            $qb->select('f')
+            ->from('MuseuBackendBundle:Collection', 'f')
+            ->where('f.category = :category');
+
+            $filters['category'] = $option;
+            if (isset($_GET['date_from'])) {
+                $qb->andWhere('f.acervo_date >= :date_from');
+                $filters['date_from'] = $_GET['date_from'];
+            }
+            if (isset($_GET['date_to'])) {
+                $qb->andWhere('f.acervo_date <= :date_to');
+                $filters['date_to'] = $_GET['date_to'];
+            }
+            if (isset($_GET['filtro'])) { 
+                if ($_GET['filtro'] == 'recentes') 
+                    $qb->orderBy('f.acervo_date', 'desc');
+                elseif ($_GET['filtro'] == 'acessados') 
+                    $qb->orderBy('f.total_visit', 'desc');
+            } 
+            if (isset($_GET['q'])) {
+                $q = $_GET['q'];
+                $q = "%" . $q . "%";
+                $filters['q'] = $q;
+                $qb->orWhere('f.title like :q'); 
+                $qb->orWhere('f.author like :q');
+                $qb->orWhere('f.vehicle like :q');
+                $qb->orWhere('f.keyword like :q');   
+            }
+            //var_dump($filters);exit;
+
+            $qb->setParameters($filters);
+            //var_dump($qb->getQuery()->getSql());exit;
+            $acervos = $qb->getQuery()->getResult();
+            //var_dump($acervos);exit;
+            //$acervos = $em->getRepository("MuseuBackendBundle:Collection")->findBy(
+            //    array('category' => $option),
+            //    $order
+            //    );
         } else {
-            $acervos = $em->getRepository("MuseuBackendBundle:{$repo}")->findAll();    
+            $musics = $em->getRepository("MuseuBackendBundle:Music")->findAll();
+            $videos = $em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll();    
+            $acervos = array_merge($musics, $videos);
+        }
+        switch ($option) {
+            case 'jornal':
+                $title = 'Jornais';
+                break;
+            case 'revista':
+                $title = 'Revistas';
+                break;
+            case 'tv':
+                $title = 'TVs';
+                break;
+            case 'radio':
+                $title = 'Rádios';
+                break;
+            case 'site':
+                $title = 'Sites';
+                break;
+            case 'fotografia':
+                $title = 'Fotografias';
+                break;
+            case 'ilustracao':
+                $title = 'Ilustrações';
+                break;
+            case 'artigo':
+                $title = 'Artigos Acadêmicos';
+                break;
+            case 'tese':
+                $title = 'Teses & TCCs';
+                break;
+            case 'musicas-videos':
+                $title = 'Músicas & Vídeos';
+                break;
+            case 'filmes':
+                $title = 'Filmes & Documentários';
+                break;
+            case 'especiais':
+                $title = 'Especiais de TV';
+                break;
+            case 'outros':
+                $title = 'Outros';
+                break;
+        }
+
+        $total['jornais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Jornal')));
+        $total['revistas'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Revista')));
+        $total['tvs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'TV')));
+        $total['radios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Radio')));
+        $total['sites'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Site')));
+        $total['fotografias'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Fotografia')));
+        $total['ilustracoes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Ilustraçao')));
+        $total['artigos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Artigo')));
+        $total['teses'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Tese')));
+        $total['filmes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Filmes')));
+        $total['especiais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Especiais')));
+        $total['outros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Outros')));
+
+        $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());
+
+        $mostrar = isset($_GET['mostrar']) ? $_GET['mostrar'] : 20;
+        if ($mostrar != 'all') { 
+            $page_number = $this->get('request')->get('pagina') ? $this->get('request')->get('pagina') : 1; 
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $acervos,
+                $this->get('request')->query->get('page', $page_number)/*page number*/,
+                $mostrar
+            );
+        } else {
+            $pagination = $acervos;
         }
         
-
-        $page_number = $this->get('request')->get('pagina') ? $this->get('request')->get('pagina') : 1; 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $acervos,
-            $this->get('request')->query->get('page', $page_number)/*page number*/,
-            20
-        );
-        
         return $this->render('MuseuFrontendBundle:Acervo:acervos.html.twig', 
-            array('acervos' => $pagination, 'option' => $option));
+            array('acervos' => $pagination, 'option' => $option, 'title' => $title, 'total' => $total));
     }
 
     public function viewAction($id)
@@ -44,13 +143,8 @@ class AcervoController extends Controller
 
         $acervo = $em->getRepository("MuseuBackendBundle:Collection")->find($id);
 
-        $em = $this->getDoctrine()->getManager();
-        
-        $entity = new CountCollection();
-        $entity->setCollectionId($id);
-        $entity->setIp($_SERVER['REMOTE_ADDR']);
-
-        $em->persist($entity);
+        $acervo->setTotalVisit($acervo->getTotalVisit() + 1);
+        $em->persist($acervo);
         $em->flush();
 
         return $this->render('MuseuFrontendBundle:Acervo:view.html.twig', 

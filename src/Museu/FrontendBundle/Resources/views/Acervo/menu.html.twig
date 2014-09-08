@@ -1,30 +1,33 @@
 <div class="col-md-3">
     <div class="form-group">
       <h2>Busca</h2>
+      <form method="GET" action="">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Digite palavras-chave">
+      
+        <input type="text" class="form-control" name='q' placeholder="Digite palavras-chave">
       <span class="input-group-btn">
-        <button class="btn red" type="button"><i class="fa fa-search fa-fw"></i></button>
+        <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i></button>
       </span>
+      </form>
     </div>
     </div>
 
 
     <h2>Coleções</h2>
     <ul class="ver-inline-menu tabbable margin-bottom-10">
-      <li class="{% block jornais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'jornal' }) }}">Jornais (1.000)</a></li>
-      <li class="{% block revistas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'revista' }) }}">Revistas (1.000)</a></li>
-      <li class="{% block tvs %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tv' }) }}">TVs (1.000)</a></li>
-      <li class="{% block audio %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'radio' }) }}">Rádios (1.000)</a></li>
-      <li class="{% block sites %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Sites (1.000)</a></li>
-      <li class="{% block fotografias %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'fotografia' }) }}">Fotografias (1.000)</a></li>
-      <li class="{% block ilustracoes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'ilustracao' }) }}">Ilustrações (1.000)</a></li>
-      <li class="{% block artigos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'artigo' }) }}">Artigos Acadêmicos (1.000)</a></li>
-      <li class="{% block teses %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tese' }) }}">Teses & TCCs (1.000)</a></li>
-      <li class="{% block musicas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'musicas' }) }}">Músicas (1.000)</a></li>
-      <li class="{% block videos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'videos' }) }}">Vídeos (1.000)</a></li>
-      <li class="{% block filmes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes/Documentários (1.000)</a></li>
-      <li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV (1.000)</a></li>
-      <li class="{% block outros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros (1.000)</a></li>
+      <li class="{% block jornais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'jornal' }) }}">Jornais ({{ total.jornais|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block revistas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'revista' }) }}">Revistas ({{ total.revistas|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block tvs %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tv' }) }}">TVs ({{ total.tvs|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block audio %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'radio' }) }}">Rádios ({{ total.radios|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block sites %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Sites ({{ total.sites|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block fotografias %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'fotografia' }) }}">Fotografias ({{ total.fotografias|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block ilustracoes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'ilustracao' }) }}">Ilustrações ({{ total.ilustracoes|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block artigos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'artigo' }) }}">Artigos Acadêmicos ({{ total.artigos|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block teses %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tese' }) }}">Teses & TCCs ({{ total.teses|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block musicas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'musicas-videos' }) }}">Músicas & Vídeos ({{ total.musicas|number_format(0, ',', '.') }})</a></li>
+      
+      <li class="{% block filmes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes & Documentários ({{ total.filmes|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV ({{ total.especiais|number_format(0, ',', '.') }})</a></li>
+      <li class="{% block outros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros ({{ total.outros|number_format(0, ',', '.') }})</a></li>
     </ul>        
 </div>

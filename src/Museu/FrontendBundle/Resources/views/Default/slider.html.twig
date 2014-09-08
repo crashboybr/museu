@@ -70,15 +70,23 @@
                 <li style="width: 100%;">
 
                     <div style="width: 50%; float: left; min-height: 540px;">
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
+                        </a>
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}" style="color: black">
                             <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
+                        </a>
                             <h4 style="margin-top: 10px; text-align: center;">{{ banner.subtitle }}</h4>
                     </div>
                 {% else %}
 
                     <div style="width: 50%; float: left; min-height: 540px;">
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}">
                             <img src="{{ asset(banner.pic) }}" style="width: 640px; height: 460px;">
+                        </a>
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}" style="color: black">
                             <h1 style="margin-top: 10px; text-align: center;">{{ banner.title }}</h1>
+                        </a>
                             <h4 style="margin-top: 10px; text-align: center;">{{ banner.subtitle }}</h4>
                     </div>
                 </li>
@@ -88,8 +96,12 @@
                 
 
                     <div style="width: 50%; float: left; min-height: 540px;">
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}">
                             <img src="{{ asset(banners.0.pic) }}" style="width: 640px; height: 460px;">
+                        </a>
+                        <a href="{{ path('museu_view_exposition', { 'id': banner.expositionId }) }}" style="color: black">
                             <h1 style="margin-top: 10px; text-align: center;">{{ banners.0.title }}</h1>
+                        </a>
                             <h4 style="margin-top: 10px; text-align: center;">{{ banners.0.subtitle }}</h4>
                     </div>
                     </li>
