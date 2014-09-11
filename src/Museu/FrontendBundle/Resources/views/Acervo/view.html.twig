@@ -32,7 +32,7 @@
                     <!-- Carousel items -->
                     <div class="carousel-inner">
                         <div class="active item">
-                            <img src="{{ asset('upload/expositions/image_53ae1315c2ec3.jpeg') }}" alt="">
+                            <img src="{{ asset('images/acervo/' ~ acervo.pic) }}" alt="">
                             
                         </div>
                         
@@ -100,7 +100,7 @@
                        {% if acervo.filename %}
                         <tr>
                             <th>Ver</th>
-                            <td><a href="{{ acervo.filename }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                            <td><a href="/pdf/{{ acervo.filename }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
                         </tr>
                         {% endif %}
                     
