@@ -210,9 +210,9 @@ License: You must have a valid license purchased only from themeforest(the above
             {% endblock %}
 
             {% if get_action_name() != 'guariba' and get_action_name() != 'index' %}
-            <div class="col-md-12 col-sm-12" style="margin-top:15px;">
+            <div class="col-md-12 col-sm-12" style="margin-top:15px; cursor: pointer;" onclick="location.href='{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}' ">
                 <div class="well red" style="background-color: #d84a38; color: white;">
-                    <h1 style="font-size: 29px; text-align:center;"><a style="color: white" href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Especial Guariba, Ano 30.</a></h1>
+                    <h1 style="font-size: 29px; text-align:center;">Especial Guariba, Ano 30.</h1>
                     <h5 style="font-size: 15px; text-align:center;">Conheça as histórias e veja os depoimentos de quem esteve lá. E como as greves do campo a partir de 1984 repercutiram dentro e fora do Brasil.</h5>
                 </div>
             </div>

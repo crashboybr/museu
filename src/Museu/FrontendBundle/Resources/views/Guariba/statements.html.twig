@@ -14,8 +14,9 @@
 
                 {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
                 {% endembed %}
-
+                <h2 style="margin-left: 15px;">Depoimentos</h2>
                 <div class="col-md-3">
+
                     <ul class="ver-inline-menu tabbable margin-bottom-10">
                       <li class="{% if option == 'Sindicalistas' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Sindicalistas</a></li>
                       <li class="{% if option == 'Trabalhadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'trabalhadores' }) }}">Trabalhadores</a></li>
@@ -36,7 +37,7 @@
                       <!-- START TAB 1 -->
                         <div id="tab_1" class="tab-pane active">
                             <div class="col-md-3">
-                                <h2>{{ option }}</h2>
+                                
                                 {% if option == 'Imprensa' %}
                                   Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que parou o interior de São Paulo a partir de 1984.
                                   {% endif %}

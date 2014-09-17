@@ -2,7 +2,7 @@
 
 {% block exposicoes_active%}active{% endblock %}
 
-{% block breadcrumb %}{{ exposition.title }} - {{ exposition.subtitle }}{% endblock %}
+{% block breadcrumb %}{{ exposition.title }} <br /> <p style="font-size: 13px;">{{ exposition.subtitle }}</p>{% endblock %}
 
 {% block css %}
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
@@ -89,10 +89,10 @@
                 <!-- BEGIN RIGHT SIDEBAR -->            
                 <div class="col-md-3 blog-sidebar">
                     <!-- CATEGORIES START -->
-                    <h2 class="no-top-space">Mais Exposições</h2>
+                    <h2 class="no-top-space"><a href="{{ path('museu_exposition') }}">Mais Exposições</a></h2>
                     <ul class="nav sidebar-categories margin-bottom-40">
                         {% for expo in expositions %}
-                        <li class="{% if (expo.id == exposition.id) %}active{% endif %}"><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }} - {{ expo.subtitle }}</a></li>
+                        <li class="{% if (expo.id == exposition.id) %}active{% endif %}"><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }} <br /><p style="font-size:11px;">{{ expo.subtitle }}</p></a></li>
                         {% endfor %}
                     </ul>
                     <!-- CATEGORIES END -->
@@ -108,10 +108,10 @@
 
         <!-- BEGIN CONTAINER -->   
         <div class="container min-hight gallery-page margin-bottom-40">
-          <div class="row">
+          <div class="row" style="margin-left: 10px;">
             {% for img in exposition.expositionImages %}
 
-                <div class="col-md-2 col-sm-2 gallery-item">
+                <div class="col-md-2 col-sm-2 gallery-item" style="padding-left: 5px; padding-right: 0px; width: 150px;">
                   <a data-rel="fancybox-button" title="Título: {{ img.title }} <br />Autor: {{ img.author }}" href="{{ asset(img.pic) }}" class="fancybox-button">
                     <img alt="" src="{{ asset(img.pic) }}" style="width: 150px; height: 110px;" class="img-responsive">
                     <div class="zoomix" style="width: 150px; height: 110px;"><i class="fa fa-search"></i></div>
@@ -125,191 +125,4 @@
 
 
 
-
-{#
-        <!-- BEGIN BREADCRUMBS -->   
-        <div class="row breadcrumbs margin-bottom-40">
-            <div class="container">
-                <div class="col-md-4 col-sm-4">
-                    <h1>Exposições</h1>
-                </div>
-                <div class="col-md-8 col-sm-8">
-                    <ul class="pull-right breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="">Pages</a></li>
-                        <li class="active">Portfolio 3 Column</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-            <!-- BEGIN CONTAINER -->   
-            <div class="container min-hight portfolio-page margin-bottom-30">
-                <!-- BEGIN PORTFOLIO ITEM -->
-                <div class="row">
-                    <!-- BEGIN CAROUSEL -->            
-                    <div class="col-md-5 front-carousel">
-                        <div id="myCarousel" class="carousel slide">
-                            <!-- Carousel items -->
-                            <div class="carousel-inner">
-                                {% for image in exposition.expositionImages %}
-                                <div class="item {% if loop.first %}active{% endif %}">
-                                    <img src="{{ asset(image.pic) }}" alt="">
-                                    <div class="carousel-caption">
-                                        <p>{{ image.title }}</p>
-                                        <p>{{ image.author }}</p>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                
-                            </div>
-                            <!-- Carousel nav -->
-                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>                
-                    </div>
-                    <!-- END CAROUSEL -->                             
-
-                    <!-- BEGIN PORTFOLIO DESCRIPTION -->            
-                    <div class="col-md-7">
-                        <h2>{{ exposition.title }}</h2>
-                        <p>{{ exposition.description }}</p>
-                        <br>
-                        <div class="row front-lists-v2 margin-bottom-15">
-                            <div class="col-md-6">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-html5"></i> HTML5/CSS3</li>
-                                    <li><i class="fa fa-bell"></i> Web Deisgn</li>
-                                    <li><i class="fa fa-globe"></i> Web Development</li>
-                                    <li><i class="fa fa-shopping-cart"></i> Shoping Cart</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-dropbox"></i> Free Storage</li>
-                                    <li><i class="fa fa-cloud"></i> Cloud Hosting</li>
-                                    <li><i class="fa fa-comments"></i> Free Support</li>
-                                    <li><i class="fa fa-star"></i> Awesome UI</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="btn theme-btn"> VISIT THE PROJECT</a>
-                    </div>
-                    <!-- END PORTFOLIO DESCRIPTION -->            
-                </div>
-                <!-- END PORTFOLIO ITEM --> 
-
-                <div class="clearfix"></div>
-
-            <!-- BEGIN RECENT WORKS -->
-            <div class="row recent-work margin-bottom-40">
-                <div class="col-md-3">
-                    <h2><a href="portfolio.html">Recent Works</a></h2>
-                    <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
-                </div>
-                <div class="col-md-9">
-                    <ul class="bxslider">
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img1.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img1.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img2.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img2.jpg" class="fancybox-button" title="Project Name #2" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img3.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img3.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img4.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img5.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img5.jpg" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img6.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img6.jpg" class="fancybox-button" title="Project Name #6" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img3.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img3.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                        <li>
-                            <em>
-                                <img src="/front//front/assets/img/works/img4.jpg" alt="" />
-                                <a href="portfolio_item.html"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
-                                <a href="/front//front/assets/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"><i class="fa fa-search icon-hover icon-hover-2"></i></a>
-                            </em>
-                            <a class="bxslider-block" href="#">
-                                <strong>Amazing Project</strong>
-                                <b>Agenda corp.</b>
-                            </a>
-                        </li>
-                    </ul>        
-                </div>
-            </div>   
-            <!-- END RECENT WORKS -->
-            </div>
-            <!-- END CONTAINER -->
-
-
-
-        <!-- END BREADCRUMBS -->
-        #}
 {% endblock %}

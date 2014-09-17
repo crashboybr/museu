@@ -52,11 +52,11 @@
                             <td>{{ acervo.title }}</td>
                         </tr>
                         <tr>
-                            <th style="width: 150px;">Título</th>
+                            <th style="width: 150px;">Subtítulo</th>
                             <td>{{ acervo.subtitle }}</td>
                         </tr>
                         <tr>
-                            <th>Categoria</th>
+                            <th>Coleção</th>
                             <td>{{ acervo.category|capitalize }}</td>
                         </tr>
                         <tr>
@@ -67,12 +67,10 @@
                             <th>Editoria / Programa</th>
                             <td>{{ acervo.program }}</td>
                         </tr>
-                        {% if acervo.author %}
                         <tr>    
                             <th>Autor(es)</th>
                             <td>{{ acervo.author }}</td>
                         </tr>
-                        {% endif %}
                         {% if acervo.supportPicAuthor %}
                         <tr>    
                             <th>Autor Foto</th>

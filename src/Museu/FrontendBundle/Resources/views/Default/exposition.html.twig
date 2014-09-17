@@ -63,15 +63,17 @@ width: 190px;
     {% for expo in expositions %}
     <div class="tipos-projetos">
     <div class="container_expo">
-        <h2><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }}</a></h2>
-        <p>{{ expo.subtitle }}</p>
+        <a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}" style="text-decoration: none;">
+        <h2>{{ expo.title }}</h2>
+        <p style="color: #444;">{{ expo.subtitle }}</p>
+        </a>
 
     </div>  
     <div class="galeria-imagens gallery-item">
         {% for img in expo.expositionImages %}
-            <a data-rel="fancybox-button" title="Título: {{ img.title }} <br />Autor: {{ img.author }}" href="{{ asset(img.pic) }}" class="fancybox-button">
+            <a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">
                     <img alt="" src="{{ asset(img.pic) }}" class="img-responsive">
-                    <div class="zoomix"><i class="fa fa-search"></i></div>
+                    <!--<div class="zoomix"><i class="fa fa-search"></i></div>-->
                   </a>
          {% endfor %}
     </div>
@@ -83,59 +85,5 @@ width: 190px;
 
 <div class="tipo-projetos"><div class="container_expo" style="width: 100%;">{{ render(controller('MuseuFrontendBundle:Default:news')) }}</div></div>
 </div>
-
-
-
-{#
-<div class="col-md-3">
-    <h2><a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">{{ expo.title }} - {{ expo.subtitle }}</a></h2>
-    <p>{{ expo.shortDescription }}</p>
-</div>
-<div class="col-md-9">
-    <div class="row">
-        <ul class="bxslider1">
-            {% for img in expo.expositionImages %}
-            <li>
-                <em>
-                    <img src="{{ asset(img.pic) }}" alt="" />
-                </em>
-
-            </li>
-            {% endfor %}
-
-        </ul>        
-    </div>
-</div>
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <!-- BEGIN CONTAINER -->   
-        <div class="container min-hight portfolio-page margin-bottom-40">
-            <!-- BEGIN FILTER -->           
-            <div class="filter-v1 margin-top-10">
-                <div class="row mix-grid thumbnails">
-                    {% for exposition in expositions %}
-                    <div class="col-md-4 col-sm-6 mix category_1" style="display: block; opacity: 1;">
-                        <div class="mix-inner">
-                            <img class="img-responsive" src="{{ asset(exposition.expositionImages.first.pic) }}" alt="">
-                            <div class="mix-details">
-                                <h4>{{ exposition.title }}</h4>
-                                <p>{{ exposition.subtitle }}</p>
-                                <p>{{ exposition.date|date('d/m/Y') }}</p>
-                                <a class="mix-preview fancybox-button" href="{{ path('museu_view_exposition', { 'id': exposition.id }) }}" title="Project Name" data-rel="fancybox-button"><i class="fa fa-search"></i> Visualizar Exposição</a>
-                            </div>           
-                        </div>                       
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </div>
-            <!-- END FILTER -->          
-        </div>
-        <!-- END CONTAINER -->
-    </div> 
-</div>
-#}
 
 {% endblock %}
