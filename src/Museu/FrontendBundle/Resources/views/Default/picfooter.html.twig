@@ -1,0 +1,14 @@
+<div class="blog-photo-stream margin-bottom-30">
+    <ul class="list-unstyled gallery-page">
+        
+    {% for pic in pics %}
+        <li>
+            <a data-rel="fancybox-button" title="" href="{{ asset(pic.pic) }}" class="fancybox-button">
+                <img alt="" src="{{ asset(pic.pic) }}" style="" class="img-responsive">
+            </a> 
+        </li>
+    {% endfor %}
+        
+    </ul>                    
+    
+</div>

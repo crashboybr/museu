@@ -4,6 +4,8 @@ namespace Museu\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Museu\BackendBundle\Entity\Exposition;
+use Museu\BackendBundle\Entity\Newsletter;
+use Museu\BackendBundle\Form\NewsletterType;
 
 class DefaultController extends Controller
 {
@@ -17,6 +19,15 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Default:index.html.twig', array('banners' => $banners));
     }
 
+    public function picFooterAction()
+    {
+      
+        $em = $this->getDoctrine()->getManager();
+
+        $pics = $em->getRepository('MuseuBackendBundle:PicFooter')->findAll();
+
+        return $this->render('MuseuFrontendBundle:Default:picfooter.html.twig', array('pics' => $pics));
+    }
 
     public function expositionAction()
     {
@@ -329,9 +340,21 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Acervo:index.html.twig', array('acervos' => $acervos, 'option' => ucfirst($option)));
     }
 
-    public function newsletterAction(Request $request)
+    public function newsletterAction()
     {
-        
+        $request = $this->getRequest();
+        if ($request->getMethod() == "POST") {
+            //var_dump($request);exit;
+        } else {
+
+            $form = $this->createForm(new NewsletterType(), $entity, array(
+                'action' => $this->generateUrl('banner_create'),
+                'method' => 'POST',
+            ));
+
+            $form->add('submit', 'submit', array('label' => 'Create'));
+
+        }
     }
     public function newsAction()
     {

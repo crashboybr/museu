@@ -113,6 +113,20 @@ var App = function () {
                 prevEffect: 'none',
                 nextEffect: 'none',
                 closeBtn: true,
+                //width: '100%',
+                //height: '100%',
+                //type: 'iframe',
+                fitToView: false, // avoids scaling the image to fit in the viewport
+                beforeShow: function () {
+                    // set size to (fancybox) img
+                    $(".fancybox-image").css({
+                        "width": '100%',
+                        "height": '100%'
+                    });
+                    // set size for parent container
+                    this.width = '70%';
+                    this.height = '80%';
+                },
                 helpers: {
                     title: {
                         type: 'inside'

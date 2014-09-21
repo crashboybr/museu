@@ -6,7 +6,6 @@
             <th style="width: 200px;">Veículo / Instituição</th>
             <th>Editoria / Programa</th>
             <th>Data</th>
-            <th>Ver</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +16,6 @@
             <td>{{ acervo.vehicle }}</td>
             <td>{{ acervo.program }}</td>
             <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>
-            <td><a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
         </tr>
         {% endfor %}
 

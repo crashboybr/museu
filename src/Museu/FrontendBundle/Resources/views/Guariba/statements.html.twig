@@ -20,15 +20,31 @@
                     <ul class="ver-inline-menu tabbable margin-bottom-10">
                       <li class="{% if option == 'Sindicalistas' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'sindicalistas' }) }}">Sindicalistas</a></li>
                       <li class="{% if option == 'Trabalhadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'trabalhadores' }) }}">Trabalhadores</a></li>
-                      <li class="{% if option == 'Apoiadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'apoiadores' }) }}">Apoiadores</a></li>
+                      <li class="{% if option == 'Observadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'observadores' }) }}">Observadores</a></li>
                       <li class="{% if option == 'Jornalistas' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'jornalistas' }) }}">Jornalistas</a></li>
                       <li class="{% if option == 'Empregadores' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'empregadores' }) }}">Empregadores</a></li>
                       <li class="{% if option == 'Autoridades' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'autoridades' }) }}">Autoridades</a></li>
+                      {#
                       <li class="{% if option == 'Imprensa' %}active{% endif %}"><a href="{{ path('museu_guariba', { 'option': 'imprensa' }) }}">Imprensa</a></li>
                       <li class=""><a href="{{ path('museu_guariba', { 'option': 'timeline' }) }}">Linha do Tempo</a></li>
                       <li class=""><a href="{{ path('museu_guariba', { 'option': 'mapa' }) }}">Mapa das Greves</a></li>
                       <li class=""><a href="{{ path('museu_guariba', { 'option': 'depoimento' }) }}">Mande seu depoimento</a></li>
+                      #}
                     </ul>        
+
+                    <div class="well red" style="background-color: #d84a38; color: white; padding:0px; cursor: pointer;" onclick="location.href='{{ path('museu_guariba', { 'option': 'depoimento' }) }}'">
+                        
+                        <h1 style="font-size: 20px; text-align:center; margin-top: 10px; color:">Mande seu Depoimento</h1>
+                        
+                    </div>
+                    <a href="{{ path('museu_guariba', { 'option': 'imprensa' }) }}"><h3>Imprensa</h3></a>
+                    <p>Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que parou o interior de São Paulo a partir de 1984.</p>
+
+                    <a href="{{ path('museu_guariba', { 'option': 'timeline' }) }}"><h3>Linha do Tempo</h3></a>
+                    <p>Veja os principais acontecimentos e como evoluiu a greve, a repressão policial e a conquista dos trabalhadores do campo durante os confrontos.</p>
+
+                    <a href="{{ path('museu_guariba', { 'option': 'mapa' }) }}"><h3>Mapa das Greves</h3></a>
+                    <p>Veja o mapa das cidades que aderiram às greves em diferentes períodos, a partir de maio de 1984, em várias regiões do Estado de São Paulo.</p>
                 </div>
 
                 <div class="col-md-9">
@@ -36,26 +52,35 @@
                     <div class="tab-content">
                       <!-- START TAB 1 -->
                         <div id="tab_1" class="tab-pane active">
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 
                                 {% if option == 'Imprensa' %}
                                   Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que parou o interior de São Paulo a partir de 1984.
                                   {% endif %}
                             </div>
-                            <div class="col-md-9">
-                                <ul class="bxslider" id="guariba">
+                            <div class="col-md-12">
+
+                                
+                                  <div class="row" style="">
                                     {% for depo in statements %}
-                                    <li>
-                                        <em>
-                                            <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'>
-                                            <img src="{{ asset(depo.pic) }}" style="width: 80px; height: 88px;"alt="" /></a>
-                                            <a href="{{ asset(depo.pic) }}" class="fancybox-button" title="{{ depo.name }}" style="font-size: 11px;" data-rel="fancybox-button">{{ depo.name }}</a>
-                                        </em>
-                                    </li>
+
+                                        <div class="col-md-2 col-sm-2 gallery-item">
+                                          <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'>
+                                            <img src="{{ asset(depo.pic) }}" style="width: 80px; height: 88px;" class="img-responsive" />
+                                          </a>
+                                          <span style="font-size: 11px;" data-rel="fancybox-button">{{ depo.name }}</span>
+                                            
+                                            
+                                           
+                                        </div>
                                     {% endfor %}
+
                                     
-                                    
-                                </ul>  
+                                  
+                                </div>
+
+
+                               
                                     
                             </div>
 

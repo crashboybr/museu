@@ -53,6 +53,30 @@ class NewsletterController extends Controller
         ));
     }
 
+    public function createFrontAction(Request $request)
+    {
+        $entity = new Newsletter();
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'E-mail cadastrado com sucesso!');
+
+            return $this->redirect($this->generateUrl('museu_frontend_homepage'));
+        }
+        
+        $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'E-mail inválido!');
+
+        return $this->redirect($this->generateUrl('museu_frontend_homepage'));
+    }
+
     /**
      * Creates a form to create a Newsletter entity.
      *
@@ -72,6 +96,18 @@ class NewsletterController extends Controller
         return $form;
     }
 
+    private function createCreateFormFront(Newsletter $entity)
+    {
+        $form = $this->createForm(new NewsletterType(), $entity, array(
+            'action' => $this->generateUrl('newsletter_create_front'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'INSCREVER'));
+
+        return $form;
+    }
+
     /**
      * Displays a form to create a new Newsletter entity.
      *
@@ -82,6 +118,17 @@ class NewsletterController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('MuseuBackendBundle:Newsletter:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+
+    public function newFrontAction()
+    {
+        $entity = new Newsletter();
+        $form   = $this->createCreateFormFront($entity);
+
+        return $this->render('MuseuBackendBundle:Newsletter:new_front.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));

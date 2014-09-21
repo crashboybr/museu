@@ -15,6 +15,11 @@ newsletter_create:
     defaults: { _controller: "MuseuBackendBundle:Newsletter:create" }
     requirements: { _method: post }
 
+newsletter_create_front:
+    path:     /inscrever
+    defaults: { _controller: "MuseuBackendBundle:Newsletter:createFront" }
+    requirements: { _method: post }
+
 newsletter_edit:
     path:     /{id}/edit
     defaults: { _controller: "MuseuBackendBundle:Newsletter:edit" }

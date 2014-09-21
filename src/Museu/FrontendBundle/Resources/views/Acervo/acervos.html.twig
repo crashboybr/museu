@@ -16,101 +16,92 @@
         margin: 0 0 20px;
     }
 </style>
-    
-    {% embed 'MuseuFrontendBundle:Acervo:menu.html.twig' %} 
-    {% block depoimento %}active{% endblock %} 
-    {% endembed %}
 
-    <script>
-      $(function() {
-        
+{% embed 'MuseuFrontendBundle:Acervo:menu.html.twig' %} 
+{% block depoimento %}active{% endblock %} 
+{% endembed %}
 
-        $("#date_from").datepicker({
-            dateFormat: 'yy-mm-dd',
-            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-            nextText: 'Próximo',
-            prevText: 'Anterior'
-        });
-
-        $("#date_to").datepicker({
-            dateFormat: 'yy-mm-dd',
-            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-            nextText: 'Próximo',
-            prevText: 'Anterior'
-        });
+<script>
+  $(function() {
 
 
+    $("#date_from").datepicker({
+        dateFormat: 'yy-mm-dd',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+    });
 
-        
-      });
-      </script>
+    $("#date_to").datepicker({
+        dateFormat: 'yy-mm-dd',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+    });
 
-    <div class="col-md-9" style="margin-top: 90px;">
-        <h2>{{ title }}</h2>
-    </div>            
-            
-    <div class="col-md-9">
-                    <div id="accordion1" class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_1">
-                                    Busca Avançada
-                                    </a>
-                                </h4>
-                            </div>
-                            <div style="height: 0px;" id="accordion1_1" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Resultados: 
-                                    <span style="margin-left: 10px; margin-right: 10px;"><a href="?mostrar=5">5</a></span>
-                                    <span style="margin-right: 10px;"><a href="?mostrar=10">10</a></span>
-                                    <span style="margin-right: 10px;"><a href="?mostrar=20">20</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=40">40</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=60">60</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=80">80</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=100">100</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=200">200</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=500">500</a></span> 
-                                    <span style="margin-right: 10px;"><a href="?mostrar=1000">1.000</a></span>
-                                    <span style="margin-right: 10px;"><a href="?mostrar=all">Todos</a></span>
-                                    <br />
-                                    Filtrar: 
-                                    <span style="margin-left: 40px; margin-right: 10px;"><a href="?filtro=recentes">Mais Recentes</a></span>
-                                    <span style="margin-right: 10px;"><a href="?filtro=acessados">Mais Acessados</a></span>
-                                    <br />
-                                    Período:
-                                    <form action="" class="" method="get">
-                                        <div class="input-group" style="width: 38%;">
-                                            
-                                            <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" placeholder="Data Inicial">
-                                            <input type="text" id="date_to" name="date_to" class="form-control"  style="float: left; width: 110px;"placeholder="Data Final"><br />
-                                            
-                                            <span class="input-group-btn" style="float: left; margin-top: -18px;">
-                                                <button type="submit" class="btn btn-primary">Buscar</button>
-                                            </span>
-                                            
-                                        </div>
-                                      </form>
-                                </div>
-                            </div>
-                        </div>       
-                        <br />
+
+
+
+});
+</script>
+<div class="col-md-9">
+    <h2>Filtros</h2>
+    <form action="#" class="content-search-view2">
+
+    Resultados: 
+    <span style="margin-left: 10px; margin-right: 10px;"><a href="?mostrar=5">5</a></span>
+    <span style="margin-right: 10px;"><a href="?mostrar=10">10</a></span>
+    <span style="margin-right: 10px;"><a href="?mostrar=20">20</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=40">40</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=60">60</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=80">80</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=100">100</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=200">200</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=500">500</a></span> 
+    <span style="margin-right: 10px;"><a href="?mostrar=1000">1.000</a></span>
+    <span style="margin-right: 10px;"><a href="?mostrar=all">Todos</a></span>
+    <br />
+    Filtrar: 
+    <span style="margin-left: 40px; margin-right: 10px;"><a href="?filtro=recentes">Mais Recentes</a></span>
+    <span style="margin-right: 10px;"><a href="?filtro=acessados">Mais Acessados</a></span>
+    <br />
+    Período:
+    <form action="" class="" method="get">
+      <div class="input-group" style="width: 38%;">
+
+        <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" placeholder="Data Inicial">
+        <input type="text" id="date_to" name="date_to" class="form-control"  style="float: left; width: 110px;"placeholder="Data Final"><br />
+
+        <span class="input-group-btn" style="float: left; margin-top: -18px;">
+          <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i></button>
+      </span>
+
+  </div>
+</form>
+</div>
+
+<div class="col-md-9" style="">
+    <h2>{{ title }}</h2>
+</div>            
+
+<div class="col-md-9">
+
     {% if option == 'musicas-videos' %}
-        {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
+    {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
     {% else %}
-        {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
+    {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
     {% endif %}
 
-        {{ knp_pagination_render(acervos) }}
+    {{ knp_pagination_render(acervos) }}
 
-        {{ render(controller('MuseuFrontendBundle:Default:news')) }}
-    </div>
+    {{ render(controller('MuseuFrontendBundle:Default:news')) }}
+</div>
 {% endblock %}

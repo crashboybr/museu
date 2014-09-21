@@ -229,8 +229,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="row">
                 <div class="col-md-4 col-sm-4 space-mobile">
                     <!-- BEGIN ABOUT -->                    
-                    <h2>Sobre o Museu</h2>
-                    <p class="margin-bottom-30">O Museu do Trabalhador do Campo busca preservar e disseminar as histórias e as lutas dos trabalhadores do campo no Brasil.
+                    <h2><a href="{{ path('museu_oque') }}" style="color:white;">Sobre o Museu</a></h2>
+                    <p class="margin-bottom-30"><a href="{{ path('museu_oque') }}" style="color: white; text-decoration:none;">O Museu do Trabalhador do Campo busca preservar e disseminar as histórias e as lutas dos trabalhadores do campo no Brasil.</a></p>
                     
                     <div class="clearfix"></div>                    
                     <!-- END ABOUT -->          
@@ -238,33 +238,16 @@ License: You must have a valid license purchased only from themeforest(the above
                     
                     <!-- BEGIN BLOG PHOTOS STREAM -->
                     <h2>Fotos</h2>
-                    <div class="blog-photo-stream margin-bottom-30">
-                        <ul class="list-unstyled">
-                            <li><a href="/images/resmuseu/museu1.jpg"><img src="/images/resmuseu/museu1.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu2.jpg"><img src="/images/resmuseu/museu2.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu3.jpg"><img src="/images/resmuseu/museu3.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu4.jpg"><img src="/images/resmuseu/museu4.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu5.jpg"><img src="/images/resmuseu/museu5.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu6.jpg"><img src="/images/resmuseu/museu6.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu7.jpg"><img src="/images/resmuseu/museu7.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu8.jpg"><img src="/images/resmuseu/museu8.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu9.jpg"><img src="/images/resmuseu/museu9.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu10.jpg"><img src="/images/resmuseu/museu10.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu11.jpg"><img src="/images/resmuseu/museu11.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu12.jpg"><img src="/images/resmuseu/museu12.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu13.jpg"><img src="/images/resmuseu/museu13.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu14.jpg"><img src="/images/resmuseu/museu14.jpg" alt=""></a></li>
-                            <li><a href="images/resmuseu/museu15.jpg"><img src="/images/resmuseu/museu15.jpg" alt=""></a></li>
-                        </ul>                    
-                    </div>
+                    
+                    {{ render(controller('MuseuFrontendBundle:Default:picFooter')) }}
                     <!-- END BLOG PHOTOS STREAM -->                              
                 </div>
                 <div class="col-md-4 col-sm-4 space-mobile">
                     <!-- BEGIN CONTACTS -->                                    
-                    <h2>Fale com a gente</h2>
+                    <h2><a href="{{ path('museu_contato') }}" style="color: white;">Fale com a gente</a></h2>
                     <address class="margin-bottom-40">
                         Museu do Trabalhador do Campo<br />
-                        www.museudotrabalhadordocampo.org.br<br />
+                        <a href="http://www.museudotrabalhadordocampo.org.br">www.museudotrabalhadordocampo.org.br</a><br />
                         E-mail: <a href="mailto:contato@museudotrabalhadordocampo.org.br">contato@museudotrabalhadordocampo.org.br</a><br />
                         Skype: museudotrabalhadordocampo<br />
                         Facebook: <a href="http://www.facebook.com/museudotrabalhadordocampo" target="_blank">facebook.com/museudotrabalhadordocampo</a><br />
@@ -274,14 +257,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN SUBSCRIBE -->                                    
                     <h2>Receba informações</h2>  
                     <p>Deixe seu e-mail para receber as novidades do Museu do Trabalhador do Campo.</p>
-                    <form action="#" class="form-subscribe">
-                        <div class="input-group input-large">
-                            <input class="form-control" type="text" name="email">
-                            <span class="input-group-btn">
-                                <button class="btn theme-btn" type="button">INSCREVER</button>
-                            </span>
-                        </div>
-                    </form>
+
+                    {{ render(controller('MuseuBackendBundle:Newsletter:newFront')) }}
+                    
 
                     <!-- END SUBSCRIBE -->                                    
                 </div>

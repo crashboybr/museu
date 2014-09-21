@@ -1,0 +1,30 @@
+picfooter:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:index" }
+
+picfooter_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:show" }
+
+picfooter_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:new" }
+
+picfooter_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:create" }
+    requirements: { _method: post }
+
+picfooter_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:edit" }
+
+picfooter_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:update" }
+    requirements: { _method: post|put }
+
+picfooter_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:PicFooter:delete" }
+    requirements: { _method: post|delete }

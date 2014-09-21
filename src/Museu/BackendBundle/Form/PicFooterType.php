@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class NewsletterType extends AbstractType
+class PicFooterType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,7 +15,7 @@ class NewsletterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('file', 'file')
         ;
     }
     
@@ -25,7 +25,7 @@ class NewsletterType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Museu\BackendBundle\Entity\Newsletter'
+            'data_class' => 'Museu\BackendBundle\Entity\PicFooter'
         ));
     }
 
@@ -34,6 +34,6 @@ class NewsletterType extends AbstractType
      */
     public function getName()
     {
-        return 'museu_backendbundle_newsletter';
+        return 'museu_backendbundle_picfooter';
     }
 }

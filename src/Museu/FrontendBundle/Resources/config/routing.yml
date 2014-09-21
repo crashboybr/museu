@@ -90,3 +90,4 @@ museu_guariba_timeline:
 museu_tvmtc:
     pattern:   /tv-mtc
     defaults:  { _controller: MuseuFrontendBundle:Default:tv }
+

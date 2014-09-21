@@ -57,3 +57,7 @@ MuseuBackendBundle_video:
 MuseuBackendBundle_newsletter:
         resource: "@MuseuBackendBundle/Resources/config/routing/newsletter.yml"
         prefix:   /newsletter
+
+MuseuBackendBundle_picfooter:
+        resource: "@MuseuBackendBundle/Resources/config/routing/picfooter.yml"
+        prefix:   /imgfooter
