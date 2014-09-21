@@ -54,27 +54,28 @@
 </script>
 <div class="col-md-9">
     <h2>Filtros</h2>
-    <form action="#" class="content-search-view2">
+    <form action="" class="content-search-view2">
 
-    Resultados: 
-    <span style="margin-left: 10px; margin-right: 10px;"><a href="?mostrar=5">5</a></span>
-    <span style="margin-right: 10px;"><a href="?mostrar=10">10</a></span>
-    <span style="margin-right: 10px;"><a href="?mostrar=20">20</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=40">40</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=60">60</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=80">80</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=100">100</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=200">200</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=500">500</a></span> 
-    <span style="margin-right: 10px;"><a href="?mostrar=1000">1.000</a></span>
-    <span style="margin-right: 10px;"><a href="?mostrar=all">Todos</a></span>
+
+    Resultados:
+    <span style="margin-left: 10px; margin-right: 10px;"><input type="radio" value="5" name="mostrar"> 5</span>
+    <span style="margin-right: 10px;"><input type="radio" value="10" name="mostrar"> 10</a></span>
+    <span style="margin-right: 10px;"><input type="radio" value="20" name="mostrar"> 20</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="40" name="mostrar"> 40</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="60" name="mostrar"> 60</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="80" name="mostrar"> 80</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="100" name="mostrar"> 100</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="200" name="mostrar"> 200</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="500" name="mostrar"> 500</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" value="1000" name="mostrar"> 1.000</a></span>
+    <span style="margin-right: 10px;"><input type="radio" value="all" name="mostrar"> Todos</a></span>
     <br />
-    Filtrar: 
-    <span style="margin-left: 40px; margin-right: 10px;"><a href="?filtro=recentes">Mais Recentes</a></span>
-    <span style="margin-right: 10px;"><a href="?filtro=acessados">Mais Acessados</a></span>
+    Ordenar: 
+    <span style="margin-left: 25px; margin-right: 10px;"><input type="radio" value="recentes" name="filtro"> Mais Recentes</span>
+    <span style="margin-right: 10px;"><input type="radio" value="acessados" name="filtro"> Mais Acessados</span>
     <br />
     Período:
-    <form action="" class="" method="get">
+    
       <div class="input-group" style="width: 38%;">
 
         <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" placeholder="Data Inicial">
@@ -93,6 +94,7 @@
 </div>            
 
 <div class="col-md-9">
+    Total: {{ total_result }}
 
     {% if option == 'musicas-videos' %}
     {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}

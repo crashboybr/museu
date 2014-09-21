@@ -17,19 +17,17 @@ class AcervoController extends Controller
         if ($option != 'musicas-videos') {
             $order = null;
             
-
-
             $qb = $em->createQueryBuilder();
             $qb->select('f')
-            ->from('MuseuBackendBundle:Collection', 'f')
-            ->where('f.category = :category');
+            ->from('MuseuBackendBundle:Collection', 'f');
+            //->where('f.category = :category');
 
             $filters['category'] = $option;
-            if (isset($_GET['date_from'])) {
+            if (isset($_GET['date_from']) && $_GET['date_from'] != "") {
                 $qb->andWhere('f.acervo_date >= :date_from');
                 $filters['date_from'] = $_GET['date_from'];
             }
-            if (isset($_GET['date_to'])) {
+            if (isset($_GET['date_to']) && $_GET['date_from'] != "") {
                 $qb->andWhere('f.acervo_date <= :date_to');
                 $filters['date_to'] = $_GET['date_to'];
             }
@@ -52,7 +50,10 @@ class AcervoController extends Controller
 
             $qb->setParameters($filters);
             //var_dump($qb->getQuery()->getSql());exit;
+
+            $qb->andWhere('f.category = :category');
             $acervos = $qb->getQuery()->getResult();
+
             //var_dump($acervos);exit;
             //$acervos = $em->getRepository("MuseuBackendBundle:Collection")->findBy(
             //    array('category' => $option),
@@ -134,7 +135,7 @@ class AcervoController extends Controller
         }
         
         return $this->render('MuseuFrontendBundle:Acervo:acervos.html.twig', 
-            array('acervos' => $pagination, 'option' => $option, 'title' => $title, 'total' => $total));
+            array('acervos' => $pagination, 'option' => $option, 'title' => $title, 'total' => $total, 'total_result' => count($acervos)));
     }
 
     public function viewAction($id)
