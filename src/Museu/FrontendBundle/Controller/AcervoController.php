@@ -13,6 +13,7 @@ class AcervoController extends Controller
     public function indexAction($option)
     {    
         $em = $this->getDoctrine()->getManager();
+        $request = $this->getRequest();
 
         if ($option != 'musicas-videos') {
             $order = null;
@@ -23,28 +24,39 @@ class AcervoController extends Controller
             //->where('f.category = :category');
 
             $filters['category'] = $option;
-            if (isset($_GET['date_from']) && $_GET['date_from'] != "") {
-                $qb->andWhere('f.acervo_date >= :date_from');
-                $filters['date_from'] = $_GET['date_from'];
-            }
-            if (isset($_GET['date_to']) && $_GET['date_from'] != "") {
-                $qb->andWhere('f.acervo_date <= :date_to');
-                $filters['date_to'] = $_GET['date_to'];
-            }
-            if (isset($_GET['filtro'])) { 
-                if ($_GET['filtro'] == 'recentes') 
+            
+            $date_from = $request->get("date_from");
+            $date_to   = $request->get("date_to");
+            $filtro    = $request->get("filtro");
+            $query     = $request->get("q");
+
+            
+            if ($filtro) { 
+                if ($filtro == 'recentes') 
                     $qb->orderBy('f.acervo_date', 'desc');
-                elseif ($_GET['filtro'] == 'acessados') 
+                elseif ($filtro == 'acessados') 
                     $qb->orderBy('f.total_visit', 'desc');
             } 
-            if (isset($_GET['q'])) {
-                $q = $_GET['q'];
-                $q = "%" . $q . "%";
+            
+            if ($query) {
+                $q = "%" . $query . "%";
+
                 $filters['q'] = $q;
                 $qb->orWhere('f.title like :q'); 
                 $qb->orWhere('f.author like :q');
                 $qb->orWhere('f.vehicle like :q');
                 $qb->orWhere('f.keyword like :q');   
+            }
+
+            if ($date_from) {
+
+                $qb->andWhere('f.acervo_date >= :date_from');
+                $filters['date_from'] = $date_from;
+
+            }
+            if ($date_to) {
+                $qb->andWhere('f.acervo_date <= :date_to');
+                $filters['date_to'] = $date_to;
             }
             //var_dump($filters);exit;
 
@@ -135,7 +147,17 @@ class AcervoController extends Controller
         }
         
         return $this->render('MuseuFrontendBundle:Acervo:acervos.html.twig', 
-            array('acervos' => $pagination, 'option' => $option, 'title' => $title, 'total' => $total, 'total_result' => count($acervos)));
+            array('acervos' => $pagination, 
+                'option' => $option, 
+                'title' => $title, 
+                'total' => $total, 
+                'total_result' => count($acervos),
+                'query' => $query,
+                'date_from' => $date_from,
+                'date_to' => $date_to,
+                'filtro' => $filtro,
+                'mostrar' => $mostrar
+                ));
     }
 
     public function viewAction($id)

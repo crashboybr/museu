@@ -58,32 +58,33 @@
 
 
     Resultados:
-    <span style="margin-left: 10px; margin-right: 10px;"><input type="radio" value="5" name="mostrar"> 5</span>
-    <span style="margin-right: 10px;"><input type="radio" value="10" name="mostrar"> 10</a></span>
-    <span style="margin-right: 10px;"><input type="radio" value="20" name="mostrar"> 20</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="40" name="mostrar"> 40</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="60" name="mostrar"> 60</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="80" name="mostrar"> 80</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="100" name="mostrar"> 100</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="200" name="mostrar"> 200</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="500" name="mostrar"> 500</a></span> 
-    <span style="margin-right: 10px;"><input type="radio" value="1000" name="mostrar"> 1.000</a></span>
-    <span style="margin-right: 10px;"><input type="radio" value="all" name="mostrar"> Todos</a></span>
+    <span style="margin-left: 10px; margin-right: 10px;"><input {% if mostrar == 5 %}checked{% endif %} type="radio" value="5" name="mostrar"> 5</span>
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 10 %}checked{% endif %} value="10" name="mostrar"> 10</a></span>
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 20 %}checked{% endif %} value="20" name="mostrar"> 20</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 40 %}checked{% endif %} value="40" name="mostrar"> 40</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 60 %}checked{% endif %} value="60" name="mostrar"> 60</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 80 %}checked{% endif %} value="80" name="mostrar"> 80</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 100 %}checked{% endif %} value="100" name="mostrar"> 100</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 200 %}checked{% endif %} value="200" name="mostrar"> 200</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 500 %}checked{% endif %} value="500" name="mostrar"> 500</a></span> 
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 1000 %}checked{% endif %} value="1000" name="mostrar"> 1.000</a></span>
+    <span style="margin-right: 10px;"><input type="radio" {% if mostrar == 'all' %}checked{% endif %} value="all" name="mostrar"> Todos</a></span>
     <br />
     Ordenar: 
-    <span style="margin-left: 25px; margin-right: 10px;"><input type="radio" value="recentes" name="filtro"> Mais Recentes</span>
-    <span style="margin-right: 10px;"><input type="radio" value="acessados" name="filtro"> Mais Acessados</span>
+    <span style="margin-left: 25px; margin-right: 10px;"><input type="radio" {% if filtro == 'recentes' %}checked{% endif %} value="recentes" name="filtro"> Mais Recentes</span>
+    <span style="margin-right: 10px;"><input type="radio" {% if filtro == 'acessados' %}checked{% endif %} value="acessados" name="filtro"> Mais Acessados</span>
     <br />
     Período:
     
       <div class="input-group" style="width: 38%;">
 
-        <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" placeholder="Data Inicial">
-        <input type="text" id="date_to" name="date_to" class="form-control"  style="float: left; width: 110px;"placeholder="Data Final"><br />
+        <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" value="{{ date_from }}" placeholder="Data Inicial">
+        <input type="text" id="date_to" value="{{ date_to }}" name="date_to" class="form-control"  style="float: left; width: 110px;"placeholder="Data Final"><br />
 
         <span class="input-group-btn" style="float: left; margin-top: -18px;">
           <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i></button>
       </span>
+      <input type="hidden" name="q" value="{{ query }}" />
 
   </div>
 </form>
@@ -102,7 +103,9 @@
     {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
     {% endif %}
 
-    {{ knp_pagination_render(acervos) }}
+    {% if mostrar != 'all' %}
+        {{ knp_pagination_render(acervos) }}
+    {% endif %}
 
     {{ render(controller('MuseuFrontendBundle:Default:news')) }}
 </div>
