@@ -15,14 +15,14 @@ class AcervoController extends Controller
         $em = $this->getDoctrine()->getManager();
         $request = $this->getRequest();
 
-        if ($option != 'musicas-videos') {
+        //if ($option != 'musicas-videos') {
             $order = null;
             
             $qb = $em->createQueryBuilder();
             $qb->select('f')
             ->from('MuseuBackendBundle:Collection', 'f');
             //->where('f.category = :category');
-
+            
             $filters['category'] = $option;
             
             $date_from = $request->get("date_from");
@@ -71,11 +71,11 @@ class AcervoController extends Controller
             //    array('category' => $option),
             //    $order
             //    );
-        } else {
-            $musics = $em->getRepository("MuseuBackendBundle:Music")->findAll();
-            $videos = $em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll();    
-            $acervos = array_merge($musics, $videos);
-        }
+        //} else {
+        //    $musics = $em->getRepository("MuseuBackendBundle:Music")->findAll();
+        //    $videos = $em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll();    
+        //    $acervos = array_merge($musics, $videos);
+        //}
         switch ($option) {
             case 'jornal':
                 $title = 'Jornais';

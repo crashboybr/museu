@@ -78,7 +78,7 @@
     <li class="{% block musicas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'musicas-videos' }) }}">Músicas & Vídeos ({{ total.musicas|number_format(0, ',', '.') }})</a></li>
 
     <li class="{% block filmes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes & Documentários ({{ total.filmes|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV ({{ total.especiais|number_format(0, ',', '.') }})</a></li>
+    {#<li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV ({{ total.especiais|number_format(0, ',', '.') }})</a></li>#}
     <li class="{% block outros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros ({{ total.outros|number_format(0, ',', '.') }})</a></li>
   </ul>        
 </div>

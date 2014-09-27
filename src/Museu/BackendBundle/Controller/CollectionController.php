@@ -128,7 +128,7 @@ class CollectionController extends Controller
 
         return $this->render('MuseuBackendBundle:Collection:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -172,7 +172,7 @@ class CollectionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('collection_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('collection'));
         }
 
         return $this->render('MuseuBackendBundle:Collection:edit.html.twig', array(
