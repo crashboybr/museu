@@ -30,6 +30,10 @@ class Newsletter
      * @Assert\NotBlank(
      *      message = "Digite seu email"
      *)
+     * @Assert\Email(
+     *     message = "O email '{{ value }}' não é válido.",
+     *     checkMX = true
+     * )
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;

@@ -1,67 +1,42 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Collection list</h1>
+    <h1>Acervos</h1>
 
-    <table class="records_list">
+    <table class="table table-striped table-bordered table-advance table-hover">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Subtitle</th>
-                <th>Collectiontypeid</th>
-                <th>Authorcollectionid</th>
-                <th>Photographer</th>
-                <th>Midia</th>
-                <th>Publisher</th>
-                <th>Date</th>
-                <th>Keyword</th>
-                <th>Facsimile</th>
-                <th>Foto</th>
-                <th>Video</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Actions</th>
+                <th>Título</th>
+                
+                <th>Coleção</th>
+
+                <th style="width:130px;"></th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('acervo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('collection_show', { 'id': entity.id }) }}">{{ entity.acervoId }}</a></td>
                 <td>{{ entity.title }}</td>
-                <td>{{ entity.subtitle }}</td>
-                <td>{{ entity.collectionTypeId }}</td>
-                <td>{{ entity.authorCollectionId }}</td>
-                <td>{{ entity.photographer }}</td>
-                <td>{{ entity.midia }}</td>
-                <td>{{ entity.publisher }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.keyword }}</td>
-                <td>{{ entity.facsimile }}</td>
-                <td>{{ entity.foto }}</td>
-                <td>{{ entity.video }}</td>
-                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.category }}</td>
+
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('acervo_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('acervo_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a class="btn default btn-xs green-stripe" target="_blank" href="{{ path('museu_view_acervo', { 'id': entity.acervoId }) }}">
+                         Ver
+                    </a>
+                    <a class="btn default btn-xs green-stripe" href="{{ path('collection_edit', { 'id': entity.id }) }}">
+                         Editar
+                    </a>
+                
+                
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('acervo_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <a href="{{ path('collection_new') }}">
+        <button type="button" class="btn btn-default">Criar Nova</button>
+    </a>
     {% endblock %}

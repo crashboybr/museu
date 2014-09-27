@@ -1,14 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Collection edit</h1>
+    <h1>Acervo</h1>
 
-    {{ form(edit_form) }}
-
+    
+    {{ form_start(edit_form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
+    	{{ form(edit_form) }}
         <ul class="record_actions">
     <li>
-        <a href="{{ path('acervo') }}">
-            Back to the list
+        <a href="{{ path('collection') }}">
+            voltar
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

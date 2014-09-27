@@ -22,7 +22,7 @@ MuseuBackendBundle_ebooks:
         resource: "@MuseuBackendBundle/Resources/config/routing/ebook.yml"
         prefix:   /ebooks
 
-MuseuBackendBundle_acervo:
+MuseuBackendBundle_collection:
         resource: "@MuseuBackendBundle/Resources/config/routing/collection.yml"
         prefix:   /acervo
 

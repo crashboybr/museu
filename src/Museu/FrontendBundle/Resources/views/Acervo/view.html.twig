@@ -32,8 +32,9 @@
                     <!-- Carousel items -->
                     <div class="carousel-inner">
                         <div class="active item">
-                            <img src="{{ asset('images/acervo/' ~ acervo.pic) }}" alt="">
-                            
+                            {% for pic in pics %}
+                            <img src="http://museu.bernardoalves.com.br/{{ asset('images/acervo/' ~ pic|trim) }}" alt=""><br />
+                            {% endfor %}
                         </div>
                         
                     </div>
@@ -106,9 +107,23 @@
                         
                     </tbody>    
                 </table>
-               
-            </div>
-            <!-- END PORTFOLIO DESCRIPTION -->            
+            
+
+            
+            <!-- END PORTFOLIO DESCRIPTION -->  
+            {% if (acervo.body) %} 
+            <h2>Corpo</h2>
+            <hr>
+            <p>{{ acervo.body|raw }}</p>    
+            {% endif %}
+            {% if (relateds) %} 
+            <h2>Itens Relacionados</h2>
+            <hr>
+                {% for related in relateds %}
+                    <p><a href="{{ path('museu_view_acervo', { 'id': related.acervoId }) }}">{{ related.title }}</a></p>
+                {% endfor %} 
+            {% endif %}
+            </div>    
         </div>
         <!-- END PORTFOLIO ITEM -->
 </div>

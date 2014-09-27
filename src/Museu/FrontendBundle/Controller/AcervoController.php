@@ -164,14 +164,27 @@ class AcervoController extends Controller
     { 
         $em = $this->getDoctrine()->getManager();
 
-        $acervo = $em->getRepository("MuseuBackendBundle:Collection")->find($id);
+        $acervo = $em->getRepository("MuseuBackendBundle:Collection")->findOneBy(array('acervo_id' => $id));
 
         $acervo->setTotalVisit($acervo->getTotalVisit() + 1);
         $em->persist($acervo);
         $em->flush();
 
+        $related = $acervo->getRelated();
+        $related = explode(';', $related);
+        $relateds = null;
+        if ($related[0] != null) {
+            foreach ($related as $related_id) {
+                $relateds[] = $em->getRepository("MuseuBackendBundle:Collection")->findOneBy(array('acervo_id' => $related_id));            
+            }
+        }
+
+        $pics = $acervo->getPic();
+        $pics = explode(';', $pics);
+        
+
         return $this->render('MuseuFrontendBundle:Acervo:view.html.twig', 
-            array('acervo' => $acervo));
+            array('acervo' => $acervo, 'relateds' => $relateds, 'pics' => $pics));
 
     }
 

@@ -27,6 +27,13 @@ class Collection
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="acervo_id", type="integer")
+     */
+    private $acervo_id;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
@@ -116,6 +123,27 @@ class Collection
      * @ORM\Column(name="support_pic_author", type="string", length=255, nullable=true)
      */
     private $support_pic_author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="related", type="string", length=255, nullable=true)
+     */
+    private $related;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="interpret", type="string", length=255, nullable=true)
+     */
+    private $interpret;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="body", type="text", nullable=true)
+     */
+    private $body;
 
     /**
      * @var integer
@@ -533,5 +561,97 @@ class Collection
     public function getTotalVisit()
     {
         return $this->total_visit;
+    }
+
+    /**
+     * Set related
+     *
+     * @param string $related
+     * @return Collection
+     */
+    public function setRelated($related)
+    {
+        $this->related = $related;
+    
+        return $this;
+    }
+
+    /**
+     * Get related
+     *
+     * @return string 
+     */
+    public function getRelated()
+    {
+        return $this->related;
+    }
+
+    /**
+     * Set interpret
+     *
+     * @param string $interpret
+     * @return Collection
+     */
+    public function setInterpret($interpret)
+    {
+        $this->interpret = $interpret;
+    
+        return $this;
+    }
+
+    /**
+     * Get interpret
+     *
+     * @return string 
+     */
+    public function getInterpret()
+    {
+        return $this->interpret;
+    }
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return Collection
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+    
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * Set acervo_id
+     *
+     * @param integer $acervoId
+     * @return Collection
+     */
+    public function setAcervoId($acervoId)
+    {
+        $this->acervo_id = $acervoId;
+    
+        return $this;
+    }
+
+    /**
+     * Get acervo_id
+     *
+     * @return integer 
+     */
+    public function getAcervoId()
+    {
+        return $this->acervo_id;
     }
 }

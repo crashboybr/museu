@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Collection</h1>
+    <h1>Acervo</h1>
 
     <table class="record_properties">
         <tbody>
@@ -18,44 +18,64 @@
                 <td>{{ entity.subtitle }}</td>
             </tr>
             <tr>
-                <th>Collectiontypeid</th>
-                <td>{{ entity.collectionTypeId }}</td>
+                <th>Category</th>
+                <td>{{ entity.category }}</td>
             </tr>
             <tr>
-                <th>Authorcollectionid</th>
-                <td>{{ entity.authorCollectionId }}</td>
+                <th>Author</th>
+                <td>{{ entity.author }}</td>
             </tr>
             <tr>
-                <th>Photographer</th>
-                <td>{{ entity.photographer }}</td>
+                <th>Vehicle</th>
+                <td>{{ entity.vehicle }}</td>
             </tr>
             <tr>
-                <th>Midia</th>
-                <td>{{ entity.midia }}</td>
+                <th>Program</th>
+                <td>{{ entity.program }}</td>
             </tr>
             <tr>
-                <th>Publisher</th>
-                <td>{{ entity.publisher }}</td>
+                <th>Filename</th>
+                <td>{{ entity.filename }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+                <th>Url</th>
+                <td>{{ entity.url }}</td>
+            </tr>
+            <tr>
+                <th>Acervo_date</th>
+                <td>{{ entity.acervodate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
                 <th>Keyword</th>
                 <td>{{ entity.keyword }}</td>
             </tr>
             <tr>
-                <th>Facsimile</th>
-                <td>{{ entity.facsimile }}</td>
+                <th>Pic</th>
+                <td>{{ entity.pic }}</td>
             </tr>
             <tr>
-                <th>Foto</th>
-                <td>{{ entity.foto }}</td>
+                <th>Support_pic</th>
+                <td>{{ entity.supportpic }}</td>
             </tr>
             <tr>
-                <th>Video</th>
-                <td>{{ entity.video }}</td>
+                <th>Support_pic_author</th>
+                <td>{{ entity.supportpicauthor }}</td>
+            </tr>
+            <tr>
+                <th>Related</th>
+                <td>{{ entity.related }}</td>
+            </tr>
+            <tr>
+                <th>Interpret</th>
+                <td>{{ entity.interpret }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ entity.body }}</td>
+            </tr>
+            <tr>
+                <th>Total_visit</th>
+                <td>{{ entity.totalvisit }}</td>
             </tr>
             <tr>
                 <th>Createdat</th>
@@ -70,12 +90,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('acervo') }}">
+        <a href="{{ path('collection') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('acervo_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('collection_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
