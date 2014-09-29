@@ -1,30 +1,30 @@
-livros:
+ebooks:
     pattern:  /
     defaults: { _controller: "MuseuBackendBundle:eBook:index" }
 
-livros_show:
+ebooks_show:
     pattern:  /{id}/show
     defaults: { _controller: "MuseuBackendBundle:eBook:show" }
 
-livros_new:
+ebooks_new:
     pattern:  /new
     defaults: { _controller: "MuseuBackendBundle:eBook:new" }
 
-livros_create:
+ebooks_create:
     pattern:  /create
     defaults: { _controller: "MuseuBackendBundle:eBook:create" }
     requirements: { _method: post }
 
-livros_edit:
+ebooks_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "MuseuBackendBundle:eBook:edit" }
 
-livros_update:
+ebooks_update:
     pattern:  /{id}/update
     defaults: { _controller: "MuseuBackendBundle:eBook:update" }
     requirements: { _method: post|put }
 
-livros_delete:
+ebooks_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "MuseuBackendBundle:eBook:delete" }
     requirements: { _method: post|delete }

@@ -15,12 +15,19 @@ class BookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
+            ->add('title', 'text', array('label' => 'Título'))
             ->add('file')
-            ->add('author')
-            ->add('description')
-            ->add('publisher')
-            ->add('url')
+            ->add('author', 'text', array('label' => 'Autor'))
+            ->add('description', 'textarea', array('label' => 'Sinopse'))
+            ->add('publisher', 'text', array('label' => 'Editora'))
+            ->add('url', 'text', array('label' => 'URL'))
+            ->add('genre', 'text', array('label' => 'Gênero'))
+            ->add('year', 'text', array('label' => 'Ano'))
+            ->add('resenha', 'text', array('label' => 'Resenha'))
+            ->add('ebook', 'text', array('label' => 'eBook'))
+            ->add('next_library', 'text', array('label' => 'Biblioteca Próxima'))
+            ->add('library', 'text', array('label' => 'Livraria'))
+            ->add('sebo', 'text', array('label' => 'Sebo'))
         ;
     }
     

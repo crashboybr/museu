@@ -221,4 +221,21 @@ class CollectionController extends Controller
             ->getForm()
         ;
     }
+
+
+    public function sendFileAction(Request $request)
+    {
+        if ($request->getMethod() == "POST") {
+            //echo "<pre>";
+            //var_dump($_FILES['files']);exit;
+            foreach ($_FILES['files']['tmp_name'] as $key => $file) {
+                move_uploaded_file($file, "images/acervo/" . $_FILES['files']['name'][$key]);
+            }
+            $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'Arquivos enviado com sucesso!');
+
+        }
+        return $this->render('MuseuBackendBundle:Collection:sendfile.html.twig');
+    }
 }

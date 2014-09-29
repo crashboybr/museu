@@ -127,7 +127,7 @@ class BookController extends Controller
 
         return $this->render('MuseuBackendBundle:Book:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -171,7 +171,7 @@ class BookController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('livros_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('livros'));
         }
 
         return $this->render('MuseuBackendBundle:Book:edit.html.twig', array(

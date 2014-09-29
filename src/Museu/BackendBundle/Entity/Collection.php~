@@ -141,6 +141,13 @@ class Collection
     /**
      * @var string
      *
+     * @ORM\Column(name="composer", type="string", length=255, nullable=true)
+     */
+    private $composer;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="body", type="text", nullable=true)
      */
     private $body;
@@ -653,5 +660,28 @@ class Collection
     public function getAcervoId()
     {
         return $this->acervo_id;
+    }
+
+    /**
+     * Set composer
+     *
+     * @param string $composer
+     * @return Collection
+     */
+    public function setComposer($composer)
+    {
+        $this->composer = $composer;
+    
+        return $this;
+    }
+
+    /**
+     * Get composer
+     *
+     * @return string 
+     */
+    public function getComposer()
+    {
+        return $this->composer;
     }
 }

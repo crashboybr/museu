@@ -28,3 +28,7 @@ collection_delete:
     path:     /{id}/delete
     defaults: { _controller: "MuseuBackendBundle:Collection:delete" }
     requirements: { _method: post|delete }
+
+collection_send_file:
+    path:     /enviar-arquivos
+    defaults: { _controller: "MuseuBackendBundle:Collection:sendFile" }

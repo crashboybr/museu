@@ -26,33 +26,34 @@
                                 
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-md-4 col-sm-4">
-                                <img src="{{ asset(book.pic) }}" alt="" style="max-width: 130px;" class="img-responsive">
+                                <img src="{{ asset(book.pic) }}" alt="" style="width: 130px; height: 194px;" class="img-responsive">
                             </div>
                             <div class="col-md-8 col-sm-8">
                                 <h2>{{ book.title }}</h2>
                                 <ul class="blog-info">
-                                    {% if book.publisher %}<li><i class="fa fa-book"></i> {{ book.publisher }}</li>{% endif %}
-                                    <li><i class="fa fa-pencil"></i> {{ book.author }}</li>
+                                    {% if book.publisher %}
+                                        Editora: {{ book.publisher }}<br />
+                                    {% endif %}
+                                    {% if book.author %}
+                                        Autor(a): {{ book.author }}<br />
+                                    {% endif %}
+                                    {% if book.genre %}
+                                        Gênero: {{ book.genre }}<br />
+                                    {% endif %}
+                                    {% if book.year %}
+                                        Ano: {{ book.year }}<br />
+                                    {% endif %}
                                 </ul>
+                                <h4>Sinopse</h4>
                                 <p>{{ book.description }}</p>
                                 {% if book.url %}<a class="more" target="_blank" href="{{ book.url }}">Ler mais<i class="icon-angle-right"></i></a>{% endif %}
+                                <p><a href="{{ book.resenha }}">Leia a resenha</a> | <a href="{{ book.ebook }}">Leia o eBook</a> | <a href="{{ book.nextLibrary }}">Biblioteca próxima</a> | <a href="{{ book.sebo }}">Sebo</a> | <a href="{{ book.library }}">Livraria</a></p>
                             </div>
                         </div>
                         <hr class="blog-post-sep">
                     {% endfor %}
                     
                     
-                    <div class="text-center">
-                        <ul class="pagination pagination-centered">
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li class="active"><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>     
 
                     {{ render(controller('MuseuFrontendBundle:Default:news')) }}           
                 </div>

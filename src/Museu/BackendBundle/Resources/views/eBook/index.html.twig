@@ -27,13 +27,13 @@
                 
           
                 <td>
-                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('livros_show', { 'id': entity.id }) }}">
+                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('ebooks_show', { 'id': entity.id }) }}">
                          Ver
                     </a>
-                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('livros_edit', { 'id': entity.id }) }}">
+                    <a style="float: left;" class="btn default btn-xs green-stripe" href="{{ path('ebooks_edit', { 'id': entity.id }) }}">
                          Editar
                     </a>
-                    <form style="float: left;" name="form" method="post" action="{{ path('livros_delete', { 'id': entity.id }) }}">
+                    <form style="float: left;" name="form" method="post" action="{{ path('ebooks_delete', { 'id': entity.id }) }}">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" id="form_submit" name="form[submit]" class="btn default btn-xs green-stripe">Deletar</button>
                     </form>
@@ -44,7 +44,7 @@
         </tbody>    
     </table>
 
-    <a href="{{ path('livros_new') }}">
+    <a href="{{ path('ebooks_new') }}">
         <button type="button" class="btn btn-default">Criar Nova</button>
     </a>
 

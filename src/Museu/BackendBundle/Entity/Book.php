@@ -51,6 +51,55 @@ class Book
     /**
      * @var string
      *
+     * @ORM\Column(name="genre", type="string", length=255, nullable=true)
+     */
+    private $genre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="year", type="string", length=255, nullable=true)
+     */
+    private $year;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resenha", type="string", length=255, nullable=true)
+     */
+    private $resenha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ebook", type="string", length=255, nullable=true)
+     */
+    private $ebook;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="library", type="string", length=255, nullable=true)
+     */
+    private $library;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="next_library", type="string", length=255, nullable=true)
+     */
+    private $next_library;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sebo", type="string", length=255, nullable=true)
+     */
+    private $sebo;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
@@ -382,5 +431,166 @@ class Book
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     * @return Book
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+    
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string 
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set year
+     *
+     * @param string $year
+     * @return Book
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return string 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set resenha
+     *
+     * @param string $resenha
+     * @return Book
+     */
+    public function setResenha($resenha)
+    {
+        $this->resenha = $resenha;
+    
+        return $this;
+    }
+
+    /**
+     * Get resenha
+     *
+     * @return string 
+     */
+    public function getResenha()
+    {
+        return $this->resenha;
+    }
+
+    /**
+     * Set ebook
+     *
+     * @param string $ebook
+     * @return Book
+     */
+    public function setEbook($ebook)
+    {
+        $this->ebook = $ebook;
+    
+        return $this;
+    }
+
+    /**
+     * Get ebook
+     *
+     * @return string 
+     */
+    public function getEbook()
+    {
+        return $this->ebook;
+    }
+
+    /**
+     * Set library
+     *
+     * @param string $library
+     * @return Book
+     */
+    public function setLibrary($library)
+    {
+        $this->library = $library;
+    
+        return $this;
+    }
+
+    /**
+     * Get library
+     *
+     * @return string 
+     */
+    public function getLibrary()
+    {
+        return $this->library;
+    }
+
+    /**
+     * Set next_library
+     *
+     * @param string $nextLibrary
+     * @return Book
+     */
+    public function setNextLibrary($nextLibrary)
+    {
+        $this->next_library = $nextLibrary;
+    
+        return $this;
+    }
+
+    /**
+     * Get next_library
+     *
+     * @return string 
+     */
+    public function getNextLibrary()
+    {
+        return $this->next_library;
+    }
+
+    /**
+     * Set sebo
+     *
+     * @param string $sebo
+     * @return Book
+     */
+    public function setSebo($sebo)
+    {
+        $this->sebo = $sebo;
+    
+        return $this;
+    }
+
+    /**
+     * Get sebo
+     *
+     * @return string 
+     */
+    public function getSebo()
+    {
+        return $this->sebo;
     }
 }

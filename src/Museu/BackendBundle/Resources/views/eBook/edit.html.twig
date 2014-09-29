@@ -1,16 +1,104 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Book edit</h1>
 
-    {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('livros') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="row-fluid">
+	<div class="span12">
+		<!-- BEGIN GENERAL PORTLET-->
+		<div class="portlet">
+
+
+			<div class="portlet-body form">
+
+				{{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
+
+				<h3 class="form-section">Editar eBook</h3>
+				<div class="control-group {% if (form.title.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.title, 'Título', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.title, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.title.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.title.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.file.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.file, 'Arquivo', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.file, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.file.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.file.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.author.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.author, 'Autor', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.author, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.author.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.author.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+
+				<div class="control-group {% if (form.description.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.description, 'Sinopse', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.description, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.description.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.description.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.publisher.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.publisher, 'Editora', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.publisher, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.publisher.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.publisher.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.url.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.url, 'URL', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.url, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.url.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.url.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+				
+				<button type="submit">Atualizar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 {% endblock %}
