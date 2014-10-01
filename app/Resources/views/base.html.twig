@@ -55,7 +55,7 @@
                 <!-- END RESPONSIVE MENU TOGGLER -->            
                 <!-- BEGIN TOP NAVIGATION MENU -->              
                 <ul class="nav pull-right">
-                <li><a href="{{ path('logout') }}">Sair</a></li>
+                <li><a href="{{ path('admin_logout') }}">Sair</a></li>
                 </ul>
                 <!-- END TOP NAVIGATION MENU --> 
             </div>
@@ -149,6 +149,42 @@
                 <li>
                     <a href="javascript:;">
                     <i class="icon-file-text"></i> 
+                    <span class="title">Linha do Tempo</span>
+                    <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li>
+                            <a href="{{ path('timeline_new') }}">
+                            Criar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('timeline') }}">
+                            Listar</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-file-text"></i> 
+                    <span class="title">Depoimentos</span>
+                    <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li>
+                            <a href="{{ path('statement_new') }}">
+                            Criar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('statement') }}">
+                            Listar</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-file-text"></i> 
                     <span class="title">Publicações</span>
                     <span class="arrow"></span>
                     </a>
@@ -161,7 +197,22 @@
                             <a href="{{ path('ebooks') }}">
                             eBooks</a>
                         </li>
+                        <li>
+                            <a href="{{ path('tese') }}">
+                            Teses</a>
+                        </li>
                     </ul>
+                </li>
+
+
+
+                <li>
+                    <a href="{{ path('newsletter') }}">
+                    <i class="icon-file-text"></i> 
+                    <span class="title">Newsletter</span>
+                    
+                    </a>
+                    
                 </li>
                 
                

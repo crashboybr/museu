@@ -1,3 +1,13 @@
+admin_login:
+    pattern:   /login
+    defaults:  { _controller: MuseuBackendBundle:Default:login }
+
+admin_login_check:
+    pattern:   /login_check
+
+admin_logout:
+    path:   /logout
+
 museu_backend_homepage:
     pattern:  /
     defaults: { _controller: MuseuBackendBundle:Default:index }

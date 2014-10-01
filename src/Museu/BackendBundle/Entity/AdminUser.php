@@ -4,13 +4,18 @@ namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+
+use FOS\UserBundle\Model\User as BaseUser;
+
+
 /**
  * AdminUser
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class AdminUser
+class AdminUser implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -23,37 +28,37 @@ class AdminUser
 
     /**
      * @var string
-     * @ORM\Column(name="username", type="string")
+     * @ORM\Column(name="username", type="string", nullable=true)
      */
     private $username;
 
     /**
      * @var string
-     * @ORM\Column(name="salt", type="string")
+     * @ORM\Column(name="salt", type="string", nullable=true)
      */
     private $salt;
 
     /**
      * @var string
-     * @ORM\Column(name="password", type="string")
+     * @ORM\Column(name="password", type="string", nullable=true)
      */
     private $password;
 
     /**
      * @var string
-     * @ORM\Column(name="isActive", type="boolean")
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
     private $isActive;
 
     /**
      * @var DateTime
-     * @ORM\Column(name="creaeted_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
 
     /**
      * @var DateTime
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
 
