@@ -4,18 +4,13 @@ namespace Museu\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-
-use FOS\UserBundle\Model\User as BaseUser;
-
-
 /**
  * AdminUser
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class AdminUser implements AdvancedUserInterface, \Serializable
+class AdminUser 
 {
     /**
      * @var integer
