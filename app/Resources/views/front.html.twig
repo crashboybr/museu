@@ -82,9 +82,10 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li class="sep"><span>|</span></li>
                           
                             
-                            <i class="fa fa-facebook-square" style="font-size:20px;"></i>
-                            <i class="fa fa-twitter" style="font-size:20px;"></i>
-                            <i class="fa fa-instagram" style="font-size:20px;"></i>
+                            <a href="http://www.facebook.com/museudotrabalhadordocampo" style="color: #000;"><i class="fa fa-facebook-square" style="font-size:20px;"></i></a>
+                            <a href="http://www.twitter.com/museudotrabalhadordocampo" style="color: #000;"><i class="fa fa-twitter" style="font-size:20px;"></i></a>
+                            <a href="http://www.instagram.com/museudotrabalhadordocampo" style="color: #000;"><i class="fa fa-instagram" style="font-size:20px;"></i></a>
+
                         </ul>
                     </div>
                 </div>
@@ -173,9 +174,9 @@ License: You must have a valid license purchased only from themeforest(the above
                         <i class="fa fa-search search-btn"></i>
 
                         <div class="search-box">
-                            <form action="#">
+                            <form action="{{ path('museu_acervo') }}" method="GET">
                                 <div class="input-group input-large">
-                                    <input class="form-control" type="text" placeholder="Busca">
+                                    <input class="form-control" type="text" name='q' placeholder="Busca">
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn theme-btn">Ir</button>
                                     </span>
@@ -249,7 +250,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         Museu do Trabalhador do Campo<br />
                         <a href="http://www.museudotrabalhadordocampo.org.br">www.museudotrabalhadordocampo.org.br</a><br />
                         E-mail: <a href="mailto:contato@museudotrabalhadordocampo.org.br">contato@museudotrabalhadordocampo.org.br</a><br />
-                        Skype: museudotrabalhadordocampo<br />
+                        Skype: <a href="skype:museudotrabalhadordocampo?call">museudotrabalhadordocampo</a><br />
                         Facebook: <a href="http://www.facebook.com/museudotrabalhadordocampo" target="_blank">facebook.com/museudotrabalhadordocampo</a><br />
                     </address>
                     <!-- END CONTACTS -->                                    
@@ -265,7 +266,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <!-- BEGIN TWITTER BLOCK -->                                                    
-                    <h2>Últimos Tweets</h2>
+                    <h2>Últimos Tuítes</h2>
  
                     <dl class="dl-horizontal f-twitter">
                         <dt><i class="fa fa-twitter"></i></dt>
@@ -313,16 +314,19 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="row">
                 <div class="col-md-8 col-sm-8">
                     <p>
-                        <span class="margin-right-10">{{ "now"|date("Y") }} © MTC - Desenvolvido pelo Instituto Ideall</span>
+                        <span class="margin-right-10">{{ "now"|date("Y") }} © Museu do Trabalhador do Campo – Desenvolvido pelo Instituto Ideall</span>
                     </p>
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <ul class="social-footer">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="http://www.facebook.com/museudotrabalhadordocampo"><i class="fa fa-facebook-square"></i></a></li>                        
+                        <li><a href="http://www.twitter.com/museudotrabalhadordocampo"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://www.linkedin.com/museudotrabalhadordocampo"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://www.instagram.com/museudotrabalhadordocampo"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="http://www.youtube.com/museudotrabalhadordocampo"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="skype:museudotrabalhadordocampo?call"><i class="fa fa-skype"></i></a></li>
+                        
+                        
                     </ul>                
                 </div>
             </div>

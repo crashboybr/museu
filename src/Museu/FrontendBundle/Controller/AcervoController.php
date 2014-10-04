@@ -23,7 +23,7 @@ class AcervoController extends Controller
             ->from('MuseuBackendBundle:Collection', 'f');
             //->where('f.category = :category');
             
-            $filters['category'] = $option;
+            if ($option != '') $filters['category'] = $option;
             
             $date_from = $request->get("date_from");
             $date_to   = $request->get("date_to");
@@ -63,7 +63,7 @@ class AcervoController extends Controller
             $qb->setParameters($filters);
             //var_dump($qb->getQuery()->getSql());exit;
 
-            $qb->andWhere('f.category = :category');
+            if ($option != '') $qb->andWhere('f.category = :category');
             $acervos = $qb->getQuery()->getResult();
 
             //var_dump($acervos);exit;
@@ -115,6 +115,9 @@ class AcervoController extends Controller
                 break;
             case 'outros':
                 $title = 'Outros';
+                break;
+            default:
+                $title = 'Acervos Digitais';
                 break;
         }
 

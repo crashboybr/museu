@@ -65,7 +65,7 @@ museu_acessibilidade:
 
 museu_acervo:
     pattern:   /acervo-digitais/{option}
-    defaults:  { _controller: MuseuFrontendBundle:Acervo:index }
+    defaults:  { _controller: MuseuFrontendBundle:Acervo:index, 'option': '' }
 
 museu_view_acervo:
     pattern:   /acervo-digitais/ver/{id}
@@ -91,3 +91,19 @@ museu_tvmtc:
     pattern:   /tv-mtc
     defaults:  { _controller: MuseuFrontendBundle:Default:tv }
 
+museu_radiomtc:
+    pattern:   /radio-mtc
+    defaults:  { _controller: MuseuFrontendBundle:Default:radio }
+
+museu_cinemtc:
+    pattern:   /cine-mtc
+    defaults:  { _controller: MuseuFrontendBundle:Default:cine }
+
+museu_universidade:
+    pattern:   /universidade
+    defaults:  { _controller: MuseuFrontendBundle:Default:universidade }
+
+newsletter_create_front:
+    path:     /newsletter/inscrever
+    defaults: { _controller: "MuseuBackendBundle:Newsletter:createFront" }
+    requirements: { _method: post }
