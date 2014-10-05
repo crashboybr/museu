@@ -306,6 +306,13 @@ class DefaultController extends Controller
     
     }
 
+    public function bibliotecaAction()
+    {    
+   
+        return $this->render('MuseuFrontendBundle:Default:biblioteca.html.twig');
+    
+    }
+
     public function guaribaAction($option)
     {    
 

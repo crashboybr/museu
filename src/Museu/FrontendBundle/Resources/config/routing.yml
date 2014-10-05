@@ -103,6 +103,11 @@ museu_universidade:
     pattern:   /universidade
     defaults:  { _controller: MuseuFrontendBundle:Default:universidade }
 
+museu_biblioteca:
+    pattern:   /biblioteca
+    defaults:  { _controller: MuseuFrontendBundle:Default:biblioteca }
+
+
 newsletter_create_front:
     path:     /newsletter/inscrever
     defaults: { _controller: "MuseuBackendBundle:Newsletter:createFront" }

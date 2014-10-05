@@ -65,7 +65,7 @@ class NewsletterController extends Controller
             $em->flush();
             $this->get('session')->getFlashBag()->add(
                         'success',
-                        'E-mail cadastrado com sucesso!');
+                        'Pronto! Agora você vai receber informações sobre as atividades do Museu do Trabalhador do Campo.');
 
             return $this->redirect($this->generateUrl('museu_frontend_homepage'));
         }
