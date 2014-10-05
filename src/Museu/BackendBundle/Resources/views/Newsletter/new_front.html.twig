@@ -1,10 +1,6 @@
 {{ form_start(form, { 'attr': { 'class': 'form-subscribe' }}) }}
 						{{ form_errors(form) }}
 
-						<span style="color: white;">{% for flashMessage in app.session.flashbag.get('success') %}
-							{{ flashMessage }}
-						{% endfor %}
-						</span>
 						<div class="input-group input-large">
                             {{ form_widget(form.email, { 'attr': { 'class': 'form-control' }}) }}
                             <span class="input-group-btn">

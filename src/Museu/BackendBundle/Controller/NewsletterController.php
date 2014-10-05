@@ -71,7 +71,7 @@ class NewsletterController extends Controller
         }
         
         $this->get('session')->getFlashBag()->add(
-                        'success',
+                        'error',
                         'E-mail inválido!');
 
         return $this->redirect($this->generateUrl('museu_frontend_homepage'));

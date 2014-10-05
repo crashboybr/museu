@@ -103,7 +103,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN LOGO (you can use logo image instead of text)-->
                 <a class="navbar-brand logo-v1" href="{{ path('museu_frontend_homepage') }}">
-                    <img src="/images/logo1.png" id="logoimg" alt="" style="width:99px; margin-top:-44px;">
+                    <img src="/images/logo1.png" id="logoimg" alt="" style="width:98px; margin-top:-44px;">
                     <img src="/images/logo2.png" id="logoimg" alt="" style="width:99px; margin-top:-44px;">
                     <!--<img src="/front/assets/img/logo_blue.png" id="logoimg" />-->
                 </a>
@@ -147,10 +147,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             <li><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Sites</a></li>
                             <li><a href="{{ path('museu_acervo', { 'option': 'foto' }) }}">Fotografias</a></li>
                             <li><a href="{{ path('museu_acervo', { 'option': 'ilustracao' }) }}">Ilustrações</a></li>
-                            <li><a href="{{ path('museu_acervo', { 'option': 'artigo' }) }}">Artigos Acadêmicos</a></li>
-                            <li><a href="{{ path('museu_acervo', { 'option': 'teses' }) }}">Teses & TCCs</a></li>
-                            <li><a href="{{ path('museu_acervo', { 'option': 'musicas-videos' }) }}">Músicas & Vídeos</a></li>
-                            <li><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes & Documentários</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'artigosacademicos' }) }}">Artigos Acadêmicos</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'teses' }) }}">Teses</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'tccs' }) }}">TCCs</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'musicas' }) }}">Músicas</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'videos' }) }}">Vídeos</a></li>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes</a>
+                            <li><a href="{{ path('museu_acervo', { 'option': 'documentarios' }) }}">Documentários</a></li>
                             {#<li><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV</a></li>#}
                             <li><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros</a></li>
                         </ul>
@@ -193,6 +196,20 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN PAGE CONTAINER -->  
     <div class="page-container">
+        
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success" style="text-align: center;">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger" style="text-align: center;">
+                    <strong>ERRO!</strong> {{ flashMessage }}
+                </div>
+            {% endfor %}
+        
+        
         {% if block('breadcrumb') %}
         <!-- BEGIN BREADCRUMBS -->   
         <div class="row breadcrumbs">

@@ -43,6 +43,13 @@ class Statement
     /**
      * @var string
      *
+     * @ORM\Column(name="company", type="string", length=255, nullable=true)
+     */
+    private $company;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $text;
@@ -333,5 +340,28 @@ class Statement
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set company
+     *
+     * @param string $company
+     * @return Statement
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+    
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return string 
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

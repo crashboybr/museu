@@ -1,16 +1,121 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Statement edit</h1>
+<script src="/back/assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#museu_backendbundle_statement_type").val("{{ form.vars.value.type }}")
+	});
+</script>
 
-    {{ form(edit_form) }}
+<div class="row-fluid">
+	<div class="span12">
+		<div class="portlet">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('statement') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+			<div class="portlet-body form">
+
+				{{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
+
+				<h3 class="form-section">Editar Depoimento</h3>
+				<div class="control-group {% if (form.name.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.name, 'Nome', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+
+						{{ form_widget(form.name, { 'attr': { 'class': 'm-wrap large' }}) }}
+						{% if (form.name.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.name.vars.errors[0].message }}</span>
+						{% endif %}
+					</div>
+				</div>
+
+
+
+				<div class="control-group {% if (form.function.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.function, 'Função', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+						{{ form_widget(form.function, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+						{% if (form.function.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.function.vars.errors[0].message }}</span>
+						{% endif %}
+
+
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.company.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.company, 'Empresa', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+						{{ form_widget(form.company, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+						{% if (form.company.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.company.vars.errors[0].message }}</span>
+						{% endif %}
+
+
+					</div>
+				</div>
+
+
+
+				<div class="control-group {% if (form.url.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.url, 'URL', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+						{{ form_widget(form.url, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+						{% if (form.url.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.url.vars.errors[0].message }}</span>
+						{% endif %}
+
+
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.type.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.type, 'Tipo', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+						{{ form_widget(form.type, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+						{% if (form.type.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.type.vars.errors[0].message }}</span>
+						{% endif %}
+
+
+					</div>
+				</div>
+
+				<div class="control-group {% if (form.file.vars.errors|length > 0) %}error{% endif %}">
+
+					{{ form_label(form.file, 'Foto', { 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+
+						{{ form_widget(form.file, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+						{% if (form.file.vars.errors|length > 0) %}
+						<span class="help-inline">{{ form.file.vars.errors[0].message }}</span>
+						{% endif %}
+
+
+					</div>
+				</div>
+
+				<div class="form-actions">
+					{{ form_widget(form.submit, { 'label': 'Salvar', 'attr': { 'class': 'btn blue' }}) }}
+					<button type="button" class="btn">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

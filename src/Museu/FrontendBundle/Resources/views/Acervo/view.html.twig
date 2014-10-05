@@ -33,7 +33,9 @@
                     <div class="carousel-inner">
                         <div class="active item">
                             {% for pic in pics %}
+                            {% if pic %}
                             <img src="http://museu.bernardoalves.com.br/{{ asset('images/acervo/' ~ pic|trim) }}" alt=""><br />
+                            {% endif %}
                             {% endfor %}
                         </div>
                         

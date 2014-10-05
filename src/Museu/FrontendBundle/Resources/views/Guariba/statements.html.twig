@@ -14,7 +14,12 @@
 
                 {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
                 {% endembed %}
+                <div class="col-md-3 col-sm-3">
                 <h2 style="margin-left: 15px;">Depoimentos</h2>
+                </div>
+                <div class="col-md-9 col-sm-9">
+                <h2 style="">{{ option }}</h2>
+                </div>
                 <div class="col-md-3">
 
                     <ul class="ver-inline-menu tabbable margin-bottom-10">
@@ -37,14 +42,14 @@
                         <h1 style="font-size: 20px; text-align:center; margin-top: 10px; color:">Mande seu Depoimento</h1>
                         
                     </div>
-                    <a href="{{ path('museu_guariba', { 'option': 'imprensa' }) }}"><h3>Imprensa</h3></a>
-                    <p>Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que parou o interior de São Paulo a partir de 1984.</p>
+                    <a href="{{ path('museu_imprensa_greve') }}"><h3>A Imprensa e as Greves</h3></a>
+                    <a href="{{ path('museu_imprensa_greve') }}" style="color: black;">Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que parou o interior de São Paulo a partir de 1984.</a>
 
-                    <a href="{{ path('museu_guariba', { 'option': 'timeline' }) }}"><h3>Linha do Tempo</h3></a>
-                    <p>Veja os principais acontecimentos e como evoluiu a greve, a repressão policial e a conquista dos trabalhadores do campo durante os confrontos.</p>
+                    <a href="{{ path('museu_timeline') }}"><h3>Linha do Tempo</h3></a>
+                    <a href="{{ path('museu_timeline') }}" style="color: black;">Veja os principais acontecimentos e como evoluiu a greve, a repressão policial e a conquista dos trabalhadores do campo durante os confrontos.</a>
 
-                    <a href="{{ path('museu_guariba', { 'option': 'mapa' }) }}"><h3>Mapa das Greves</h3></a>
-                    <p>Veja o mapa das cidades que aderiram às greves em diferentes períodos, a partir de maio de 1984, em várias regiões do Estado de São Paulo.</p>
+                    <a href="{{ path('museu_mapa_greve') }}"><h3>Mapa das Greves</h3></a>
+                    <a href="{{ path('museu_mapa_greve') }}" style="color: black;">Veja o mapa das cidades que aderiram às greves em diferentes períodos, a partir de maio de 1984, em várias regiões do Estado de São Paulo.</a>
                 </div>
 
                 <div class="col-md-9">
@@ -64,14 +69,16 @@
                                   <div class="row" style="">
                                     {% for depo in statements %}
 
-                                        <div class="col-md-2 col-sm-2 gallery-item">
+                                        <div class="col-md-2 col-sm-2 gallery-item" style="height: 150px;">
                                           <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'>
                                             <img src="{{ asset(depo.pic) }}" style="width: 80px; height: 88px;" class="img-responsive" />
                                           </a>
-                                          <span style="font-size: 11px;" data-rel="fancybox-button">{{ depo.name }}</span>
-                                            
-                                            
-                                           
+                                          <span style="font-size: 11px;" data-rel="fancybox-button">
+                                          {{ depo.name }}<br />
+                                          {{ depo.function }}<br />
+                                          {{ depo.company }}
+                                          </span>
+                                          
                                         </div>
                                     {% endfor %}
 

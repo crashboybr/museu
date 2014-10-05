@@ -34,21 +34,11 @@
                         </div>
                         
                     </div>
+                    
                     <hr class="blog-post-sep">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <h2>eBooks</h2>
-                            <p>
-                                Veja aqui os eBooks (livros digitais) já publicados sobre temas relacionados ao trabalhador do campo no Brasil que você pode encontrar e ler, gratuitamente, na Biblioteca Digital do Museu do Trabalhador do Campo.
- 
-                            </p>       
-                        </div>
-                        
-                    </div>
-                    <hr class="blog-post-sep">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <h2><a href="{{ path('museu_teses') }}">Teses</a></h2>
+                            <h2><a href="{{ path('museu_acervo', { 'option': 'teses' }) }}">Teses</a></h2>
                             <p>
                                 Veja aqui as teses publicadas sobre temas relacionados ao trabalhador do campo no Brasil. <br />Quando elas não estiverem disponíveis no nosso Acervo Digital, daremos, sempre que possível, o link onde elas sejam acessadas diretamente na fonte onde estão hospedadas.
  
@@ -59,7 +49,7 @@
                     <hr class="blog-post-sep">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <h2>TCCs</h2>
+                            <h2><a href="{{ path('museu_acervo', { 'option': 'tccs' }) }}">TCCs</a></h2>
                             <p>
                                 Veja os Trabalhos de Conclusão de Curso (TCCs) gerados sobre temas relacionados ao trabalhador do campo no Brasil.<br />Quando elas não estiverem disponíveis no nosso Acervo Digital, daremos, sempre que possível, o link onde elas sejam acessadas diretamente na fonte onde estão hospedadas. 
                             </p>       

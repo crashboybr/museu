@@ -2,13 +2,10 @@
 <!-- CATEGORIES START -->
     <h2>Categorias</h2>
     <ul class="nav sidebar-categories margin-bottom-40">
-        <li><a href="{{ path('museu_livros') }}">Livros ({{ total_books }})</a></li>
-        <li><a href="{{ path('museu_ebooks') }}">eBooks ({{ total_ebooks }})</a></li>
-        <li class=""><a href="#">Teses ({{ total_teses }})</a></li>
-        <li><a href="#">TCCs ({{ total_tccs }})</a></li>
-        <li><a href="#">Artigos Acadêmicos ({{ total_artigos }})</a></li>
-        <li><a href="{{ path('museu_videos') }}">Vídeos ({{ total_videos }})</a></li>
-        <li><a href="{{ path('museu_music') }}">Músicas ({{ total_musics }})</a></li>
+        <li><a href="{{ path('museu_acervo', { 'option': 'livros'}) }}">Livros ({{ total_books }})</a></li>
+        <li><a href="{{ path('museu_acervo', { 'option': 'teses'}) }}">Teses ({{ total_teses }})</a></li>
+        <li><a href="{{ path('museu_acervo', { 'option': 'tccs'}) }}">TCCs ({{ total_tccs }})</a></li>
+        <li><a href="{{ path('museu_acervo', { 'option': 'artigosacademicos'}) }}">Artigos Acadêmicos ({{ total_artigos }})</a></li>>
     </ul>
     <!-- CATEGORIES END -->
 

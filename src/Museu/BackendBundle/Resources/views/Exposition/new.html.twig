@@ -231,8 +231,8 @@ function addTagForm($collectionHolder, $newLinkLi) {
 					    </div>
 
 						<div class="form-actions">
-							{{ form_widget(form.submit, { 'label': '<i class="icon-ok"></i> Salvar', 'attr': { 'class': 'btn blue' }}) }}
-							<button type="button" class="btn">Cancelar</button>
+							{{ form_widget(form.submit, { 'label': 'Salvar', 'attr': { 'class': 'btn blue' }}) }}
+							<a href="{{ path('exposicoes') }}"><button type="button" class="btn">Cancelar</button></a>
 						</div>
 					
 				</div>

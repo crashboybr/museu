@@ -98,11 +98,14 @@ class AcervoController extends Controller
             case 'ilustracao':
                 $title = 'Ilustrações';
                 break;
-            case 'artigo':
+            case 'artigosacademicos':
                 $title = 'Artigos Acadêmicos';
                 break;
-            case 'tese':
-                $title = 'Teses & TCCs';
+            case 'teses':
+                $title = 'Teses';
+                break;
+            case 'tccs':
+                $title = 'TCCs';
                 break;
             case 'musicas-videos':
                 $title = 'Músicas & Vídeos';
@@ -129,10 +132,13 @@ class AcervoController extends Controller
         $total['fotografias'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Fotografia')));
         $total['ilustracoes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Ilustraçao')));
         $total['artigos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Artigo')));
-        $total['teses'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Tese')));
+        $total['teses'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Teses')));
+        $total['tccs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'TCCs')));
         $total['filmes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Filmes')));
+        $total['documentarios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Documentarios')));
         $total['especiais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Especiais')));
         $total['outros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Outros')));
+        $total['videos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Videos')));
 
         $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());
 

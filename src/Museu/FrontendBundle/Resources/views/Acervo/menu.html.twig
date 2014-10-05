@@ -73,11 +73,17 @@
     <li class="{% block sites %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Sites ({{ total.sites|number_format(0, ',', '.') }})</a></li>
     <li class="{% block fotografias %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'fotografia' }) }}">Fotografias ({{ total.fotografias|number_format(0, ',', '.') }})</a></li>
     <li class="{% block ilustracoes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'ilustracao' }) }}">Ilustrações ({{ total.ilustracoes|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block artigos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'artigo' }) }}">Artigos Acadêmicos ({{ total.artigos|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block teses %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tese' }) }}">Teses & TCCs ({{ total.teses|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block musicas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'musicas-videos' }) }}">Músicas & Vídeos ({{ total.musicas|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block artigos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'artigosacademicos' }) }}">Artigos Acadêmicos ({{ total.artigos|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block teses %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'teses' }) }}">Teses ({{ total.teses|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block tccs %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tccs' }) }}">TCCs ({{ total.tccs|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block musicas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'musicas-videos' }) }}">Músicas ({{ total.musicas|number_format(0, ',', '.') }})</a></li>
 
-    <li class="{% block filmes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes & Documentários ({{ total.filmes|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block videos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'videos' }) }}">Vídeos ({{ total.videos|number_format(0, ',', '.') }})</a></li>
+
+    <li class="{% block filmes %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'filmes' }) }}">Filmes ({{ total.filmes|number_format(0, ',', '.') }})</a></li>
+
+    <li class="{% block documentarios %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'documentarios' }) }}">Documentários ({{ total.documentarios|number_format(0, ',', '.') }})</a></li>
+
     {#<li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV ({{ total.especiais|number_format(0, ',', '.') }})</a></li>#}
     <li class="{% block outros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros ({{ total.outros|number_format(0, ',', '.') }})</a></li>
   </ul>        

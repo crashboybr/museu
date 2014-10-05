@@ -478,4 +478,119 @@ class Book
     {
         return $this->year;
     }
+
+    /**
+     * Set resenha
+     *
+     * @param string $resenha
+     * @return Book
+     */
+    public function setResenha($resenha)
+    {
+        $this->resenha = $resenha;
+    
+        return $this;
+    }
+
+    /**
+     * Get resenha
+     *
+     * @return string 
+     */
+    public function getResenha()
+    {
+        return $this->resenha;
+    }
+
+    /**
+     * Set ebook
+     *
+     * @param string $ebook
+     * @return Book
+     */
+    public function setEbook($ebook)
+    {
+        $this->ebook = $ebook;
+    
+        return $this;
+    }
+
+    /**
+     * Get ebook
+     *
+     * @return string 
+     */
+    public function getEbook()
+    {
+        return $this->ebook;
+    }
+
+    /**
+     * Set library
+     *
+     * @param string $library
+     * @return Book
+     */
+    public function setLibrary($library)
+    {
+        $this->library = $library;
+    
+        return $this;
+    }
+
+    /**
+     * Get library
+     *
+     * @return string 
+     */
+    public function getLibrary()
+    {
+        return $this->library;
+    }
+
+    /**
+     * Set next_library
+     *
+     * @param string $nextLibrary
+     * @return Book
+     */
+    public function setNextLibrary($nextLibrary)
+    {
+        $this->next_library = $nextLibrary;
+    
+        return $this;
+    }
+
+    /**
+     * Get next_library
+     *
+     * @return string 
+     */
+    public function getNextLibrary()
+    {
+        return $this->next_library;
+    }
+
+    /**
+     * Set sebo
+     *
+     * @param string $sebo
+     * @return Book
+     */
+    public function setSebo($sebo)
+    {
+        $this->sebo = $sebo;
+    
+        return $this;
+    }
+
+    /**
+     * Get sebo
+     *
+     * @return string 
+     */
+    public function getSebo()
+    {
+        return $this->sebo;
+    }
 }

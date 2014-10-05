@@ -64,11 +64,11 @@ museu_acessibilidade:
     defaults:  { _controller: MuseuFrontendBundle:Default:acessibilidade }
 
 museu_acervo:
-    pattern:   /acervo-digitais/{option}
+    pattern:   /acervos-digitais/{option}
     defaults:  { _controller: MuseuFrontendBundle:Acervo:index, 'option': '' }
 
 museu_view_acervo:
-    pattern:   /acervo-digitais/ver/{id}
+    pattern:   /acervos-digitais/ver/{id}
     defaults:  { _controller: MuseuFrontendBundle:Acervo:view }
 
 #museu_acervo:
@@ -107,6 +107,17 @@ museu_biblioteca:
     pattern:   /biblioteca
     defaults:  { _controller: MuseuFrontendBundle:Default:biblioteca }
 
+museu_imprensa_greve:
+    pattern:   /a-imprensa-e-as-greves
+    defaults:  { _controller: MuseuFrontendBundle:Default:imprensaGreve }
+
+museu_mapa_greve:
+    pattern:   /mapa-das-greves
+    defaults:  { _controller: MuseuFrontendBundle:Default:mapaGreve }
+
+museu_timeline:
+    pattern:   /linha-do-tempo
+    defaults:  { _controller: MuseuFrontendBundle:Default:timeline }
 
 newsletter_create_front:
     path:     /newsletter/inscrever

@@ -92,12 +92,9 @@ class DefaultController extends Controller
         return $this->render('MuseuFrontendBundle:Publicacoes:publications.html.twig',
          array(
             'total_books' => $data['total_books'],
-            'total_ebooks' => $data['total_ebooks'],
             'total_teses' => $data['total_teses'],
             'total_artigos' => $data['total_artigos'],
             'total_tccs' => $data['total_tccs'],
-            'total_videos' => $data['total_videos'],
-            'total_musics' => $data['total_musics'],
         ));
     }
 
@@ -303,6 +300,27 @@ class DefaultController extends Controller
     {    
    
         return $this->render('MuseuFrontendBundle:Default:universidade.html.twig');
+    
+    }
+
+    public function imprensaGreveAction()
+    {    
+   
+        return $this->render('MuseuFrontendBundle:Default:imprensa-greve.html.twig');
+    
+    }
+
+    public function timelineGreveAction()
+    {    
+   
+        return $this->render('MuseuFrontendBundle:Default:timeline.html.twig');
+    
+    }
+
+    public function mapaGreveAction()
+    {    
+   
+        return $this->render('MuseuFrontendBundle:Default:mapa-greve.html.twig');
     
     }
 

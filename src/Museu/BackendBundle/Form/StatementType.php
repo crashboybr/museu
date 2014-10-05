@@ -25,8 +25,9 @@ class StatementType extends AbstractType
         $builder
             ->add('name')
             ->add('function', 'text', array('required' => false))
+            ->add('company', 'text', array('required' => false))
             //->add('text', 'ckeditor', array('config_name' => 'my_config'))
-            ->add('text')
+            //->add('text')
             ->add('url', 'text', array('required' => false))
             ->add('type', 'choice', array(
                 'choices' => $choices,
