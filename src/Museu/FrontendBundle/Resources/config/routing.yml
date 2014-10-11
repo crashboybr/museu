@@ -117,7 +117,7 @@ museu_mapa_greve:
 
 museu_timeline:
     pattern:   /linha-do-tempo
-    defaults:  { _controller: MuseuFrontendBundle:Default:timeline }
+    defaults:  { _controller: MuseuFrontendBundle:Default:timelineGreve }
 
 newsletter_create_front:
     path:     /newsletter/inscrever

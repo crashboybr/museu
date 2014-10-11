@@ -107,17 +107,23 @@ class AcervoController extends Controller
             case 'tccs':
                 $title = 'TCCs';
                 break;
-            case 'musicas-videos':
-                $title = 'Músicas & Vídeos';
+            case 'musicas':
+                $title = 'Músicas';
                 break;
             case 'filmes':
-                $title = 'Filmes & Documentários';
+                $title = 'Filmes';
+                break;
+            case 'documentarios':
+                $title = 'Documentários';
                 break;
             case 'especiais':
                 $title = 'Especiais de TV';
                 break;
             case 'outros':
                 $title = 'Outros';
+                break;
+            case 'videos':
+                $title = 'Vídeos';
                 break;
             default:
                 $title = 'Acervos Digitais';
@@ -135,10 +141,11 @@ class AcervoController extends Controller
         $total['teses'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Teses')));
         $total['tccs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'TCCs')));
         $total['filmes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Filmes')));
-        $total['documentarios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Documentarios')));
+        $total['documentarios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'documentarios')));
         $total['especiais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Especiais')));
         $total['outros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Outros')));
         $total['videos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Videos')));
+        $total['livros'] = count($em->getRepository("MuseuBackendBundle:Book")->findAll());
 
         $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());
 

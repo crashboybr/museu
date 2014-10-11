@@ -62,18 +62,24 @@
                             <th>Coleção</th>
                             <td>{{ acervo.category|capitalize }}</td>
                         </tr>
+                        {% if acervo.vehicle %}
                         <tr>
                             <th>Veículo / Instituição</th>
                             <td>{{ acervo.vehicle }}</td>
                         </tr>
+                        {% endif %}
+                        {% if acervo.program %}
                         <tr>
                             <th>Editoria / Programa</th>
                             <td>{{ acervo.program }}</td>
                         </tr>
+                        {% endif %}
+                        {% if acervo.author %}
                         <tr>    
                             <th>Autor(es)</th>
                             <td>{{ acervo.author }}</td>
                         </tr>
+                        {% endif %}
                         {% if acervo.supportPicAuthor %}
                         <tr>    
                             <th>Autor Foto</th>
@@ -86,11 +92,12 @@
                             <td>{{ acervo.supportPic }}</td>
                         </tr>
                         {% endif %}
-
+                        {% if acervo.acervoDate %}
                         <tr>    
                             <th>Data</th>
                             <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>
                         </tr>
+                        {% endif %}
                         {% if acervo.url %}
                         <tr>
                             <th>URL</th>
@@ -98,11 +105,13 @@
                         </tr>
                        {% endif %}
 
-                       
+                       {% if acervo.filename %}
                         <tr>
                             <th>Ver</th>
                             <td><a href="/pdf/{{ acervo.filename }}" target="_blank">Texto</a></td>
                         </tr>
+                        {% endif %}
+
                         
                     
                     <tbody>
