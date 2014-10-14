@@ -3,12 +3,23 @@
 {% block body -%}
   <script type="text/javascript">
   function changeDepo(depo, pic, name, func) {
+    youtube = youtube_parser(depo);
+    //console.log(youtube);
+    if (func == 'jornalistas') func = "Jornalista";
     $("#depo").show();
-    $("#depoPic").attr('src', pic);
-    $("#depoText").html('<div style="text-align:center;"><iframe width="660" height="415" src="' + depo +'" frameborder="0" allowfullscreen></iframe></div>');
+    //$("#depoPic").attr('src', pic);
+    $("#depoText").html('<div style="text-align:center;"><iframe width="660" height="415" src="http://www.youtube.com/embed/' + youtube +'" frameborder="0" allowfullscreen></iframe></div>');
     $("#depoName").text(name);
     $("#depoFunction").text(func); 
   }
+
+  function youtube_parser(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if (match&&match[7].length==11){
+        return match[7];
+    }
+}
 
   </script>
 
@@ -70,13 +81,17 @@
                                     {% for depo in statements %}
 
                                         <div class="col-md-2 col-sm-2 gallery-item" style="height: 150px;">
-                                          <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "{{ asset(depo.pic) }}", "{{ depo.name }}", "{{ depo.function }}");'>
-                                            <img src="{{ asset(depo.pic) }}" style="width: 80px; height: 88px;" class="img-responsive" />
+                                          <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "", "{{ depo.author }}", "{{ depo.statementCategory }}");'>
+                                            {{ depo.author }}
                                           </a>
                                           <span style="font-size: 11px;" data-rel="fancybox-button">
-                                          {{ depo.name }}<br />
-                                          {{ depo.function }}<br />
-                                          {{ depo.company }}
+                                          {% if depo.statementCategory == 'jornalistas' %}
+                                            Jornalista
+                                          {% else %}
+                                            {{ depo.statementCategory }}
+                                          {% endif %}
+                                          <br />
+                                          {{ depo.vehicle }}
                                           </span>
                                           
                                         </div>
@@ -102,7 +117,7 @@
 
                                             </span>
                                             <div class="carousel-info">
-                                                <img id="depoPic" class="pull-left" src="" alt="" />
+                                                <!--<img id="depoPic" class="pull-left" src="" alt="" />-->
                                                 <div class="pull-left">
                                                     <span class="testimonials-name" id="depoName"></span>
                                                     <span class="testimonials-post" id="depoFunction"></span>

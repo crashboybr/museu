@@ -64,6 +64,13 @@ class Collection
     /**
      * @var integer
      *
+     * @ORM\Column(name="statement_category", type="string", length=255, nullable=true)
+     */
+    private $statement_category;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="vehicle", type="string", length=255, nullable=true)
      */
     private $vehicle;
@@ -683,5 +690,28 @@ class Collection
     public function getComposer()
     {
         return $this->composer;
+    }
+
+    /**
+     * Set function
+     *
+     * @param string $function
+     * @return Collection
+     */
+    public function setFunction($function)
+    {
+        $this->function = $function;
+    
+        return $this;
+    }
+
+    /**
+     * Get function
+     *
+     * @return string 
+     */
+    public function getFunction()
+    {
+        return $this->function;
     }
 }

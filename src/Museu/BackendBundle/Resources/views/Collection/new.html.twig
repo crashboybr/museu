@@ -1,15 +1,273 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Novo Acervo</h1>
 
-    {{ form(form) }}
+<script src="/back/assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#div_statement_category").hide();
+	});
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('collection') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+	function mudaCategoria() {
+		if ($("#museu_backendbundle_collection_category").val() == 'depoimentos') {
+			$("#div_statement_category").show();
+		} else {
+			$("#div_statement_category").hide();
+		}
+	 }
+</script>
+   
+<div class="row-fluid">
+	<div class="span12">
+		<div>
+							<!-- BEGIN GENERAL PORTLET-->
+			<div class="portlet">
+				
+
+				<div class="portlet-body form">
+					
+					{{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' }}) }}
+
+    					<h3 class="form-section">Novo Acervo</h3>
+
+    					<div class="control-group {% if (form.acervo_id.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.acervo_id, 'ID', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								
+								{{ form_widget(form.acervo_id, { 'attr': { 'class': 'm-wrap large' }}) }}
+								
+								{% if (form.acervo_id.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.acervo_id.vars.errors[0].message }}</span>
+		                        {% endif %}
+
+								
+							</div>
+						</div>
+						
+    					<div class="control-group {% if (form.title.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.title, 'Título', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								
+
+								{{ form_widget(form.title, { 'attr': { 'class': 'm-wrap large' }}) }}
+								{% if (form.title.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.title.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+											
+
+						<div class="control-group {% if (form.subtitle.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.subtitle, 'Sub-Título', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								
+								{{ form_widget(form.subtitle, { 'attr': { 'class': 'm-wrap large' }}) }}
+								
+								{% if (form.subtitle.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.subtitle.vars.errors[0].message }}</span>
+		                        {% endif %}
+
+								
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.category.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.category, 'Coleção', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.category, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+								{% if (form.category.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.category.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div id="div_statement_category" class="control-group {% if (form.statement_category.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.statement_category, 'Categoria do Depoimento', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.statement_category, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.statement_category.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.statement_category.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.author.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.author, 'Autor', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.author, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.author.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.author.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						
+
+						<div class="control-group {% if (form.vehicle.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.vehicle, 'Veículo/Instituição', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.vehicle, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.vehicle.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.vehicle.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.program.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.program, 'Editoria/Programa/Depto', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.program, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.program.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.program.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.filename.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.filename, 'Arquivo do Item', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.filename, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.filename.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.filename.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+						
+						<div class="control-group {% if (form.url.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.url, 'URL', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.url, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.url.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.url.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.acervo_date.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.acervo_date, 'Data', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.acervo_date, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.acervo_date.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.acervo_date.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.keyword.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.keyword, 'Palavras-chaves', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.keyword, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.keyword.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.keyword.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.pic.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.pic, 'Arquivo de imagem (facsimile, capa etc.)', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.pic, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.pic.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.pic.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.support_pic.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.support_pic, 'Arquivo de imagem de apoio (fotografia, infograma, release etc.)', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.support_pic, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.support_pic.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.support_pic.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.support_pic_author.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.support_pic_author, 'Autor da imagem de apoio (fotógrafo, cinegrafista,ilustrador etc.)', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.support_pic_author, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.support_pic_author.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.support_pic_author.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.related.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.related, 'Itens relacionados', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.related, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.related.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.related.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.interpret.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.interpret, 'Intérprete', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.interpret, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.interpret.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.interpret.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="control-group {% if (form.body.vars.errors|length > 0) %}error{% endif %}">
+							
+							{{ form_label(form.body, 'Corpo da Notícia', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.body, { 'attr': { 'class': 'm-wrap large' }}) }}
+
+								{% if (form.body.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.body.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
+
+						<div class="form-actions">
+							{{ form_widget(form.submit, { 'label': 'Salvar', 'attr': { 'class': 'btn blue' }}) }}
+							<button type="button" class="btn">Cancelar</button>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{{ form_end(form) }}
 {% endblock %}
+

@@ -86,6 +86,8 @@
 
     <li class="{% block livros %}{% endblock %}"><a href="{{ path('museu_livros') }}">Livros ({{ total.livros|number_format(0, ',', '.') }})</a></li>
 
+    <li class="{% block depoimentos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'depoimentos' }) }}">Depoimentos ({{ total.depoimentos|number_format(0, ',', '.') }})</a></li>
+
 
     {#<li class="{% block especiais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'especiais' }) }}">Especiais de TV ({{ total.especiais|number_format(0, ',', '.') }})</a></li>#}
     <li class="{% block outros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'outros' }) }}">Outros ({{ total.outros|number_format(0, ',', '.') }})</a></li>

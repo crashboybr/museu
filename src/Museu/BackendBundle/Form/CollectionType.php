@@ -14,12 +14,41 @@ class CollectionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $colecao = array('jornais' => 'Jornais'
+        ,'revistas' => 'Revistas'
+        ,'tv' => 'TVs'
+        ,'radios' => 'Rádios'
+        ,'sites' => 'Sites'
+        ,'fotografias' => 'Fotografias'
+        ,'ilustracoes' => 'Ilustrações'
+        ,'artigosacademicos' => 'Artigos Acadêmicos'
+        ,'teses' => 'Teses'
+        ,'tccs' => 'TCCs'
+        ,'musicas' => 'Músicas'
+        ,'videos' => 'Vídeos'
+        ,'filmes' => 'Filmes'
+        ,'documentarios' => 'Documentários'
+        ,'livros' => 'Livros'
+        ,'depoimentos' => 'Depoimentos'
+        ,'outros' => 'Outros');
+
+        $statement_category = array('jornalistas' => 'Jornalistas'
+        ,'revistas' => 'Sindicalistas'
+        ,'tvs' => 'Trabalhadores'
+        ,'radios' => 'Observadores'
+        ,'sites' => 'Empregadores'
+        ,'fotografias' => 'Autoridades'
+        );
+
         $builder
             ->add('acervo_id', 'text', array('label' => 'ID'))
             ->add('title', 'text', array('label' => 'Título'))
             ->add('subtitle', 'text', array('label' => 'Sub-Título'))
-            ->add('category', 'text', array('label' => 'Coleção'))
+            ->add('category', 'choice', array('choices' => $colecao, 'multiple' => false, 'expanded' => false,
+                'label' => 'Categoria do Depoimento'))
             ->add('author', 'text', array('label' => 'Autor'))
+            ->add('statement_category', 'choice', array('choices' => $statement_category, 'multiple' => false, 'expanded' => false,
+                'label' => 'Coleção'))
             ->add('vehicle', 'text', array('label' => 'Veículo/Instituição'))
             ->add('program', 'text', array('label' => 'Editoria/Programa/Depto'))
             ->add('filename', 'text', array('label' => 'Arquivo do item'))

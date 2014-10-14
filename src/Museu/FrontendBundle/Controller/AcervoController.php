@@ -146,7 +146,8 @@ class AcervoController extends Controller
         $total['outros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Outros')));
         $total['videos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Videos')));
         $total['livros'] = count($em->getRepository("MuseuBackendBundle:Book")->findAll());
-
+        $total['depoimentos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'depoimentos')));
+        
         $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());
 
         $mostrar = isset($_GET['mostrar']) ? $_GET['mostrar'] : 20;
