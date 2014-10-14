@@ -125,6 +125,9 @@ class AcervoController extends Controller
             case 'videos':
                 $title = 'Vídeos';
                 break;
+            case 'depoimentos':
+                $title = 'Depoimentos';
+                break;
             default:
                 $title = 'Acervos Digitais';
                 break;
