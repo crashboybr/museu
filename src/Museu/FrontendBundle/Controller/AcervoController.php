@@ -77,10 +77,10 @@ class AcervoController extends Controller
         //    $acervos = array_merge($musics, $videos);
         //}
         switch ($option) {
-            case 'jornal':
+            case 'jornais':
                 $title = 'Jornais';
                 break;
-            case 'revista':
+            case 'revistas':
                 $title = 'Revistas';
                 break;
             case 'tv':
@@ -133,13 +133,13 @@ class AcervoController extends Controller
                 break;
         }
 
-        $total['jornais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Jornal')));
-        $total['revistas'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Revista')));
-        $total['tvs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'TV')));
-        $total['radios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Radio')));
-        $total['sites'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Site')));
-        $total['fotografias'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Fotografia')));
-        $total['ilustracoes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Ilustraçao')));
+        $total['jornais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'jornais')));
+        $total['revistas'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'revistas')));
+        $total['tvs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'tv')));
+        $total['radios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'radio')));
+        $total['sites'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'site')));
+        $total['fotografias'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'fotografia')));
+        $total['ilustracoes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'ilustraçao')));
         $total['artigos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Artigo')));
         $total['teses'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Teses')));
         $total['tccs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'TCCs')));

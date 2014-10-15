@@ -66,8 +66,8 @@
 
   <h2>Coleções</h2>
   <ul class="ver-inline-menu tabbable margin-bottom-10">
-    <li class="{% block jornais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'jornal' }) }}">Jornais ({{ total.jornais|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block revistas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'revista' }) }}">Revistas ({{ total.revistas|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block jornais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'jornais' }) }}">Jornais ({{ total.jornais|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block revistas %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'revistas' }) }}">Revistas ({{ total.revistas|number_format(0, ',', '.') }})</a></li>
     <li class="{% block tvs %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'tv' }) }}">TVs ({{ total.tvs|number_format(0, ',', '.') }})</a></li>
     <li class="{% block audio %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'radio' }) }}">Rádios ({{ total.radios|number_format(0, ',', '.') }})</a></li>
     <li class="{% block sites %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'site' }) }}">Sites ({{ total.sites|number_format(0, ',', '.') }})</a></li>
