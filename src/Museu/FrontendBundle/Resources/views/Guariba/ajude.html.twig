@@ -1,0 +1,28 @@
+{% extends '::front.html.twig' %}
+
+
+{% block body -%}
+  
+                {% embed 'MuseuFrontendBundle:Guariba:topo.html.twig' %} 
+                {% endembed %}
+
+
+                {% embed 'MuseuFrontendBundle:Guariba:menu.html.twig' %} 
+                    {% block depoimento %}active{% endblock %} 
+                {% endembed %}
+
+                <div class="col-md-9">
+                    <h3>Ajude a criar o acervo do Museu do Trabalhador do Campo</h3>
+                    <p>O Museu do Trabalhador do Campo está coletando fotografias, documentos, gravações, notícias, folhetos, cartazes e depoimentos de pessoas que participaram ou testemunharam episódios e situações ocorridas nas greves de Guariba e outras cidades paulistas durante os movimentos de trabalhadores rurais do campo no Estado de São Paulo na década de 1980.</p>
+
+                    <p>Se você tem ou conhece alguém que tenha algum desses itens, informe pelo e-mail <a href="mailto:contato@museudotrabalhadordocampo.org.br">contato@museudotrabalhadordocampo.org.br</a>.</p>
+
+                    <p>Para gravar um depoimento acesse <a href="{{ path('museu_guariba', { 'option': 'depoimento' }) }}">aqui</a> e envie seu vídeo pelo YouTube.</p>
+
+ 
+                </div>            
+            
+
+
+
+{% endblock %}

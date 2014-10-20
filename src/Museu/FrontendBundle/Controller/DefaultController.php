@@ -335,8 +335,10 @@ class DefaultController extends Controller
     {    
 
         $em = $this->getDoctrine()->getManager();
-        if ($option != 'timeline' && $option != 'mapa' && $option != 'depoimento') 
+
+        if ($option != 'timeline' && $option != 'mapa' && $option != 'depoimento' && $option != 'ajude') 
         {
+
             $statements = $em->getRepository('MuseuBackendBundle:Collection')->findBy(array('category' => 'depoimentos', 'statement_category' => $option));
 
             if ($option == 'patroes') $option = 'patrões';

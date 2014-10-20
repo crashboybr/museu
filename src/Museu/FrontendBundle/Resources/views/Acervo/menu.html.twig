@@ -84,7 +84,7 @@
 
     <li class="{% block documentarios %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'documentarios' }) }}">Documentários ({{ total.documentarios|number_format(0, ',', '.') }})</a></li>
 
-    <li class="{% block livros %}{% endblock %}"><a href="{{ path('museu_livros') }}">Livros ({{ total.livros|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block livros %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'livros' }) }}">Livros ({{ total.livros|number_format(0, ',', '.') }})</a></li>
 
     <li class="{% block depoimentos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'depoimentos' }) }}">Depoimentos ({{ total.depoimentos|number_format(0, ',', '.') }})</a></li>
 

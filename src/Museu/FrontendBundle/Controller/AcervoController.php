@@ -128,6 +128,9 @@ class AcervoController extends Controller
             case 'depoimentos':
                 $title = 'Depoimentos';
                 break;
+            case 'livros':
+                $title = 'Livros';
+                break;
             default:
                 $title = 'Acervos Digitais';
                 break;
@@ -148,7 +151,7 @@ class AcervoController extends Controller
         $total['especiais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Especiais')));
         $total['outros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Outros')));
         $total['videos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Videos')));
-        $total['livros'] = count($em->getRepository("MuseuBackendBundle:Book")->findAll());
+        $total['livros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'livros')));
         $total['depoimentos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'depoimentos')));
         
         $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());

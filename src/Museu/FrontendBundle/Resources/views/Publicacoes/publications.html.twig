@@ -59,7 +59,7 @@
                     <hr class="blog-post-sep">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <h2>Artigos Acadêmicos</h2>
+                            <h2><a href="{{ path('museu_acervo', { 'option': 'artigosacademicos' }) }}">Artigos Acadêmicos</a></h2>
                             <p>
                                 Veja os artigos acadêmicos publicados sobre temas relacionados ao trabalhador do campo no Brasil.<br /> Quando elas não estiverem disponíveis no nosso Acervo Digital, daremos, sempre que possível, o link onde elas sejam acessadas diretamente na fonte onde estão hospedadas.
 
@@ -75,7 +75,7 @@
                 <!-- END LEFT SIDEBAR -->
 
                 <!-- BEGIN RIGHT SIDEBAR -->
-                {% include 'MuseuFrontendBundle:Publicacoes:categories.html.twig' %}            
+                        
                 <!-- END RIGHT SIDEBAR -->            
             </div>
             <!-- END BEGIN BLOG -->

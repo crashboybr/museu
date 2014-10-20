@@ -66,6 +66,16 @@ class CollectionType extends AbstractType
             ->add('related', 'text', array('label' => 'Itens relacionados'))
             ->add('interpret', 'text', array('label' => 'Intérprete'))
             ->add('body', 'ckeditor', array('config_name' => 'my_config', 'label' => 'Corpo da Notícia'))
+            ->add('genre', 'text', array('label' => 'Gênero'))
+            ->add('publisher', 'text', array('label' => 'Editora'))
+            ->add('year', 'text', array('label' => 'Ano'))
+            ->add('resenha', 'text', array('label' => 'Resenha'))
+            ->add('ebook', 'text', array('label' => 'Ebook'))
+            ->add('library', 'text', array('label' => 'Biblioteca'))
+            ->add('next_library', 'text', array('label' => 'Biblioteca Próxima'))
+            ->add('sebo', 'text', array('label' => 'Sebo'))
+            ->add('sinopse', 'textarea', array('label' => 'Sinopse'))
+
  
         ;
     }

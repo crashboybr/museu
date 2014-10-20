@@ -41,8 +41,14 @@ class CollectionController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if (!$entity->getAcervoId()) $entity->setAcervoId(-500);
             $em->persist($entity);
             $em->flush();
+            if ($entity->getAcervoId() == -500) {
+                $entity->setAcervoId($entity->getId());
+                $em->persist($entity);
+                $em->flush();
+            }
 
             return $this->redirect($this->generateUrl('collection_show', array('id' => $entity->getId())));
         }

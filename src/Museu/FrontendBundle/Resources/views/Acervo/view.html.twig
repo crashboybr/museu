@@ -62,7 +62,7 @@
                         <div class="active item">
                             {% for pic in pics %}
                             {% if pic %}
-                            <img src="http://museu.bernardoalves.com.br/{{ asset('images/acervo/' ~ pic|trim) }}" alt=""><br />
+                            <img src="{{ asset('images/acervo/' ~ pic|trim) }}" alt=""><br />
                             {% endif %}
                             {% endfor %}
                         </div>
@@ -121,6 +121,70 @@
                             <td>{{ acervo.supportPic }}</td>
                         </tr>
                         {% endif %}
+
+                        {% if acervo.sinopse %}
+                        <tr>    
+                            <th>Sinopse</th>
+                            <td>{{ acervo.sinopse }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.genre %}
+                        <tr>    
+                            <th>Gênero</th>
+                            <td>{{ acervo.genre }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.publisher %}
+                        <tr>    
+                            <th>Editora</th>
+                            <td>{{ acervo.publisher }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.year %}
+                        <tr>    
+                            <th>Ano</th>
+                            <td>{{ acervo.year }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.resenha %}
+                        <tr>    
+                            <th>Resenha</th>
+                            <td>{{ acervo.resenha }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.ebook %}
+                        <tr>    
+                            <th>eBook</th>
+                            <td><a href="{{ acervo.ebook }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.library %}
+                        <tr>    
+                            <th>Livraria</th>
+                            <td><a href="{{ acervo.library }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.nextLibrary %}
+                        <tr>    
+                            <th>Biblioteca Próxima</th>
+                            <td><a href="{{ acervo.nextLibrary }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                        </tr>
+                        {% endif %}
+
+                        {% if acervo.sebo %}
+                        <tr>    
+                            <th>Sebo</th>
+                            <td><a href="{{ acervo.sebo }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                        </tr>
+                        {% endif %}
+
                         {% if acervo.acervoDate %}
                         <tr>    
                             <th>Data</th>

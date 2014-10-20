@@ -98,9 +98,11 @@
     Total: {{ total_result }}
 
     {% if option == 'musicas' %}
-    {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
+        {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
+    {% elseif option == 'livros' %}
+        {% include 'MuseuFrontendBundle:Acervo:livros.html.twig' %}
     {% else %}
-    {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
+        {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
     {% endif %}
 
     {% if mostrar != 'all' %}

@@ -9,14 +9,16 @@
 	});
 
 	function mudaCategoria() {
+		$("#div_statement_category").hide();
+		$("#div_livros").hide();
 		if ($("#museu_backendbundle_collection_category").val() == 'depoimentos') {
 			$("#div_statement_category").show();
-		} else {
-			$("#div_statement_category").hide();
+		} else if ($("#museu_backendbundle_collection_category").val() == 'livros') {
+			$("#div_livros").show();
 		}
 	 }
 </script>
-   
+
 <div class="row-fluid">
 	<div class="span12">
 		<div>
@@ -85,6 +87,107 @@
 		                        {% endif %}
 							</div>
 						</div>
+						<span id="div_livros" style="display: none;">
+							<div class="control-group {% if (form.publisher.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.publisher, 'Editora', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.publisher, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.publisher.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.publisher.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.sinopse.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.sinopse, 'Sinopse', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.sinopse, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.sinopse.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.sinopse.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.genre.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.genre, 'Gênero', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.genre, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.genre.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.genre.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.year.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.year, 'Ano', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.year, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.year.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.year.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.resenha.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.resenha, 'Resenha', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.resenha, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.resenha.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.resenha.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.ebook.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.ebook, 'Ebook', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.ebook, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.ebook.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.ebook.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.library.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.library, 'Livraria', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.library, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.library.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.library.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.next_library.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.next_library, 'Biblioteca Próxima', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.next_library, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.next_library.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.next_library.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+							<div class="control-group {% if (form.sebo.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.sebo, 'Sebo', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.sebo, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.sebo.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.sebo.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
+						</span>
 
 						<div id="div_statement_category" class="control-group {% if (form.statement_category.vars.errors|length > 0) %}error{% endif %}">
 							

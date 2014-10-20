@@ -1,7 +1,18 @@
 {% extends '::front.html.twig' %}
 
 {% block body -%}
+  <script src="/front/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+  $(document).ready(function() {
+    {% for depo in statements %}
+      {% if not depo.pic %}
+        youtube_id = youtube_parser('{{ depo.url }}');
+        $("#youtube_thumb_{{ depo.id }}").attr("src", "http://img.youtube.com/vi/" + youtube_id + "/0.jpg");
+      {% endif %}
+    {% endfor %}
+  });
+  
+
   function changeDepo(depo, pic, name, func) {
     youtube = youtube_parser(depo);
     //console.log(youtube);
@@ -82,9 +93,14 @@
 
                                         <div class="col-md-2 col-sm-2 gallery-item" style="height: 150px;">
                                           <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "", "{{ depo.author }}", "{{ depo.statementCategory }}");'>
-                                            {{ depo.author }}
+                                          {% if not depo.pic %}
+                                            <img id="youtube_thumb_{{ depo.id }}" src="" style="width: 80px; height: 88px;" class="img-responsive" />
+                                          {% else %}
+                                            <img src="/images/acervo/{{ asset(depo.pic) }}" style="width: 80px; height: 88px;" class="img-responsive" />
+                                          {% endif %}
                                           </a>
                                           <span style="font-size: 11px;" data-rel="fancybox-button">
+                                          {{ depo.author }}<br />
                                           {% if depo.statementCategory == 'jornalistas' %}
                                             Jornalista
                                           {% else %}
@@ -96,16 +112,8 @@
                                           
                                         </div>
                                     {% endfor %}
-
-                                    
-                                  
                                 </div>
-
-
-                               
-                                    
                             </div>
-
                             <!-- TESTIMONIALS -->
                             <div class="col-md-12 testimonials-v1" id="depo" style="margin-top: 30px; display:none;">
                                 <div id="myCarousel" class="carousel slide">
