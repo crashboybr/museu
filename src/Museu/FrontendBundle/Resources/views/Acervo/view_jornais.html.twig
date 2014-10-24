@@ -1,0 +1,134 @@
+<table class="table table-striped table-bordered table-advance table-hover">
+    
+    <tr>
+        <th style="width: 150px;">Título</th>
+        <td>{{ acervo.title }}</td>
+    </tr>
+    <tr>
+        <th style="width: 150px;">Subtítulo</th>
+        <td>{{ acervo.subtitle }}</td>
+    </tr>
+    <tr>
+        <th>Coleção</th>
+        <td>{{ acervo.category|capitalize }}</td>
+    </tr>
+    {% if acervo.vehicle %}
+    <tr>
+        <th>Veículo</th>
+        <td>{{ acervo.vehicle }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.program %}
+    <tr>
+        <th>Editoria</th>
+        <td>{{ acervo.program }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.author %}
+    <tr>    
+        <th>Autor</th>
+        <td>{{ acervo.author }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.supportPicAuthor %}
+    <tr>    
+        <th>Fotógrafo</th>
+        <td>{{ acervo.supportPicAuthor }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.supportPic %}
+    <tr>    
+        <th>Foto</th>
+        <td>{{ acervo.supportPic }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.sinopse %}
+    <tr>    
+        <th>Sinopse</th>
+        <td>{{ acervo.sinopse }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.genre %}
+    <tr>    
+        <th>Gênero</th>
+        <td>{{ acervo.genre }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.publisher %}
+    <tr>    
+        <th>Editora</th>
+        <td>{{ acervo.publisher }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.year %}
+    <tr>    
+        <th>Ano</th>
+        <td>{{ acervo.year }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.resenha %}
+    <tr>    
+        <th>Resenha</th>
+        <td>{{ acervo.resenha }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.ebook %}
+    <tr>    
+        <th>eBook</th>
+        <td><a href="{{ acervo.ebook }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.library %}
+    <tr>    
+        <th>Livraria</th>
+        <td><a href="{{ acervo.library }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.nextLibrary %}
+    <tr>    
+        <th>Biblioteca Próxima</th>
+        <td><a href="{{ acervo.nextLibrary }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.sebo %}
+    <tr>    
+        <th>Sebo</th>
+        <td><a href="{{ acervo.sebo }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.acervoDate %}
+    <tr>    
+        <th>Data</th>
+        <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.url %}
+    <tr>
+        <th>URL</th>
+        <td><a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+    {#
+    {% if acervo.filename %}
+    <tr>
+        <th>Ver</th>
+        <td><a href="/pdf/{{ acervo.filename }}" target="_blank">Texto</a></td>
+    </tr>
+    {% endif %}
+    #}
+    
+    
+    <tbody>
+        
+    </tbody>    
+</table>

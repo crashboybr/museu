@@ -1,23 +1,37 @@
-<table class="table table-striped table-bordered table-advance table-hover">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Editora</th>
-            <th>Ano</th>
-            <th>Gênero</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for acervo in acervos %}
-        <tr>
-            <td><a href="{{ path('museu_view_acervo', { 'id': acervo.id }) }}">{{ acervo.title }}</a></td>
-            <td>{{ acervo.author }}</td>
-            <td>{{ acervo.publisher }}</td>
-            <td>{{ acervo.year }}</td>
-            <td>{{ acervo.genre }}</td>
-        </tr>
-        {% endfor %}
-
-    </tbody>    
-</table>
+<hr>
+{% for book in acervos %}
+                                
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-4 col-sm-4">
+        <img src="/images/acervo/{{ asset(book.pic) }}" alt="" style="width: 130px; height: 194px;" class="img-responsive">
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <h2>{{ book.title }}</h2>
+        <ul class="blog-info">
+            {% if book.publisher %}
+                Editora: {{ book.publisher }}<br />
+            {% endif %}
+            {% if book.author %}
+                Autor(a): {{ book.author }}<br />
+            {% endif %}
+            {% if book.genre %}
+                Gênero: {{ book.genre }}<br />
+            {% endif %}
+            {% if book.year %}
+                Ano: {{ book.year }}<br />
+            {% endif %}
+        </ul>
+        <h4>Sinopse</h4>
+        <p>{{ book.sinopse }}</p>
+        
+        <p>
+        {% if book.url %}<a class="more" target="_blank" href="{{ book.url }}">Ler mais<i class="icon-angle-right"></i></a> | {% endif %}
+        {% if book.resenha %}<a href="{{ book.resenha }}">Leia a resenha</a> | {% endif %}
+        {% if book.ebook %}<a href="{{ book.ebook }}">Leia o eBook</a> | {% endif %}
+        {% if book.nextLibrary %}<a href="{{ book.nextLibrary }}">Biblioteca próxima</a> | {% endif %}
+        {% if book.sebo %}<a href="{{ book.sebo }}">Sebo</a> | {% endif %}
+        {% if book.library %}<a href="{{ book.library }}">Livraria</a></p>{% endif %}
+    </div>
+</div>
+<hr class="blog-post-sep">
+{% endfor %}

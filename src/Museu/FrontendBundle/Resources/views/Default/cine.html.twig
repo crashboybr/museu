@@ -5,10 +5,10 @@
 {% block body -%}
 <link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
 <div class="col-md-12" style="">
-      <div class="row margin-bottom-40">
+      <div class="row">
           <h2>Cine MTC</h2>
       </div>
-    
+    {#
     {% for video in videos %}
         
         <div class="col-md-3 col-sm-4 gallery-item" style="height: 260px;">
@@ -20,9 +20,31 @@
             <p style="text-align: center;">{{ video.title }}</p>
         </div>
     {% endfor %}
-
-</div>
-
     {{ knp_pagination_render(videos) }}
+    #}
+
+<p>Aqui você documentários e filmes sobre temas relacionados aos trabalhadores do campo.</p>
+<p>Escolha o que você quer assistir:</p>
+
+<form action="{{ path('museu_acervo', {'option': 'documentarios'}) }}" method="GET">
+      Período:<br />
+      <div class="input-group" style="width: 38%;">
+
+        <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" value="" placeholder="Data Inicial">
+        <input type="text" id="date_to" value="" name="date_to" class="form-control"  style="float: left; width: 111px;"placeholder="Data Final"><br />
+        <input type="hidden" name="q" value="" />
+
+      </div>
+      <br />
+      <div class="input-group" style="width: 21%; margin-bottom: 10px;">
+        Palavra-chave: <br />
+        <input type="text" id="q" name="q" class="form-control" style="" value="" placeholder="">
+        <br />
+      </div>
+      <span class="input-group-btn" style="">
+        <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i> Buscar</button>
+      </span>
+    </form>
+</div>
 
 {% endblock %}

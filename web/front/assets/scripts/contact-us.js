@@ -7,15 +7,15 @@ var ContactUs = function () {
 			$(document).ready(function(){
 			  map = new GMaps({
 				div: '#map',
-	            lat: -21.7854158,
-				lng: -48.1609529,
+	            lat: -21.785492,
+				lng: -48.1623257,
 			  });
 			   var marker = map.addMarker({
-		            lat: -21.7854158,
-					lng: -48.1609529,
-		            title: 'Vai',
+		            lat: -21.785492,
+					lng: -48.1623257,
+		            title: '',
 		            infoWindow: {
-		                content: "<b>MCT</b> Avenida Gutember, 166, Vila Xavier"
+		                content: "<b>MCT</b> Rua Almirante Tamandaré, 521, Vila Xavier"
 		            }
 		        });
 

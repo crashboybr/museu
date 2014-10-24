@@ -17,7 +17,7 @@ class AcervoController extends Controller
 
         //if ($option != 'musicas-videos') {
             $order = null;
-            
+            $filters = array();
             $qb = $em->createQueryBuilder();
             $qb->select('f')
             ->from('MuseuBackendBundle:Collection', 'f');
@@ -25,10 +25,11 @@ class AcervoController extends Controller
             
             if ($option != '') $filters['category'] = $option;
             
-            $date_from = $request->get("date_from");
-            $date_to   = $request->get("date_to");
-            $filtro    = $request->get("filtro");
-            $query     = $request->get("q");
+            $date_from   = $request->get("date_from");
+            $date_to     = $request->get("date_to");
+            $filtro      = $request->get("filtro");
+            $query       = $request->get("q");
+            $veiculo     = $request->get("veiculo");
 
             
             if ($filtro) { 
@@ -44,10 +45,15 @@ class AcervoController extends Controller
                 $filters['q'] = $q;
                 $qb->orWhere('f.title like :q'); 
                 $qb->orWhere('f.author like :q');
-                $qb->orWhere('f.vehicle like :q');
+                if (!$veiculo) $qb->orWhere('f.vehicle like :q');
                 $qb->orWhere('f.keyword like :q');   
             }
 
+            if ($veiculo) {
+                $v = "%" . $veiculo . "%";
+                $qb->andWhere('f.vehicle like :veiculo');
+                $filters['veiculo'] = $v;
+            }
             if ($date_from) {
 
                 $qb->andWhere('f.acervo_date >= :date_from');
@@ -86,8 +92,8 @@ class AcervoController extends Controller
             case 'tv':
                 $title = 'TVs';
                 break;
-            case 'radio':
-                $title = 'Rádios';
+            case 'audios':
+                $title = 'Áudios';
                 break;
             case 'site':
                 $title = 'Sites';
@@ -107,8 +113,8 @@ class AcervoController extends Controller
             case 'tccs':
                 $title = 'TCCs';
                 break;
-            case 'musicas':
-                $title = 'Músicas';
+            case 'clipes-musicais':
+                $title = 'Clipes Musicais';
                 break;
             case 'filmes':
                 $title = 'Filmes';
@@ -139,7 +145,7 @@ class AcervoController extends Controller
         $total['jornais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'jornais')));
         $total['revistas'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'revistas')));
         $total['tvs'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'tv')));
-        $total['radios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'radio')));
+        $total['audios'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'audios')));
         $total['sites'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'site')));
         $total['fotografias'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'fotografia')));
         $total['ilustracoes'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'ilustraçao')));
@@ -153,8 +159,8 @@ class AcervoController extends Controller
         $total['videos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'Videos')));
         $total['livros'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'livros')));
         $total['depoimentos'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'depoimentos')));
+        $total['clipesmusicais'] = count($em->getRepository("MuseuBackendBundle:Collection")->findBy(array('category' => 'clipes-musicais')));
         
-        $total['musicas'] = count($em->getRepository("MuseuBackendBundle:Music")->findAll()) + count($em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll());
 
         $mostrar = isset($_GET['mostrar']) ? $_GET['mostrar'] : 20;
         if ($mostrar != 'all') { 

@@ -17,14 +17,14 @@ class CollectionType extends AbstractType
         $colecao = array('jornais' => 'Jornais'
         ,'revistas' => 'Revistas'
         ,'tv' => 'TVs'
-        ,'radios' => 'Rádios'
+        ,'audios' => 'Áudios'
         ,'sites' => 'Sites'
         ,'fotografias' => 'Fotografias'
         ,'ilustracoes' => 'Ilustrações'
         ,'artigosacademicos' => 'Artigos Acadêmicos'
         ,'teses' => 'Teses'
         ,'tccs' => 'TCCs'
-        ,'musicas' => 'Músicas'
+        ,'clipes-musicais' => 'Clipes Musicais'
         ,'videos' => 'Vídeos'
         ,'filmes' => 'Filmes'
         ,'documentarios' => 'Documentários'
@@ -75,6 +75,7 @@ class CollectionType extends AbstractType
             ->add('next_library', 'text', array('label' => 'Biblioteca Próxima'))
             ->add('sebo', 'text', array('label' => 'Sebo'))
             ->add('sinopse', 'textarea', array('label' => 'Sinopse'))
+            ->add('cinegrafista', 'text', array('label' => 'Cinegrafista'))
 
  
         ;

@@ -76,14 +76,14 @@
     <br />
     Período:
     
-      <div class="input-group" style="width: 38%;">
+    <div class="input-group" style="width: 38%;">
 
         <input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" value="{{ date_from }}" placeholder="Data Inicial">
         <input type="text" id="date_to" value="{{ date_to }}" name="date_to" class="form-control"  style="float: left; width: 110px;"placeholder="Data Final"><br />
 
         <span class="input-group-btn" style="float: left; margin-top: -18px;">
           <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i></button>
-      </span>
+        </span>
       <input type="hidden" name="q" value="{{ query }}" />
 
   </div>
@@ -91,16 +91,16 @@
 </div>
 
 <div class="col-md-9" style="">
-    <h2>{{ title }}</h2>
+    <h2>{{ title }} ({{ total_result|number_format(0, ',', '.') }})</h2>
 </div>            
 
 <div class="col-md-9">
-    Total: {{ total_result }}
-
-    {% if option == 'musicas' %}
+    {% if option == 'clipes-musicais' %}
         {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
     {% elseif option == 'livros' %}
         {% include 'MuseuFrontendBundle:Acervo:livros.html.twig' %}
+    {% elseif option == 'jornais' %}
+        {% include 'MuseuFrontendBundle:Acervo:jornais.html.twig' %}
     {% else %}
         {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
     {% endif %}

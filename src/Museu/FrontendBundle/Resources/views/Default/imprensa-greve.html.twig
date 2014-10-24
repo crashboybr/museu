@@ -3,19 +3,86 @@
 
 
 {% block body -%}
+<script src="/front/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/front/assets/plugins/jquery-ui.js" type="text/javascript"></script>
+<script src="/front/assets/plugins/datepicker-pt-BR.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<script>
+	$(function() {
+
+
+		$("#date_from").datepicker({
+			dateFormat: 'yy-mm-dd',
+			dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+			dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+			dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+			monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+			monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+			nextText: 'Próximo',
+			prevText: 'Anterior'
+		});
+
+		$("#date_to").datepicker({
+			dateFormat: 'yy-mm-dd',
+			dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+			dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+			dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+			monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+			monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+			nextText: 'Próximo',
+			prevText: 'Anterior'
+		});
+
+
+
+
+	});
+</script>
+
 <link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
 <div class="col-md-12" style="">
-      <div class="row margin-bottom-40">
-          <h2>A Imprensa e as Greves</h2>
-      </div>
-    
-    
-        
-        <div class="col-md-3 col-sm-4 gallery-item" style="height: 260px;">
-            Esta página está em construção.
-        </div>
+	<div class="row">
+		<h2>A Imprensa e as Greves</h2>
+	</div>
+	<div class="col-md-12 col-sm-12 gallery-item" style="">
+		<p>Jornais, emissoras de rádio e televisão e agências de notícias, inclusive do exterior, enviaram equipes de repórteres, fotógrafos e cinegrafistas para cobrir a onda de greves que assolou o interior de São Paulo a partir de maio de 1984.</p>
+
+		<p>A cobertura dos veículos, segundo avaliação dos próprios profissionais de imprensa, obedeceu duas linhas centrais.</p>
+
+		<p>Na primeira delas, notícias e reportagens gerados por repórteres, fotógrafos e cinegrafistas dos próprios locais, muitas vezes convertidos em verdadeiros campos de batalhas, buscando mostrar o conflito, suas causas e impactos no cotidiano das cidades.</p>
+
+		<p>E uma segunda que, a partir dos fatos verificados, buscava, sempre que possível, criminalizar o movimento e responsabilizar lideranças do movimento social.</p>
+
+		<p>De todo modo, o espaço que as greves ganharam no noticiário dentro e fora do Brasil foi fundamental para expor a situação a que vinham submetidos os trabalhadores e ganhar o apoio da sociedade para sua causa.</p>
 
 
+
+		<p>Veja como a imprensa acompanha e noticia os movimentos sociais do campo desde a década de 1980:</p>
+		<form action="{{ path('museu_acervo') }}" method="GET">
+			<div class="input-group" style="width: 21%; margin-bottom: 10px;">
+				Veículo: <br />
+				<input type="text" id="veiculo" name="veiculo" class="form-control" style="" value="" placeholder="">
+				<br />
+			</div>
+			Período:<br />
+			<div class="input-group" style="width: 38%;">
+
+				<input type="text" id="date_from" name="date_from" class="form-control" style="margin-right: 5px; float: left; width: 110px;" value="" placeholder="Data Inicial">
+				<input type="text" id="date_to" value="" name="date_to" class="form-control"  style="float: left; width: 111px;"placeholder="Data Final"><br />
+				<input type="hidden" name="q" value="" />
+
+			</div>
+			<br />
+			<div class="input-group" style="width: 21%; margin-bottom: 10px;">
+				Palavra-chave: <br />
+				<input type="text" id="q" name="q" class="form-control" style="" value="" placeholder="">
+				<br />
+			</div>
+			<span class="input-group-btn" style="">
+				<button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i> Buscar</button>
+			</span>
+		</form>
+	</div>
 </div>
 
 
