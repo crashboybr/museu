@@ -250,6 +250,13 @@ class Collection
      */
     private $cinegrafista;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="elenco", type="string", length=255, nullable=true)
+     */
+    private $elenco;
+
 
 
     /**
@@ -1013,5 +1020,28 @@ class Collection
     public function getPublisher()
     {
         return $this->publisher;
+    }
+
+    /**
+     * Set cinegrafista
+     *
+     * @param string $cinegrafista
+     * @return Collection
+     */
+    public function setCinegrafista($cinegrafista)
+    {
+        $this->cinegrafista = $cinegrafista;
+    
+        return $this;
+    }
+
+    /**
+     * Get cinegrafista
+     *
+     * @return string 
+     */
+    public function getCinegrafista()
+    {
+        return $this->cinegrafista;
     }
 }

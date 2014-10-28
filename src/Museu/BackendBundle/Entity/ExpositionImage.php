@@ -29,21 +29,21 @@ class ExpositionImage
     /**
      * @var string
      *
-     * @ORM\Column(name="pic", type="string", length=255)
+     * @ORM\Column(name="pic", type="string", length=255, nullable=true)
      */
     private $pic;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
 
@@ -92,6 +92,7 @@ class ExpositionImage
         $this->file = $file;
 
         // check if we have an old image path
+        //var_dump($this->id);
         if (isset($this->pic)) {
             // store the old name to delete after the update
             $this->temp = $this->pic;
@@ -99,6 +100,7 @@ class ExpositionImage
         } else {
             $this->pic = 'initial';
         }
+        //var_dump($this->pic);
     }
 
     /**
@@ -106,13 +108,15 @@ class ExpositionImage
      * @ORM\PreUpdate()
      */
     public function preUpload()
-    {
+    {  
+        
+        //echo "<pre>";
         //var_dump($this->getFile());exit;
         if (null !== $this->getFile()) {
-            // do whatever you want to generate a unique name
             $filename = "image_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
+        //var_dump($this->pic);
     }
 
     /**
@@ -121,7 +125,7 @@ class ExpositionImage
      */
     public function upload()
     {
-        //var_dump($this->getFile());exit;
+        //var_dump($this->pic);exit;
         if (null === $this->getFile()) {
             return;
         }
@@ -130,11 +134,12 @@ class ExpositionImage
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
         $this->getFile()->move($this->getUploadRootDir(), $this->pic);
+
      
         // check if we have an old image
         if (isset($this->temp)) {
             // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->temp);
+            //unlink($this->getUploadRootDir().'/'.$this->temp);
             // clear the temp image path
             $this->temp = null;
         }
@@ -147,7 +152,7 @@ class ExpositionImage
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            //unlink($file);
         }
     }
 

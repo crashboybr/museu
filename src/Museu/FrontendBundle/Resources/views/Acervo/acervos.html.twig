@@ -95,12 +95,37 @@
 </div>            
 
 <div class="col-md-9">
-    {% if option == 'clipes-musicais' %}
-        {% include 'MuseuFrontendBundle:Acervo:musicas.html.twig' %}
-    {% elseif option == 'livros' %}
+
+    {% if option == 'livros' %}
         {% include 'MuseuFrontendBundle:Acervo:livros.html.twig' %}
     {% elseif option == 'jornais' %}
         {% include 'MuseuFrontendBundle:Acervo:jornais.html.twig' %}
+    {% elseif option == 'revistas' %}
+        {% include 'MuseuFrontendBundle:Acervo:revistas.html.twig' %}
+    {% elseif option == 'audio' %}
+        {% include 'MuseuFrontendBundle:Acervo:audios.html.twig' %}
+    {% elseif option == 'site' %}
+        {% include 'MuseuFrontendBundle:Acervo:sites.html.twig' %}
+    {% elseif option == 'fotografia' %}
+        {% include 'MuseuFrontendBundle:Acervo:fotografias.html.twig' %}
+    {% elseif option == 'ilustracao' %}
+        {% include 'MuseuFrontendBundle:Acervo:ilustracoes.html.twig' %}
+    {% elseif option == 'artigosacademicos' %}
+        {% include 'MuseuFrontendBundle:Acervo:artigosacademicos.html.twig' %}
+    {% elseif option == 'tv' %}
+        {% include 'MuseuFrontendBundle:Acervo:tvs.html.twig' %}
+    {% elseif option == 'teses' %}
+        {% include 'MuseuFrontendBundle:Acervo:teses.html.twig' %}
+    {% elseif option == 'tccs' %}
+        {% include 'MuseuFrontendBundle:Acervo:tccs.html.twig' %}
+    {% elseif option == 'clipes-musicais' %}
+        {% include 'MuseuFrontendBundle:Acervo:clipes-musicais.html.twig' %}
+    {% elseif option == 'videos' %}
+        {% include 'MuseuFrontendBundle:Acervo:videos.html.twig' %}
+    {% elseif option == 'filmes' %}
+        {% include 'MuseuFrontendBundle:Acervo:filmes.html.twig' %}
+    {% elseif option == 'documentarios' %}
+        {% include 'MuseuFrontendBundle:Acervo:documentarios.html.twig' %}
     {% else %}
         {% include 'MuseuFrontendBundle:Acervo:table.html.twig' %}
     {% endif %}

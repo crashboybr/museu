@@ -112,7 +112,7 @@
             {% for img in exposition.expositionImages %}
 
                 <div class="col-md-2 col-sm-2 gallery-item" style="padding-left: 5px; padding-right: 0px; width: 150px;">
-                  <a data-rel="fancybox-button" title="Título: {{ img.title }} <br />Autor: {{ img.author }}" href="{{ asset(img.pic) }}" class="fancybox-button">
+                  <a data-rel="fancybox-button" title="Título: {{ img.author }} <br />Autor: {{ img.title }}" href="{{ asset(img.pic) }}" class="fancybox-button">
                     <img alt="" src="{{ asset(img.pic) }}" style="width: 150px; height: 110px;" class="img-responsive">
                     <div class="zoomix" style="width: 150px; height: 110px;"><i class="fa fa-search"></i></div>
                   </a> 

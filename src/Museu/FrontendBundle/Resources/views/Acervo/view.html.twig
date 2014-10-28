@@ -74,10 +74,34 @@
             <!-- BEGIN PORTFOLIO DESCRIPTION -->            
             <div class="span7">
                
-                {% if acervo.category == 'jornais' or acervo.category == 'revistas' %}
+                {% if acervo.category == 'jornais' %}
                     {% include 'MuseuFrontendBundle:Acervo:view_jornais.html.twig' %}
+                {% elseif acervo.category == 'revistas' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_revistas.html.twig' %}
+                {% elseif acervo.category == 'audio' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_audios.html.twig' %}
+                {% elseif acervo.category == 'site' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_sites.html.twig' %}
+                {% elseif acervo.category == 'fotografia' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_fotografias.html.twig' %}
+                {% elseif acervo.category == 'ilustracao' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_ilustracoes.html.twig' %}
+                {% elseif acervo.category == 'artigosacademicos' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_artigosacademicos.html.twig' %}
                 {% elseif acervo.category == 'tv' %}
                     {% include 'MuseuFrontendBundle:Acervo:view_tvs.html.twig' %}
+                {% elseif acervo.category == 'teses' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_teses.html.twig' %}
+                {% elseif acervo.category == 'tccs' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_tccs.html.twig' %}
+                {% elseif acervo.category == 'clipes-musicais' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_clipes-musicais.html.twig' %}
+                {% elseif acervo.category == 'videos' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_videos.html.twig' %}
+                {% elseif acervo.category == 'filmes' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_filmes.html.twig' %}
+                {% elseif acervo.category == 'documentarios' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_documentarios.html.twig' %}
                 {% else %}
                     {% include 'MuseuFrontendBundle:Acervo:view_table.html.twig' %}
                 {% endif %}

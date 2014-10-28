@@ -192,37 +192,87 @@ class ExpositionController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Exposition entity.');
         }
+        echo "<pre>";
+        $files = $request->files->get('museu_backendbundle_exposition');
+        
+        foreach ($files['exposition_images'] as $key => $file) {
+            
+            if (!is_object($file['pic'])) 
+                unset($files['exposition_images'][$key]);
+            
+        }
+        
+        $request->files->set('museu_backendbundle_exposition', $files);
+        $files = $files['exposition_images'];
+        $req = $request->get('museu_backendbundle_exposition');
+        $req['exposition_images'] = $files;
+        
 
+        $request->request->set('museu_backendbundle_exposition', $req);
+
+        
+        
+
+        $entity->setUpdatedAt(new \DateTime());
+        $i = 0;
+        foreach ($entity->getExpositionImages() as $expositionImage) {
+            $pics[$expositionImage->getId()]['pic'] = $expositionImage->getPic();
+            $pics[$expositionImage->getId()]['author'] = $_POST['museu_backendbundle_exposition']['exposition_images'][$i]['title'];
+            $pics[$expositionImage->getId()]['title'] = $_POST['museu_backendbundle_exposition']['exposition_images'][$i]['author'];
+            //$pics[$expositionImage->getId()]['title'] = $expositionImage->getTitle();
+            $i++;
+        }
+        //var_dump($pics);exit;
+        
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-        $entity->setUpdatedAt(new \DateTime());
         if ($editForm->isValid()) {
             //var_dump($entity->getExpositionImages());exit;
             //echo "<pre>";
             //\Doctrine\Common\Util\Debug::dump($request);
+            //echo "<pre>";
+            //var_dump($_FILES);exit;
             foreach ($entity->getExpositionImages() as $expositionImage)
             {
-                //var_dump($expositionImage->getFile());
-                //\Doctrine\Common\Util\Debug::dump($expositionImage->getPic());exit;
-                /*
-                $expositionImage->setExpositions($entity);
                 
                 $file = $expositionImage->getPic();
                 
-                $expositionImage->setPic(null);
-                $expositionImage->setFile($file);
-                */
+                $expositionImage->setAuthor($pics[$expositionImage->getId()]['author']);
+                $expositionImage->setTitle($pics[$expositionImage->getId()]['title']);
+                if ($file) { 
+                    //var_dump($expositionImage->getId());
+                    //var_dump($file);
+                    //var_dump($expositionImage->getId());
+                    //$expositionImage->setExpositions($entity);
+                    //$expositionImage->setPic(null);
+                    $expositionImage->setFile($file);
+                    $expositionImage->setUpdatedAt(new \DateTime());
+                    
+                    
+                } else {
+                    
+                    $expositionImage->setPic($pics[$expositionImage->getId()]['pic']);
+                }
+                //var_dump($pics[$expositionImage->getId()]['title']);
+                $em->persist($expositionImage);
+                $em->flush();
+                
             }
+            //exit;
+            //var_dump($em->getSql());exit;
+            //$em->flush();
+            //exit;
+            //$em->persist($expositionImage);
             //exit;
             foreach ($entity->getExpositionAuthors() as $expositionAuthor)
             {
                 $expositionAuthor->setExpositions($entity);
             }
 
-            //$em->persist($entity);
-            //$em->flush();
-
+            $em->persist($entity);
+            $em->flush();
+            //exit;
             return $this->redirect($this->generateUrl('exposicoes_edit', array('id' => $id)));
         }
 

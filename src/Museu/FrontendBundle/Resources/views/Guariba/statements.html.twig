@@ -22,6 +22,7 @@
     $("#depoText").html('<div style="text-align:center;"><iframe width="660" height="415" src="http://www.youtube.com/embed/' + youtube +'" frameborder="0" allowfullscreen></iframe></div>');
     $("#depoName").text(name);
     $("#depoFunction").text(func); 
+    window.location.href="#depo";
   }
 
   function youtube_parser(url){
@@ -97,23 +98,18 @@
                                   <div class="row" style="">
                                     {% for depo in statements %}
 
-                                        <div class="col-md-2 col-sm-2 gallery-item" style="height: 150px;">
-                                          <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "", "{{ depo.author }}", "{{ depo.statementCategory }}");'>
+                                        <div class="col-md-4 col-sm-4 gallery-item" style="height: 280px; text-align: center;">
+                                          <a href="javascript:void(0)" onclick='changeDepo("{{ depo.url }}", "", "{{ depo.author }}", "{{ depo.vehicle }}");'>
                                           {% if not depo.pic %}
-                                            <img id="youtube_thumb_{{ depo.id }}" src="" style="width: 80px; height: 88px;" class="img-responsive" />
+                                            <img id="youtube_thumb_{{ depo.id }}" src="" style="width: 150px; height: 150px; margin-left: 50px;" class="img-responsive" />
                                           {% else %}
-                                            <img src="/images/acervo/{{ asset(depo.pic) }}" style="width: 80px; height: 88px;" class="img-responsive" />
+                                            <img src="/images/acervo/{{ asset(depo.pic) }}" style="width: 150px; height: 150px; margin-left: 50px;" class="img-responsive" />
                                           {% endif %}
                                           </a>
-                                          <span style="font-size: 11px;" data-rel="fancybox-button">
+                                          <span style="font-size: 10px;" data-rel="fancybox-button">
                                           {{ depo.author }}<br />
-                                          {% if depo.statementCategory == 'jornalistas' %}
-                                            Jornalista
-                                          {% else %}
-                                            {{ depo.statementCategory }}
-                                          {% endif %}
-                                          <br />
-                                          {{ depo.vehicle }}
+                                          {{ depo.vehicle }} <br />
+                                          {{ depo.program }}
                                           </span>
                                           
                                         </div>

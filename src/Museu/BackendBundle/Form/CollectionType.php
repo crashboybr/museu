@@ -33,11 +33,11 @@ class CollectionType extends AbstractType
         ,'outros' => 'Outros');
 
         $statement_category = array('jornalistas' => 'Jornalistas'
-        ,'revistas' => 'Sindicalistas'
-        ,'tvs' => 'Trabalhadores'
-        ,'radios' => 'Observadores'
-        ,'sites' => 'Empregadores'
-        ,'fotografias' => 'Autoridades'
+        ,'sindicalistas' => 'Sindicalistas'
+        ,'trabalhadores' => 'Trabalhadores'
+        ,'observadores' => 'Observadores'
+        ,'empregadores' => 'Empregadores'
+        ,'autoridades' => 'Autoridades'
         );
 
         $builder
@@ -76,6 +76,7 @@ class CollectionType extends AbstractType
             ->add('sebo', 'text', array('label' => 'Sebo'))
             ->add('sinopse', 'textarea', array('label' => 'Sinopse'))
             ->add('cinegrafista', 'text', array('label' => 'Cinegrafista'))
+            ->add('elenco', 'text', array('label' => 'Elenco'))
 
  
         ;

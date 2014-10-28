@@ -110,6 +110,17 @@
 			                        {% endif %}
 								</div>
 							</div>
+							<div class="control-group {% if (form.elenco.vars.errors|length > 0) %}error{% endif %}">
+								
+								{{ form_label(form.elenco, 'Elenco', { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.elenco, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
+
+									{% if (form.elenco.vars.errors|length > 0) %}
+				                        <span class="help-inline">{{ form.elenco.vars.errors[0].message }}</span>
+			                        {% endif %}
+								</div>
+							</div>
 							<div class="control-group {% if (form.genre.vars.errors|length > 0) %}error{% endif %}">
 								
 								{{ form_label(form.genre, 'Gênero', { 'label_attr': {'class': 'control-label'} }) }}

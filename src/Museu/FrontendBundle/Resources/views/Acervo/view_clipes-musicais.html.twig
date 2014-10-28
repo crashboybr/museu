@@ -20,7 +20,7 @@
     {% endif %}
     {% if acervo.program %}
     <tr>
-        <th>Programa</th>
+        <th>Edição</th>
         <td>{{ acervo.program }}</td>
     </tr>
     {% endif %}
@@ -28,6 +28,12 @@
     <tr>    
         <th>Autor</th>
         <td>{{ acervo.author }}</td>
+    </tr>
+    {% endif %}
+    {% if acervo.composer %}
+    <tr>    
+        <th>Compositor</th>
+        <td>{{ acervo.composer }}</td>
     </tr>
     {% endif %}
     {% if acervo.cinegrafista %}

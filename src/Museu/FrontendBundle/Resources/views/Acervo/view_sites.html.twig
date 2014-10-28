@@ -20,7 +20,7 @@
     {% endif %}
     {% if acervo.program %}
     <tr>
-        <th>Programa</th>
+        <th>Editoria</th>
         <td>{{ acervo.program }}</td>
     </tr>
     {% endif %}
@@ -30,10 +30,10 @@
         <td>{{ acervo.author }}</td>
     </tr>
     {% endif %}
-    {% if acervo.cinegrafista %}
+    {% if acervo.supportPicAuthor %}
     <tr>    
         <th>Fotógrafo</th>
-        <td>{{ acervo.cinegrafista }}</td>
+        <td>{{ acervo.supportPicAuthor }}</td>
     </tr>
     {% endif %}
     {% if acervo.supportPic %}
@@ -71,22 +71,56 @@
     </tr>
     {% endif %}
 
+    {% if acervo.resenha %}
+    <tr>    
+        <th>Resenha</th>
+        <td>{{ acervo.resenha }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.ebook %}
+    <tr>    
+        <th>eBook</th>
+        <td><a href="{{ acervo.ebook }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.library %}
+    <tr>    
+        <th>Livraria</th>
+        <td><a href="{{ acervo.library }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.nextLibrary %}
+    <tr>    
+        <th>Biblioteca Próxima</th>
+        <td><a href="{{ acervo.nextLibrary }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.sebo %}
+    <tr>    
+        <th>Sebo</th>
+        <td><a href="{{ acervo.sebo }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
     {% if acervo.acervoDate %}
     <tr>    
         <th>Data</th>
         <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>
     </tr>
     {% endif %}
-    
-    
+    {% if acervo.url %}
+    <tr>
+        <th>URL</th>
+        <td><a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+    </tr>
+    {% endif %}
+
     
     <tbody>
         
     </tbody>    
 </table>
-
-{% if acervo.url %}
-
-        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Ir</a>
-    </tr>
-{% endif %}
