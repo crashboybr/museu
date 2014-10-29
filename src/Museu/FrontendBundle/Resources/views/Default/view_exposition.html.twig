@@ -105,10 +105,17 @@
         </div>
         <!-- END CONTAINER -->
 
-
+        <div id="apresentacao" style="display: none; width: 600px;">
+            <p>{{ exposition.description|raw }}</p>
+        </div>
         <!-- BEGIN CONTAINER -->   
         <div class="container min-hight gallery-page margin-bottom-40">
           <div class="row" style="margin-left: 10px;">
+                <div class="col-md-2 col-sm-2 gallery-item" style="background-color: #d84a38; color: white; padding-left: 5px; padding-right: 0px; width: 150px; height: 109px; margin-top: 15px; text-align: center;">
+                  <a data-rel="fancybox-button" title="Apresentação" href="#apresentacao" style="color: white;margin-top: 30px;font-size: 15px;" class="fancybox-button">
+                    Apresentação
+                  </a> 
+                </div>
             {% for img in exposition.expositionImages %}
 
                 <div class="col-md-2 col-sm-2 gallery-item" style="padding-left: 5px; padding-right: 0px; width: 150px;">
