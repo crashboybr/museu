@@ -91,7 +91,17 @@
 		                        {% endif %}
 							</div>
 						</div>
+						<div class="control-group {% if (form.year.vars.errors|length > 0) %}error{% endif %}">
+								
+							{{ form_label(form.year, 'Ano', { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.year, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
 
+								{% if (form.year.vars.errors|length > 0) %}
+			                        <span class="help-inline">{{ form.year.vars.errors[0].message }}</span>
+		                        {% endif %}
+							</div>
+						</div>
 						<span id="div_livros" style="display: none;">
 							<div class="control-group {% if (form.publisher.vars.errors|length > 0) %}error{% endif %}">
 								
@@ -137,17 +147,7 @@
 			                        {% endif %}
 								</div>
 							</div>
-							<div class="control-group {% if (form.year.vars.errors|length > 0) %}error{% endif %}">
-								
-								{{ form_label(form.year, 'Ano', { 'label_attr': {'class': 'control-label'} }) }}
-								<div class="controls">
-									{{ form_widget(form.year, { 'attr': { 'class': 'm-wrap large', 'onchange': 'mudaCategoria()' }}) }}
-
-									{% if (form.year.vars.errors|length > 0) %}
-				                        <span class="help-inline">{{ form.year.vars.errors[0].message }}</span>
-			                        {% endif %}
-								</div>
-							</div>
+							
 							<div class="control-group {% if (form.resenha.vars.errors|length > 0) %}error{% endif %}">
 								
 								{{ form_label(form.resenha, 'Resenha', { 'label_attr': {'class': 'control-label'} }) }}

@@ -92,7 +92,7 @@
 </table>
 
 {% if acervo.url %}
-
-        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Ir</a>
+        
+        <a href="{% if acervo.url|slice(0, 7)|lower != 'http://' %}http://{% endif %}{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Ir</a>
     </tr>
 {% endif %}
