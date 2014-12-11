@@ -338,6 +338,24 @@ class Collection
         return $this->category;
     }
 
+    public function getNiceCategory()
+    {
+        switch ($this->category) {
+            case 'clipes-musicais':
+                return "Clipes Musicais";
+                break;
+            case 'tv': 
+                return "TV";
+                break;
+            case 'documentarios':
+                return "Documentários";
+                break;
+            default:
+                return $this->category;
+
+        }
+    }
+
     /**
      * Set author
      *

@@ -1,33 +1,29 @@
 <table class="table table-striped table-bordered table-advance table-hover">
     
     <tr>
-        <th style="width: 150px;">Título</th>
-        <td>{{ acervo.title }}</td>
-    </tr>
-    <tr>
-        <th style="width: 150px;">Subtítulo</th>
-        <td>{{ acervo.subtitle }}</td>
-    </tr>
-    <tr>
         <th>Coleção</th>
         <td>{{ acervo.niceCategory|capitalize }}</td>
     </tr>
-    {% if acervo.vehicle %}
+    
     <tr>
-        <th>Veículo</th>
+        <th>Instituição</th>
         <td>{{ acervo.vehicle }}</td>
     </tr>
-    {% endif %}
+    
     {% if acervo.program %}
     <tr>
-        <th>Edição</th>
+        <th>Função</th>
         <td>{{ acervo.program }}</td>
     </tr>
     {% endif %}
-    {% if acervo.author %}
     <tr>    
-        <th>Autor</th>
+        <th>Depoente</th>
         <td>{{ acervo.author }}</td>
+    </tr>
+    {% if acervo.composer %}
+    <tr>    
+        <th>Compositor</th>
+        <td>{{ acervo.composer }}</td>
     </tr>
     {% endif %}
     {% if acervo.cinegrafista %}
@@ -47,6 +43,13 @@
     <tr>    
         <th>Sinopse</th>
         <td>{{ acervo.sinopse }}</td>
+    </tr>
+    {% endif %}
+
+    {% if acervo.elenco %}
+    <tr>    
+        <th>Elenco</th>
+        <td>{{ acervo.elenco }}</td>
     </tr>
     {% endif %}
 
@@ -87,6 +90,6 @@
 
 {% if acervo.url %}
 
-        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Ir</a>
+        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Assistir</a>
     </tr>
 {% endif %}

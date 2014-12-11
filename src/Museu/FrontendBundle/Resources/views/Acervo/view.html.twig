@@ -1,7 +1,7 @@
 
 {% extends '::front.html.twig' %}
 
-{% block breadcrumb %}Acervos Digitais{% endblock %}
+{% block breadcrumb %}{{ acervo.niceCategory|capitalize }}{% endblock %}
 
 {% block css %}
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -102,6 +102,8 @@
                     {% include 'MuseuFrontendBundle:Acervo:view_filmes.html.twig' %}
                 {% elseif acervo.category == 'documentarios' %}
                     {% include 'MuseuFrontendBundle:Acervo:view_documentarios.html.twig' %}
+                {% elseif acervo.category == 'depoimentos' %}
+                    {% include 'MuseuFrontendBundle:Acervo:view_depoimentos.html.twig' %}
                 {% else %}
                     {% include 'MuseuFrontendBundle:Acervo:view_table.html.twig' %}
                 {% endif %}

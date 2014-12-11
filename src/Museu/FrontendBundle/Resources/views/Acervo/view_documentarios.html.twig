@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <th>Coleção</th>
-        <td>{{ acervo.category|capitalize }}</td>
+        <td>{{ acervo.niceCategory|capitalize }}</td>
     </tr>
     {% if acervo.vehicle %}
     <tr>
@@ -49,12 +49,10 @@
     </tr>
     {% endif %}
 
-    {% if acervo.sinopse %}
     <tr>    
         <th>Sinopse</th>
         <td>{{ acervo.sinopse }}</td>
     </tr>
-    {% endif %}
 
     {% if acervo.elenco %}
     <tr>    
@@ -100,6 +98,6 @@
 
 {% if acervo.url %}
 
-        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Ir</a>
+        <a href="{{ acervo.url }}" target="_blank"><i class="fa fa-external-link"></i> Assistir</a>
     </tr>
 {% endif %}

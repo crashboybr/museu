@@ -26,11 +26,12 @@
         
         <p>
         {% if book.url %}<a class="more" target="_blank" href="{{ book.url }}">Ler mais<i class="icon-angle-right"></i></a> | {% endif %}
-        {% if book.resenha %}<a href="{{ book.resenha }}">Leia a resenha</a> | {% endif %}
-        {% if book.ebook %}<a href="{{ book.ebook }}">Leia o eBook</a> | {% endif %}
-        {% if book.nextLibrary %}<a href="{{ book.nextLibrary }}">Biblioteca próxima</a> | {% endif %}
-        {% if book.sebo %}<a href="{{ book.sebo }}">Sebo</a> | {% endif %}
-        {% if book.library %}<a href="{{ book.library }}">Livraria</a></p>{% endif %}
+        <a href="{% if book.resenha %}{{ book.resenha }}{% else %}#{% endif %}">Resenha</a> |
+        <a href="{% if book.nextLibrary %}{{ book.library }}{% else %}#{% endif %}">Biblioteca Digital</a> |
+        <a href="{% if book.nextLibrary %}{{ book.nextLibrary }}{% else %}#{% endif %}">Biblioteca Próxima</a> |
+        <a href="{% if book.ebook %}{{ book.ebook }}{% else %}#{% endif %}">eBook</a> |
+        <a href="{% if book.sebo %}{{ book.sebo }}{% else %}#{% endif %}">Sebo</a> |
+        <a href="{% if book.library %}{{ book.library }}{% else %}#{% endif %}">Livraria</a></p>
     </div>
 </div>
 <hr class="blog-post-sep">

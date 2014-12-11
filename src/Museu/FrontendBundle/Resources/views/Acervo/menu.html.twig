@@ -4,7 +4,7 @@
     <form method="GET" action="">
       <div class="input-group">
 
-        <input type="text" class="form-control" name='q' value="{{ query }}" placeholder="Pesquise palavra-chave">
+        <input type="text" class="form-control" name='q' value="{{ query }}" placeholder="Pesquise por palavra-chave">
         <span class="input-group-btn">
           <button class="btn red" type="submit"><i class="fa fa-search fa-fw"></i></button>
         </span>
@@ -67,7 +67,7 @@
   <h2>Coleções</h2>
   <ul class="ver-inline-menu tabbable margin-bottom-10">
     <li class="{% block artigos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'artigosacademicos' }) }}">Artigos Acadêmicos ({{ total.artigos|number_format(0, ',', '.') }})</a></li>
-    <li class="{% block audio %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'audio' }) }}">Áudios ({{ total.audios|number_format(0, ',', '.') }})</a></li>
+    <li class="{% block audio %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'audios' }) }}">Áudios ({{ total.audios|number_format(0, ',', '.') }})</a></li>
     <li class="{% block clipesmusicais %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'clipes-musicais' }) }}">Clipes Musicais ({{ total.clipesmusicais|number_format(0, ',', '.') }})</a></li>
     <li class="{% block documentarios %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'documentarios' }) }}">Documentários ({{ total.documentarios|number_format(0, ',', '.') }})</a></li>
     <li class="{% block depoimentos %}{% endblock %}"><a href="{{ path('museu_acervo', { 'option': 'depoimentos' }) }}">Depoimentos ({{ total.depoimentos|number_format(0, ',', '.') }})</a></li>

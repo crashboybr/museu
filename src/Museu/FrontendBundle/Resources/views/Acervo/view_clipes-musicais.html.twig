@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <th>Coleção</th>
-        <td>{{ acervo.category|capitalize }}</td>
+        <td>{{ acervo.niceCategory|capitalize }}</td>
     </tr>
     {% if acervo.vehicle %}
     <tr>
@@ -36,12 +36,12 @@
         <td>{{ acervo.composer }}</td>
     </tr>
     {% endif %}
-    {% if acervo.cinegrafista %}
+    
     <tr>    
-        <th>Fotógrafo</th>
-        <td>{{ acervo.cinegrafista }}</td>
+        <th>Intérprete</th>
+        <td>{{ acervo.interpret }}</td>
     </tr>
-    {% endif %}
+    
     {% if acervo.supportPic %}
     <tr>    
         <th>Foto</th>
@@ -77,12 +77,12 @@
     </tr>
     {% endif %}
 
-    {% if acervo.acervoDate %}
+    
     <tr>    
         <th>Data</th>
-        <td>{{ acervo.acervoDate|date('d/m/Y') }}</td>
+        <td>{% if acervo.acervoDate %}{{ acervo.acervoDate|date('d/m/Y') }}{% endif %} </td>
     </tr>
-    {% endif %}
+    
     
     
     

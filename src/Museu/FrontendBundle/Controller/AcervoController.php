@@ -82,6 +82,7 @@ class AcervoController extends Controller
         //    $videos = $em->getRepository("MuseuBackendBundle:VideoAcervo")->findAll();    
         //    $acervos = array_merge($musics, $videos);
         //}
+            //var_dump($option);exit;
         switch ($option) {
             case 'jornais':
                 $title = 'Jornais';

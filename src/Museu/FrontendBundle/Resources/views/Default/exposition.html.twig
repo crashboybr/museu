@@ -16,10 +16,16 @@
     <link href="/front/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/front/assets/css/pages/portfolio.css" rel="stylesheet" type="text/css"/>
     <link href="/front/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="/front/assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link href="/front/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
+  <link href="/front/assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet">
 <!-- END THEME STYLES -->
 {% endblock %}
 {% block body -%}
 <style type="text/css">
+
 .galeria-imagens a {
 display: block;
 float: left;
@@ -59,9 +65,9 @@ width: 190px;
 </style>
 <!-- BEGIN RECENT WORKS -->
 <div class="row">
-
-    {% for expo in expositions %}
-    <div class="tipos-projetos">
+{#
+{% for expo in expositions %}
+<div class="tipos-projetos">
     <div class="container_expo">
         <a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}" style="text-decoration: none;">
         <h2>{{ expo.title }}</h2>
@@ -81,9 +87,37 @@ width: 190px;
 
 
 {% endfor %}
+#}
+
+{% for expo in expositions %}
+<!-- BEGIN RECENT WORKS -->
+    <div class="row recent-work margin-bottom-40">
+        <div class="col-md-3">
+            <a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}" style="text-decoration: none;">
+                <h2>{{ expo.title }}</h2>
+                <p style="color: #444;">{{ expo.subtitle }}</p>
+                </a>
+        </div>
+        <div class="col-md-9">
+        
+        {% for img in expo.expositionImages %}
+            {% if loop.index <= 10 %}
+            <div class="col-md-3 col-sm-3 gallery-item" style="height: 160px; text-align: center; width: 160px;">
+                <a href="{{ path('museu_view_exposition', { 'id': expo.id }) }}">
+                    <img src="{{ asset(img.pic) }}" style="width: 150px; height: 150px;" class="img-responsive" />
+                </a>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+        </div>
+    </div>   
+{% endfor %}
+        <!-- END RECENT WORKS -->
+<div class="tipo-projetos">{{ render(controller('MuseuFrontendBundle:Default:news')) }}</div>
 
 
-<div class="tipo-projetos"><div class="container_expo" style="width: 100%;">{{ render(controller('MuseuFrontendBundle:Default:news')) }}</div></div>
+
 </div>
 
 {% endblock %}

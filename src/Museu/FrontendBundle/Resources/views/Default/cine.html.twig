@@ -3,6 +3,13 @@
 
 
 {% block body -%}
+<script src="/front/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+ <script type="text/javascript">
+  function changeCategory(category) {
+    $("#form-busca").attr("action", "/app_dev.php/acervos-digitais/" + category);
+  }
+</script>
 <link href="/front/assets/css/pages/gallery.css" rel="stylesheet" />
 <div class="col-md-12" style="">
       <div class="row">
@@ -26,7 +33,16 @@
 <p>Aqui você documentários e filmes sobre temas relacionados aos trabalhadores do campo.</p>
 <p>Escolha o que você quer assistir:</p>
 
-<form action="{{ path('museu_acervo', {'option': 'documentarios'}) }}" method="GET">
+<div class="col-md-2" style="">
+
+<p><input type="radio" id="entrevista" name="tipo" value="filmes" onclick="changeCategory('filmes')"> Filmes</p>
+
+<p><input type="radio" id="entrevista" name="tipo" value="documentarios" onclick="changeCategory('documentarios')"> Documentários</p>
+
+
+</div>
+
+<form action="{{ path('museu_acervo', {'option': 'documentarios'}) }}" method="GET" id="form-busca">
       Período:<br />
       <div class="input-group" style="width: 38%;">
 
