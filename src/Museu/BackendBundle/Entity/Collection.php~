@@ -338,6 +338,24 @@ class Collection
         return $this->category;
     }
 
+    public function getNiceCategory()
+    {
+        switch ($this->category) {
+            case 'clipes-musicais':
+                return "Clipes Musicais";
+                break;
+            case 'tv': 
+                return "TV";
+                break;
+            case 'documentarios':
+                return "Documentários";
+                break;
+            default:
+                return $this->category;
+
+        }
+    }
+
     /**
      * Set author
      *
@@ -1043,5 +1061,28 @@ class Collection
     public function getCinegrafista()
     {
         return $this->cinegrafista;
+    }
+
+    /**
+     * Set elenco
+     *
+     * @param string $elenco
+     * @return Collection
+     */
+    public function setElenco($elenco)
+    {
+        $this->elenco = $elenco;
+    
+        return $this;
+    }
+
+    /**
+     * Get elenco
+     *
+     * @return string 
+     */
+    public function getElenco()
+    {
+        return $this->elenco;
     }
 }

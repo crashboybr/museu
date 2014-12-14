@@ -71,3 +71,7 @@ MuseuBackendBundle_newsletter:
 MuseuBackendBundle_picfooter:
         resource: "@MuseuBackendBundle/Resources/config/routing/picfooter.yml"
         prefix:   /imgfooter
+
+MuseuBackendBundle_mapa-greve:
+        resource: "@MuseuBackendBundle/Resources/config/routing/map.yml"
+        prefix:   /mapa-greve

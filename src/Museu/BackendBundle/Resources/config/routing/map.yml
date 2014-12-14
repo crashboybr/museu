@@ -1,0 +1,30 @@
+mapa-greve:
+    path:     /
+    defaults: { _controller: "MuseuBackendBundle:Map:index" }
+
+mapa-greve_show:
+    path:     /{id}/show
+    defaults: { _controller: "MuseuBackendBundle:Map:show" }
+
+mapa-greve_new:
+    path:     /new
+    defaults: { _controller: "MuseuBackendBundle:Map:new" }
+
+mapa-greve_create:
+    path:     /create
+    defaults: { _controller: "MuseuBackendBundle:Map:create" }
+    requirements: { _method: post }
+
+mapa-greve_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MuseuBackendBundle:Map:edit" }
+
+mapa-greve_update:
+    path:     /{id}/update
+    defaults: { _controller: "MuseuBackendBundle:Map:update" }
+    requirements: { _method: post|put }
+
+mapa-greve_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MuseuBackendBundle:Map:delete" }
+    requirements: { _method: post|delete }

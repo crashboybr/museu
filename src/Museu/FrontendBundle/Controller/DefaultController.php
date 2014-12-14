@@ -319,8 +319,11 @@ class DefaultController extends Controller
 
     public function mapaGreveAction()
     {    
-   
-        return $this->render('MuseuFrontendBundle:Default:mapa-greve.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $cities = $em->getRepository('MuseuBackendBundle:Map')->findAll();
+        
+        return $this->render('MuseuFrontendBundle:Default:mapa-greve.html.twig', array('cities' => $cities));
     
     }
 
